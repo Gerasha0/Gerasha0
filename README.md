@@ -2,6 +2,7 @@
 
 [![Header](https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=200&section=header&text=Welcome%20to%20My%20Student%20Project%20Portfolio&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Innovation%20through%20code%20|%20Building%20digital%20solutions&descAlignY=55&descAlign=62)](https://github.com/Gerasha0)
 
+
 <p align="center">
   <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="100"/>
 </p>
@@ -34,14 +35,16 @@
   <br>
   
   <div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
-    🌟 Job Exchange Platform
-    <p>Modern web application connecting employers and job seekers with intuitive interface and seamless user experience.</p>
-    
-    **🛠️ Tech Stack:**
-    - HTML5, CSS3, JavaScript
-    - Responsive Design
-    - Interactive UI Components
-    - Modern Animations
+🌟 Job Exchange Platform
+
+Modern web application connecting employers and job seekers with intuitive interface and seamless user experience.
+
+**🛠️ Tech Stack**
+- HTML5, CSS3, JavaScript
+- Responsive Design
+- Interactive UI Components
+- Modern Animations
+
   </div>
 
   <br>
@@ -76,14 +79,15 @@
   <br>
   
   <div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
-    💻 Job Exchange Console
-    <p>Advanced command-line application implementing core business logic for job market management.</p>
-    
-    **🔧 Key Features:**
-    - Efficient Data Processing
-    - Secure Authentication
-    - Robust Database Integration
-    - Performance Optimization
+💻 Job Exchange Console
+
+Advanced command-line application implementing core business logic for job market management.
+
+**🔧 Key Features**
+- Efficient Data Processing
+- Secure Authentication
+- Robust Database Integration
+- Performance Optimization
   </div>
 
   <br>
@@ -123,6 +127,9 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gerasha0&layout=compact&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10" height="200"/>
 
 </div>
+
+
+
 
 <div align="center">
 
