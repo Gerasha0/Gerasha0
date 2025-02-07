@@ -12,7 +12,7 @@
 
 <br>
 <details open>
-<summary><h2>🎨 UI/UX Development</h2></summary>
+<summary>🎨 UI/UX Development</summary>
 
 <div align="center">
   <br>
@@ -24,7 +24,7 @@
   <br>
   
   <div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
-    <h3>🌟 Job Exchange Platform</h3>
+    🌟 Job Exchange Platform
     <p>Modern web application connecting employers and job seekers with intuitive interface and seamless user experience.</p>
     
     **🛠️ Tech Stack:**
@@ -47,7 +47,7 @@
 </details>
 
 <details open>
-<summary><h2>⚡ Java Development</h2></summary>
+<summary>⚡ Java Development</summary>
 
 <div align="center">
   <br>
@@ -59,7 +59,7 @@
   <br>
   
   <div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
-    <h3>💻 Job Exchange Console</h3>
+    💻 Job Exchange Console
     <p>Advanced command-line application implementing core business logic for job market management.</p>
     
     **🔧 Key Features:**
