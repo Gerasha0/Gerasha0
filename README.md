@@ -92,13 +92,6 @@
 <br>
 <br>
 
-## 📊 GitHub Stats
-
-<img src="https://github-profile-trophy.vercel.app/?username=Gerasha0&theme=darkhub&no-frame=true&column=7&margin-w=15&margin-h=15" />
-
-<br>
-<br>
-
 <img src="https://github-readme-stats.vercel.app/api?username=Gerasha0&show_icons=true&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10&include_all_commits=true&count_private=true" height="200"/>
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gerasha0&layout=compact&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10" height="200"/>
