@@ -2,10 +2,9 @@
 
 [![Header](https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=200&section=header&text=Welcome%20to%20My%20Student%20Project%20Portfolio&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Innovation%20through%20code%20|%20Building%20digital%20solutions&descAlignY=55&descAlign=62)](https://github.com/Gerasha0)
 
-
-<p align="center">
-  <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="100"/>
-</p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Developer.gif" width="100"/>
+</div>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=24&pause=1000&color=8B5CF6&center=true&vCenter=true&random=false&width=600&lines=Frontend+Developer;Java+Developer;UI%2FUX+Enthusiast)](https://git.io/typing-svg)
 
