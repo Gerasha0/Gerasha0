@@ -1,6 +1,10 @@
 <div align="center">
 
-[![Header](https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=200&section=header&text=Welcome%20to%20My%20Project%20Portfolio&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Innovation%20through%20code%20|%20Building%20digital%20solutions&descAlignY=55&descAlign=62)](https://github.com/Gerasha0)
+[![Header](https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=200&section=header&text=Welcome%20to%20My%20Student%20Project%20Portfolio&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Innovation%20through%20code%20|%20Building%20digital%20solutions&descAlignY=55&descAlign=62)](https://github.com/Gerasha0)
+
+<p align="center">
+  <img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="100"/>
+</p>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=24&pause=1000&color=8B5CF6&center=true&vCenter=true&random=false&width=600&lines=Frontend+Developer;Java+Developer;UI%2FUX+Enthusiast)](https://git.io/typing-svg)
 
@@ -11,8 +15,14 @@
 </div>
 
 <br>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<br>
+<br>
+
 <details open>
-<summary>🎨 UI/UX Development</summary>
+<summary style="cursor: pointer; font-size: 24px; font-weight: bold;">🎨 UI/UX Development</summary>
 
 <div align="center">
   <br>
@@ -46,8 +56,15 @@
 
 </details>
 
+<br>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<br>
+<br>
+
 <details open>
-<summary>⚡ Java Development</summary>
+<summary style="cursor: pointer; font-size: 24px; font-weight: bold;">⚡ Java Development</summary>
 
 <div align="center">
   <br>
@@ -85,9 +102,18 @@
 
 <div align="center">
 
-## 🛠️ Technologies & Tools
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=🛠+Technologies+and+Tools&font=Fira%20Code&center=true&width=440&height=45&color=8B5CF6&vCenter=true&size=22">
+</div>
 
 <img src="https://skillicons.dev/icons?i=java,spring,html,css,js,git,github,docker,postgresql&theme=dark" />
+
+<br>
+<br>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <br>
 <br>
@@ -95,14 +121,6 @@
 <img src="https://github-readme-stats.vercel.app/api?username=Gerasha0&show_icons=true&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10&include_all_commits=true&count_private=true" height="200"/>
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gerasha0&layout=compact&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10" height="200"/>
-
-<br>
-
-<img src="https://github-readme-streak-stats.herokuapp.com?user=Gerasha0&theme=dark&background=1e293b&ring=8B5CF6&fire=8B5CF6&currStreakLabel=8B5CF6&border=334155&border_radius=10" />
-
-<br>
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Gerasha0&bg_color=1e293b&color=8B5CF6&line=8B5CF6&point=FFFFFF&area=true&border_color=334155&radius=10)](https://github.com/Gerasha0)
 
 </div>
 
