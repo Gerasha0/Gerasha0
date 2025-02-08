@@ -1,5 +1,6 @@
 <div align="center">
 
+
 [![Header](https://capsule-render.vercel.app/api?type=waving&color=8B5CF6&height=200&section=header&text=Welcome%20to%20My%20Student%20Project%20Portfolio&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Innovation%20through%20code%20|%20Building%20digital%20solutions&descAlignY=55&descAlign=62)](https://github.com/Gerasha0)
 
 <div align="center">
