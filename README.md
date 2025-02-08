@@ -71,7 +71,7 @@ Modern web application connecting employers and job seekers with intuitive inter
 <div align="center">
   <br>
   <a href="https://github.com/Gerasha0/JobExchangeConsole">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=job-exchange-console&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=JobExchangeConsole &theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
   </a>
   
   <br>
