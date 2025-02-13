@@ -95,7 +95,6 @@ Advanced command-line application implementing core business logic for job marke
   
   <div>
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white"/>
   </div>
 </div>
 
