@@ -22,6 +22,60 @@
 <br>
 <br>
 
+<details open> <summary style="cursor: pointer; font-size: 24px; font-weight: bold;">⚡ Java Development</summary> <div align="center"> <br> <!-- Project: JobExchangeConsole --> <a href="https://github.com/Gerasha0/JobExchangeConsole"> <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=JobExchangeConsole&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/> </a>
+<br><br>
+
+<div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;"> 💻 Job Exchange Console
+Advanced command-line application implementing core business logic for job market management.
+
+🔧 Key Features
+
+Efficient Data Processing
+
+Secure Authentication
+
+Robust Database Integration
+
+Performance Optimization
+
+</div>
+<br>
+<br>
+
+<!-- Project: electronic-department-system --> <a href="https://github.com/Gerasha0/electronic-department-system"> <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=electronic-department-system&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/> </a>
+<br>
+<br>
+
+<div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
+📘 Electronic Department System
+
+Comprehensive university management system designed to automate academic processes and handle students, instructors, subjects, and grades efficiently.
+
+🚀 Technologies
+
+Backend Framework: Spring Boot 3.2.1
+
+Language: Java 17
+
+Database: H2 (In-Memory)
+
+ORM: Hibernate/JPA
+
+Security: Spring Security
+
+Build Tool: Maven
+
+Documentation: Swagger/OpenAPI 3
+
+Testing: JUnit 5, Mockito
+
+</div>
+<br>
+<br>
+
+<div> <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/> <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/> <img src="https://img.shields.io/badge/H2-1a73e8?style=for-the-badge&logo=h2&logoColor=white"/> <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black"/> <img src="https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white"/> </div>
+</div> </details>
+
 <details open>
 <summary style="cursor: pointer; font-size: 24px; font-weight: bold;">🎨 UI/UX Development</summary>
 
