@@ -25,8 +25,8 @@
 ## 🚀 Active Projects (sorted by latest activity)
 
 <!-- PROJECTS_START -->
+- [electronic-department-system](https://github.com/Gerasha0/electronic-department-system) — 2025-08-09 17:18
 - [spring-db-demo](https://github.com/Gerasha0/spring-db-demo) — 2025-08-09 10:33
-- [electronic-department-system](https://github.com/Gerasha0/electronic-department-system) — 2025-08-08 20:10
 - [JobExchangeConsole](https://github.com/Gerasha0/JobExchangeConsole) — 2025-04-09 10:37
 - [JobExchangeWebsite](https://github.com/Gerasha0/JobExchangeWebsite) — 2025-02-07 11:34
 <!-- PROJECTS_END -->
@@ -176,8 +176,8 @@
 <summary>Click to view recent commits</summary>
 
 <!-- COMMITS_START -->
+- **electronic-department-system**: [Merge branch 'main' of https://github.com/Gerasha0/electronic-department-system](https://github.com/Gerasha0/electronic-department-system/commit/510c830e40374ebc9f54386c31b9ba1eaba748e9) — 2025-08-09 17:17
 - **spring-db-demo**: [Добавлены музыкальные инструменты и реализован минималистичный веб-интерфейс для студентов и инструментов](https://github.com/Gerasha0/spring-db-demo/commit/881c85c744c1ef170865706805af116f4c866a4d) — 2025-08-09 10:33
-- **electronic-department-system**: [Update UI_SETUP.md](https://github.com/Gerasha0/electronic-department-system/commit/e48a4fb31a263e559cfe7c17459fffe6b8050250) — 2025-08-08 20:10
 - **JobExchangeConsole**: [Codespace forever....](https://github.com/Gerasha0/JobExchangeConsole/commit/c13e3d87b367d170e7a62f485862514024a2faca) — 2025-04-09 10:37
 - **JobExchangeWebsite**: [another one update](https://github.com/Gerasha0/JobExchangeWebsite/commit/40175c0c77f141f3630265417aa7c37f892382dd) — 2025-02-07 11:34
 <!-- COMMITS_END -->
