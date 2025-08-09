@@ -32,36 +32,69 @@ jobs:
           const readmePath = "README.md";
 
           async function getRepos() {
-            const res = await axios.get(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
-            return res.data.map(repo => `- [${repo.name}](${repo.html_url}) — ${dayjs(repo.updated_at).format('YYYY-MM-DD HH:mm')}`);
+            try {
+              const res = await axios.get(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
+              return res.data
+                .filter(repo => repo.name !== username) // Skip profile repo
+                .map(repo => `- [${repo.name}](${repo.html_url}) — ${dayjs(repo.updated_at).format('YYYY-MM-DD HH:mm')}`);
+            } catch (error) {
+              console.error('Error fetching repos:', error);
+              return [];
+            }
           }
 
           async function getCommits() {
-            const repos = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=updated`);
-            let commitsList = [];
+            try {
+              const repos = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=updated`);
+              let commitsList = [];
 
-            for (let repo of repos.data) {
-              const commits = await axios.get(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`);
-              const commit = commits.data[0];
-              if (commit) {
-                commitsList.push(`- **${repo.name}**: [${commit.commit.message}](${commit.html_url}) — ${dayjs(commit.commit.author.date).format('YYYY-MM-DD HH:mm')}`);
+              for (let repo of repos.data) {
+                if (repo.name === username) continue; // Skip profile repo
+                
+                try {
+                  const commits = await axios.get(`https://api.github.com/repos/${username}/${repo.name}/commits?per_page=1`);
+                  const commit = commits.data[0];
+                  if (commit) {
+                    commitsList.push(`- **${repo.name}**: [${commit.commit.message}](${commit.html_url}) — ${dayjs(commit.commit.author.date).format('YYYY-MM-DD HH:mm')}`);
+                  }
+                } catch (error) {
+                  console.log(`Skipping ${repo.name}: ${error.message}`);
+                }
               }
+              return commitsList;
+            } catch (error) {
+              console.error('Error fetching commits:', error);
+              return [];
             }
-            return commitsList;
           }
 
           (async () => {
-            let readme = fs.readFileSync(readmePath, "utf8");
+            try {
+              let readme = fs.readFileSync(readmePath, "utf8");
 
-            // Обновляем проекты
-            const projects = (await getRepos()).join("\n");
-            readme = readme.replace(/(<!-- PROJECTS_START -->)([\s\S]*?)(<!-- PROJECTS_END -->)/, `$1\n${projects}\n$3`);
+              // Обновляем ТОЛЬКО простой список проектов (НЕ ТРОГАЕМ описания!)
+              const projects = await getRepos();
+              if (projects.length > 0) {
+                readme = readme.replace(/(<!-- PROJECTS_START -->)([\s\S]*?)(<!-- PROJECTS_END -->)/, `$1\n${projects.join('\n')}\n$3`);
+                console.log('✅ Updated projects list');
+              }
 
-            // Обновляем коммиты
-            const commits = (await getCommits()).join("\n");
-            readme = readme.replace(/(<!-- COMMITS_START -->)([\s\S]*?)(<!-- COMMITS_END -->)/, `$1\n${commits}\n$3`);
+              // Обновляем ТОЛЬКО список коммитов
+              const commits = await getCommits();
+              if (commits.length > 0) {
+                readme = readme.replace(/(<!-- COMMITS_START -->)([\s\S]*?)(<!-- COMMITS_END -->)/, `$1\n${commits.join('\n')}\n$3`);
+                console.log('✅ Updated commits list');
+              }
 
-            fs.writeFileSync(readmePath, readme);
+              // НЕ ТРОГАЕМ секцию "📂 Project Details" - она остается ручной!
+              console.log('✅ Project descriptions preserved - no automatic changes');
+
+              fs.writeFileSync(readmePath, readme);
+              console.log('🎉 README updated successfully!');
+            } catch (error) {
+              console.error('❌ Error updating README:', error);
+              process.exit(1);
+            }
           })();
           EOF
 
