@@ -77,17 +77,15 @@
   <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=electronic-department-system&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
 </a>
 
-Comprehensive university management system designed to automate academic processes and handle students, instructors, subjects, and grades efficiently.
+💻 Comprehensive university management system designed to automate academic processes and handle students, instructors, subjects, and grades efficiently.
 
-**🚀 Technologies**
-- Backend: Spring Boot 3.2.1
-- Language: Java 17
-- Database: H2 (In-Memory)
-- ORM: Hibernate/JPA
-- Security: Spring Security
-- Build Tool: Maven
-- Documentation: Swagger/OpenAPI 3
-- Testing: JUnit 5, Mockito
+**� Key Features**
+- Student & Instructor Management
+- Academic Process Automation
+- Grade & Subject Tracking
+- RESTful API with Swagger Documentation
+- In-Memory Database for Development
+- Security Integration
 
 <div>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
@@ -95,6 +93,8 @@ Comprehensive university management system designed to automate academic process
   <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white"/>
   <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white"/>
   <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black"/>
+  <img src="https://img.shields.io/badge/H2-0052CC?style=for-the-badge&logo=h2&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logo=junit5&logoColor=white"/>
 </div>
 </details>
 
@@ -112,13 +112,23 @@ Comprehensive university management system designed to automate academic process
   <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=spring-db-demo&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
 </a>
 
-Spring Boot learning project with MySQL integration (via Docker), Cyrillic support, secure password storage using environment variables, and a minimalist web interface.
+💻 Spring Boot learning project with MySQL integration via Docker, featuring Cyrillic support, secure password storage using environment variables, and a minimalist web interface.
+
+**🔧 Key Features**
+- MySQL Database Integration
+- Docker Containerization
+- Cyrillic Language Support
+- Environment Variables Configuration
+- Minimalist Web Interface
+- Secure Password Management
 
 <div>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
 </div>
 </details>
 
@@ -135,19 +145,23 @@ Spring Boot learning project with MySQL integration (via Docker), Cyrillic suppo
 <a href="https://github.com/Gerasha0/JobExchangeWebsite">
   <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=JobExchangeWebsite&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
 </a>
-<br><br>
-<div align="left" style="border: 1px solid #334155; padding: 10px; border-radius: 10px;">
-🌟 Job Exchange Platform  
-Modern web application connecting employers and job seekers with intuitive interface and seamless user experience.
 
-**🛠️ Tech Stack**
-- HTML5, CSS3
-- Responsive Design
+💻 Modern web application connecting employers and job seekers with intuitive interface and seamless user experience. Frontend implementation of the job exchange platform.
+
+**� Key Features**
+- Responsive Web Design
 - Interactive UI Components
-- Modern Animations
+- Modern Animations & Transitions
+- User-Friendly Interface
+- Cross-Browser Compatibility
+- Mobile-First Approach
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+<div>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Responsive-00D4AA?style=for-the-badge&logo=responsive&logoColor=white"/>
+</div>
 </details>
 
 <br>
