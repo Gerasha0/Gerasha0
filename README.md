@@ -223,3 +223,31 @@
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gerasha0&layout=compact&theme=dark&bg_color=1e293b&title_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10&cache_seconds=1800" height="200"/>
 </div>
+
+<br>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+<br>
+<br>
+
+## 👨‍💻 About Me
+
+<div align="left">
+
+- 🎓 **Student** passionate about software development and innovation
+- 💼 **Focus**: Java Backend Development & Spring Framework
+- 🌱 **Currently Learning**: Advanced Spring Boot, Database Design, Web Development
+- 🎯 **Goals**: Building scalable web applications and robust backend systems
+- 🚀 **Interests**: Problem-solving, clean code, and learning new technologies
+- 📫 **How to reach me**: [mensotor@pm.me](mailto:mensotor@pm.me)
+
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=Gerasha0&color=8B5CF6&style=flat-square&label=Profile+Views"/>
+  <br><br>
+  <i>⭐ Star my repositories if you find them helpful!</i>
+</div>
