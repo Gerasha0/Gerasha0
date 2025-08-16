@@ -46,7 +46,17 @@ jobs:
                     'lab1': 'studies/software-development-workshop/laboratory-works/lab1',
                     'lab2': 'studies/software-development-workshop/laboratory-works/lab2',
                     'lab3': 'studies/software-development-workshop/laboratory-works/lab3',
-                    'lab4': 'studies/software-development-workshop/laboratory-works/lab4'
+                    'lab4': 'studies/software-development-workshop/laboratory-works/lab4',
+                    // Algorithms labs
+                    'algorithms-lab1': 'studies/algorithms-and-data-structures/laboratory-works/lab1',
+                    'algorithms-lab2': 'studies/algorithms-and-data-structures/laboratory-works/lab2',
+                    'algorithms-lab3': 'studies/algorithms-and-data-structures/laboratory-works/lab3',
+                    'algorithms-lab4': 'studies/algorithms-and-data-structures/laboratory-works/lab4',
+                    'algorithms-lab5': 'studies/algorithms-and-data-structures/laboratory-works/lab5',
+                    'algorithms-lab6': 'studies/algorithms-and-data-structures/laboratory-works/lab6',
+                    'algorithms-lab7': 'studies/algorithms-and-data-structures/laboratory-works/lab7',
+                    'algorithms-lab8': 'studies/algorithms-and-data-structures/laboratory-works/lab8',
+                    'algorithms-lab9': 'studies/algorithms-and-data-structures/laboratory-works/lab9'
                   };
                   
                   const localPath = repoMap[repo.name] || repo.html_url;

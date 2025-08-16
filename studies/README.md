@@ -19,3 +19,6 @@ This directory contains all academic projects and assignments organized by subje
 
 ### 🛠️ Software Development Workshop
 - **Laboratory Works**: [lab1](software-development-workshop/laboratory-works/lab1), [lab2](software-development-workshop/laboratory-works/lab2), [lab3](software-development-workshop/laboratory-works/lab3), [lab4](software-development-workshop/laboratory-works/lab4)
+
+### 🧮 Algorithms and Data Structures
+- **Laboratory Works**: [lab1](algorithms-and-data-structures/laboratory-works/lab1), [lab2](algorithms-and-data-structures/laboratory-works/lab2), [lab3](algorithms-and-data-structures/laboratory-works/lab3), [lab4](algorithms-and-data-structures/laboratory-works/lab4), [lab5](algorithms-and-data-structures/laboratory-works/lab5), [lab6](algorithms-and-data-structures/laboratory-works/lab6), [lab7](algorithms-and-data-structures/laboratory-works/lab7), [lab8](algorithms-and-data-structures/laboratory-works/lab8), [lab9](algorithms-and-data-structures/laboratory-works/lab9)

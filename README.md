@@ -60,40 +60,15 @@
 ### 🛠️ Software Development Workshop
 - 🔬 **Lab Works**: [lab1](studies/software-development-workshop/laboratory-works/lab1), [lab2](studies/software-development-workshop/laboratory-works/lab2), [lab3](studies/software-development-workshop/laboratory-works/lab3), [lab4](studies/software-development-workshop/laboratory-works/lab4) - Java development fundamentals
 
+### 🧮 Algorithms and Data Structures
+- 🔬 **Lab Works**: [lab1](studies/algorithms-and-data-structures/laboratory-works/lab1), [lab2](studies/algorithms-and-data-structures/laboratory-works/lab2), [lab3](studies/algorithms-and-data-structures/laboratory-works/lab3), [lab4](studies/algorithms-and-data-structures/laboratory-works/lab4), [lab5](studies/algorithms-and-data-structures/laboratory-works/lab5), [lab6](studies/algorithms-and-data-structures/laboratory-works/lab6), [lab7](studies/algorithms-and-data-structures/laboratory-works/lab7), [lab8](studies/algorithms-and-data-structures/laboratory-works/lab8), [lab9](studies/algorithms-and-data-structures/laboratory-works/lab9) - Fundamental algorithms and data structures
+
 <div align="center">
   <a href="studies/">
     <img src="https://img.shields.io/badge/📚_Browse_All_Studies-8B5CF6?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
 </div>
 
-<br>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
-<br>
-<br>
-
-## 🚀 Featured Projects
-
-<div align="center">
-  <a href="studies/software-architecture-and-design/coursework/electronic-department-system">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=electronic-department-system&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
-  </a>
-  
-  <a href="studies/object-oriented-programming/coursework/JobExchangeConsole">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=JobExchangeConsole&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
-  </a>
-</div>
-
-<div align="center">
-  <a href="studies/human-computer-interaction/laboratory-works/JobExchangeWebsite">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=JobExchangeWebsite&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
-  </a>
-  
-  <a href="studies/software-construction-and-documentation/laboratory-works/spring-db-demo">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Gerasha0&repo=spring-db-demo&theme=dark&bg_color=1e293b&title_color=8B5CF6&icon_color=8B5CF6&text_color=ffffff&border_color=334155&border_radius=10"/>
-  </a>
-</div>
 
 <br>
 
