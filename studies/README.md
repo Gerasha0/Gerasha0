@@ -6,7 +6,7 @@ This directory contains all academic projects and assignments organized by subje
 
 ### 🏗️ Software Architecture and Design
 - **Coursework**: [electronic-department-system](software-architecture-and-design/coursework/electronic-department-system)
-- **Laboratory Works**: [View folder](software-architecture-and-design/laboratory-works)
+- **Laboratory Works**: [lab1](software-architecture-and-design/laboratory-works/lab1), [lab2](software-architecture-and-design/laboratory-works/lab2), [lab3](software-architecture-and-design/laboratory-works/lab3)
 
 ### 🎯 Object-Oriented Programming
 - **Coursework**: [JobExchangeConsole](object-oriented-programming/coursework/JobExchangeConsole)

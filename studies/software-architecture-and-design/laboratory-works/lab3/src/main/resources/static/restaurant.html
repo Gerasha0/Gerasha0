@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 Смачна Доставка - Найкраща їжа в місті!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .menu-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .menu-card-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .first-course { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .second-course { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .salads { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .desserts { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+        .drinks { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
+        
+        .menu-card-content {
+            padding: 25px;
+        }
+        
+        .dish-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dish-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dish-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        .dish-info p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .dish-price {
+            font-weight: bold;
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+        
+        .order-button {
+            background: #10ac84;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .order-button:hover {
+            background: #0e9570;
+        }
+        
+        .features {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .tech-info {
+            background: #f8f9fa;
+            padding: 40px 0;
+            border-top: 3px solid #ff6b6b;
+        }
+        
+        .tech-info h3 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .hero h2 { font-size: 1.8em; }
+            .section-title { font-size: 2em; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🍕 Смачна Доставка</h1>
+            <p>Найкраща їжа в місті з доставкою до дому!</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Готуємо з любов'ю, доставляємо швидко!</h2>
+            <p>Спробуйте наші фірмові страви від професійних кухарів</p>
+            <a href="#menu" class="cta-button">🍽️ Переглянути меню</a>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">🍽️ Наше меню</h2>
+            
+            <div class="menu-grid" id="menuGrid">
+                <!-- Меню буде завантажено динамічно -->
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">🌟 Чому обирають нас?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Швидка доставка</h3>
+                    <p>Доставляємо протягом 30-45 хвилин у будь-який куточок міста</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🥘</div>
+                    <h3>Свіжі продукти</h3>
+                    <p>Використовуємо тільки найсвіжіші та якісні інгредієнти</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Досвідчені кухарі</h3>
+                    <p>Наші шеф-кухарі мають багаторічний досвід у ресторанній справі</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Зручна оплата</h3>
+                    <p>Приймаємо готівку та банківські картки при доставці</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-info">
+        <div class="container">
+            <h3>🛠️ Технології, що використовуються в проекті</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                Цей сайт створений в рамках лабораторної роботи з багаторівневої архітектури
+            </p>
+            <div class="tech-stack">
+                <span class="tech-badge">☕ Java 17</span>
+                <span class="tech-badge">🚀 Spring Boot 3.2</span>
+                <span class="tech-badge">🗄️ Spring Data JPA</span>
+                <span class="tech-badge">🌐 REST API</span>
+                <span class="tech-badge">🔧 Maven</span>
+                <span class="tech-badge">📄 JSON</span>
+                <span class="tech-badge">🎨 HTML5/CSS3</span>
+                <span class="tech-badge">⚡ JavaScript ES6</span>
+                <span class="tech-badge">🔗 Dependency Injection</span>
+                <span class="tech-badge">🏗️ Multi-layer Architecture</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Смачна Доставка. Лабораторна робота з багаторівневої архітектури.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                📞 +380 (50) 123-45-67 | 📧 info@delivery.com | 🏠 Доставка по всьому місту
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Завантаження меню з API
+        async function loadMenu() {
+            try {
+                const response = await fetch('/api/dishes');
+                const dishes = await response.json();
+                
+                // Групуємо страви за типами
+                const dishTypes = {
+                    'FIRST_COURSE': { name: '🍲 Перші страви', class: 'first-course', dishes: [] },
+                    'SECOND_COURSE': { name: '🍖 Другі страви', class: 'second-course', dishes: [] },
+                    'SALAD': { name: '🥗 Салати', class: 'salads', dishes: [] },
+                    'DESSERT': { name: '🍰 Десерти', class: 'desserts', dishes: [] },
+                    'DRINK': { name: '🥤 Напої', class: 'drinks', dishes: [] }
+                };
+                
+                // Розподіляємо страви по категоріях
+                dishes.forEach(dish => {
+                    if (dishTypes[dish.dishType]) {
+                        dishTypes[dish.dishType].dishes.push(dish);
+                    }
+                });
+                
+                // Створюємо HTML для меню
+                const menuGrid = document.getElementById('menuGrid');
+                menuGrid.innerHTML = '';
+                
+                Object.values(dishTypes).forEach(category => {
+                    if (category.dishes.length > 0) {
+                        const card = document.createElement('div');
+                        card.className = 'menu-card';
+                        
+                        card.innerHTML = `
+                            <div class="menu-card-header ${category.class}">
+                                ${category.name}
+                            </div>
+                            <div class="menu-card-content">
+                                ${category.dishes.map(dish => `
+                                    <div class="dish-item">
+                                        <div class="dish-info">
+                                            <h4>${dish.name}</h4>
+                                            <p>${dish.description}</p>
+                                        </div>
+                                        <div style="display: flex; align-items: center;">
+                                            <span class="dish-price">${dish.price} ₴</span>
+                                            <button class="order-button" onclick="orderDish('${dish.name}', ${dish.price})">
+                                                🛒 Замовити
+                                            </button>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                        
+                        menuGrid.appendChild(card);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Помилка завантаження меню:', error);
+                document.getElementById('menuGrid').innerHTML = `
+                    <div style="text-align: center; color: #666; grid-column: 1 / -1;">
+                        <h3>😔 Помилка завантаження меню</h3>
+                        <p>Перевірте з'єднання з сервером</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Функція замовлення страви
+        function orderDish(dishName, price) {
+            alert(`🎉 Дякуємо за замовлення!\n\nСтрава: ${dishName}\nЦіна: ${price} ₴\n\nНезабаром з вами зв'яжеться наш менеджер для підтвердження замовлення.`);
+        }
+        
+        // Плавна прокрутка до меню
+        document.querySelector('a[href="#menu"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('menu').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Завантажуємо меню при завантаженні сторінки
+        document.addEventListener('DOMContentLoaded', loadMenu);
+    </script>
+</body>
+</html>

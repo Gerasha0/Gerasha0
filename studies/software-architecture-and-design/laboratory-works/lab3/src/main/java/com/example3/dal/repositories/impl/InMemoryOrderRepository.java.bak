@@ -1,0 +1,80 @@
+package com.example3.dal.repositories.impl;
+
+import com.example3.dal.repositories.OrderRepository;
+import com.example3.domain.models.Order;
+import com.example3.domain.models.OrderStatus;
+import com.example3.domain.models.OrderType;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+/**
+ * In-memory імплементація репозиторію для замовлень
+ */
+@Repository
+public class InMemoryOrderRepository implements OrderRepository {
+    
+    private final Map<Long, Order> orderStorage = new ConcurrentHashMap<>();
+    private final AtomicLong idGenerator = new AtomicLong(1);
+    
+    @Override
+    public Order save(Order order) {
+        if (order.getId() == null) {
+            order.setId(idGenerator.getAndIncrement());
+        }
+        orderStorage.put(order.getId(), order);
+        return order;
+    }
+    
+    @Override
+    public Optional<Order> findById(Long id) {
+        return Optional.ofNullable(orderStorage.get(id));
+    }
+    
+    @Override
+    public List<Order> findAll() {
+        return new ArrayList<>(orderStorage.values());
+    }
+    
+    @Override
+    public List<Order> findByStatus(OrderStatus status) {
+        return orderStorage.values().stream()
+                .filter(order -> order.getStatus() == status)
+                .toList();
+    }
+    
+    @Override
+    public List<Order> findByOrderType(OrderType orderType) {
+        return orderStorage.values().stream()
+                .filter(order -> order.getOrderType() == orderType)
+                .toList();
+    }
+    
+    @Override
+    public List<Order> findByCustomerPhone(String customerPhone) {
+        return orderStorage.values().stream()
+                .filter(order -> Objects.equals(order.getCustomerPhone(), customerPhone))
+                .toList();
+    }
+    
+    @Override
+    public List<Order> findByOrderDateTimeBetween(LocalDateTime startDate, LocalDateTime endDate) {
+        return orderStorage.values().stream()
+                .filter(order -> !order.getOrderDateTime().isBefore(startDate) && 
+                                !order.getOrderDateTime().isAfter(endDate))
+                .toList();
+    }
+    
+    @Override
+    public void deleteById(Long id) {
+        orderStorage.remove(id);
+    }
+    
+    @Override
+    public boolean existsById(Long id) {
+        return orderStorage.containsKey(id);
+    }
+}

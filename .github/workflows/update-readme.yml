@@ -47,6 +47,10 @@ jobs:
                     'lab2': 'studies/software-development-workshop/laboratory-works/lab2',
                     'lab3': 'studies/software-development-workshop/laboratory-works/lab3',
                     'lab4': 'studies/software-development-workshop/laboratory-works/lab4',
+                    // Software Architecture labs
+                    'architecture-lab1': 'studies/software-architecture-and-design/laboratory-works/lab1',
+                    'architecture-lab2': 'studies/software-architecture-and-design/laboratory-works/lab2', 
+                    'architecture-lab3': 'studies/software-architecture-and-design/laboratory-works/lab3',
                     // Algorithms labs
                     'algorithms-lab1': 'studies/algorithms-and-data-structures/laboratory-works/lab1',
                     'algorithms-lab2': 'studies/algorithms-and-data-structures/laboratory-works/lab2',

@@ -1,0 +1,286 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+skinparam packageStyle rectangle
+
+title Система доставки їжі - Багаторівнева архітектура з WebAPI
+
+package "Presentation Layer (PL)" #E8F4FD {
+    class DishController {
+        - dishService: DishService
+        - dtoMapper: DtoMapper
+        + getAllDishes(): ResponseEntity<List<DishDto>>
+        + getDishById(id: Long): ResponseEntity<DishDto>
+        + getDishesByType(type: DishType): ResponseEntity<List<DishDto>>
+        + createDish(dishDto: DishDto): ResponseEntity<DishDto>
+        + updateDish(id: Long, dishDto: DishDto): ResponseEntity<DishDto>
+        + deleteDish(id: Long): ResponseEntity<Void>
+        + searchDishes(name: String): ResponseEntity<List<DishDto>>
+        + getAvailableDishes(): ResponseEntity<List<DishDto>>
+    }
+    
+    class OrderController {
+        - orderService: OrderService
+        - dtoMapper: DtoMapper
+        + getAllOrders(): ResponseEntity<List<OrderDto>>
+        + getOrderById(id: Long): ResponseEntity<OrderDto>
+        + createOrder(orderDto: CreateOrderDto): ResponseEntity<OrderDto>
+        + createComplexLunch(complexLunchDto: ComplexLunchDto): ResponseEntity<OrderDto>
+        + updateOrderStatus(id: Long, status: OrderStatus): ResponseEntity<OrderDto>
+        + addDishToOrder(orderId: Long, dishId: Long, quantity: Integer): ResponseEntity<OrderDto>
+        + cancelOrder(id: Long): ResponseEntity<Void>
+        + getOrdersByStatus(status: OrderStatus): ResponseEntity<List<OrderDto>>
+        + getOrdersByType(orderType: OrderType): ResponseEntity<List<OrderDto>>
+    }
+    
+    class WebController {
+        + index(): String
+    }
+    
+    package "DTOs" {
+        class DishDto {
+            + id: Long
+            + name: String
+            + description: String
+            + price: BigDecimal
+            + dishType: DishType
+            + available: Boolean
+        }
+        
+        class OrderDto {
+            + id: Long
+            + customerName: String
+            + customerPhone: String
+            + deliveryAddress: String
+            + orderDateTime: LocalDateTime
+            + status: OrderStatus
+            + orderItems: List<OrderItemDto>
+            + totalAmount: BigDecimal
+            + orderType: OrderType
+        }
+        
+        class CreateOrderDto {
+            + customerName: String
+            + customerPhone: String
+            + deliveryAddress: String
+            + orderItems: List<OrderItemDto>
+            + orderType: OrderType
+        }
+        
+        class ComplexLunchDto {
+            + customerName: String
+            + customerPhone: String
+            + deliveryAddress: String
+            + firstCourseId: Long
+            + secondCourseId: Long
+            + saladId: Long
+            + drinkId: Long
+        }
+        
+        class OrderItemDto {
+            + id: Long
+            + dish: DishDto
+            + quantity: Integer
+            + unitPrice: BigDecimal
+        }
+    }
+    
+    class DtoMapper {
+        + toDto(dish: Dish): DishDto
+        + toEntity(dishDto: DishDto): Dish
+        + toDto(order: Order): OrderDto
+        + toOrderDtoList(orders: List<Order>): List<OrderDto>
+        + toDishDtoList(dishes: List<Dish>): List<DishDto>
+    }
+}
+
+package "Business Logic Layer (BLL)" #F0F8E8 {
+    class DishService {
+        - dishRepository: DishRepository
+        + getAllDishes(): List<Dish>
+        + getDishById(id: Long): Optional<Dish>
+        + getDishesByType(type: DishType): List<Dish>
+        + createDish(dish: Dish): Dish
+        + updateDish(id: Long, dish: Dish): Dish
+        + deleteDish(id: Long): void
+        + searchDishesByName(name: String): List<Dish>
+        + getAvailableDishes(): List<Dish>
+        + validateDish(dish: Dish): void
+    }
+    
+    class OrderService {
+        - orderRepository: OrderRepository
+        - dishRepository: DishRepository
+        + getAllOrders(): List<Order>
+        + getOrderById(id: Long): Optional<Order>
+        + createOrder(customerName: String, customerPhone: String, ...): Order
+        + createComplexLunch(customerName: String, ...): Order
+        + updateOrderStatus(id: Long, status: OrderStatus): Order
+        + addDishToOrder(orderId: Long, dishId: Long, quantity: Integer): Order
+        + calculateOrderTotal(order: Order): BigDecimal
+        + cancelOrder(id: Long): void
+        + getOrdersByStatus(status: OrderStatus): List<Order>
+        + getOrdersByType(orderType: OrderType): List<Order>
+        - validateOrder(order: Order): void
+        - createComplexLunchItems(firstCourseId: Long, ...): List<OrderItem>
+    }
+}
+
+package "Data Access Layer (DAL)" #FFF0E8 {
+    interface DishRepository {
+        + findAll(): List<Dish>
+        + findById(id: Long): Optional<Dish>
+        + save(dish: Dish): Dish
+        + deleteById(id: Long): void
+        + findByDishType(dishType: DishType): List<Dish>
+        + findByNameContaining(name: String): List<Dish>
+        + findByAvailable(available: Boolean): List<Dish>
+        + existsById(id: Long): Boolean
+    }
+    
+    interface OrderRepository {
+        + findAll(): List<Order>
+        + findById(id: Long): Optional<Order>
+        + save(order: Order): Order
+        + deleteById(id: Long): void
+        + findByStatus(status: OrderStatus): List<Order>
+        + findByOrderType(orderType: OrderType): List<Order>
+        + findByCustomerPhone(customerPhone: String): List<Order>
+        + findByOrderDateTimeBetween(startDate: LocalDateTime, endDate: LocalDateTime): List<Order>
+        + existsById(id: Long): Boolean
+    }
+    
+    class FileDishRepository {
+        - DATA_FILE: String = "dishes.txt"
+        - objectMapper: ObjectMapper
+        - idGenerator: AtomicLong
+        + initializeData(): void
+        + loadFromFile(): List<Dish>
+        + saveToFile(dishes: List<Dish>): void
+    }
+    
+    class FileOrderRepository {
+        - DATA_FILE: String = "orders.txt"
+        - objectMapper: ObjectMapper
+        - idGenerator: AtomicLong
+        + initializeData(): void
+        + loadFromFile(): List<Order>
+        + saveToFile(orders: List<Order>): void
+    }
+}
+
+package "Domain Layer" #F8F0FF {
+    class Dish {
+        - id: Long
+        - name: String
+        - description: String
+        - price: BigDecimal
+        - dishType: DishType
+        - available: Boolean
+        + getId(): Long
+        + getName(): String
+        + getDescription(): String
+        + getPrice(): BigDecimal
+        + getDishType(): DishType
+        + isAvailable(): Boolean
+        + setters...
+    }
+    
+    class Order {
+        - id: Long
+        - customerName: String
+        - customerPhone: String
+        - deliveryAddress: String
+        - orderDateTime: LocalDateTime
+        - status: OrderStatus
+        - orderItems: List<OrderItem>
+        - orderType: OrderType
+        + getId(): Long
+        + getCustomerName(): String
+        + getTotalAmount(): BigDecimal
+        + addOrderItem(item: OrderItem): void
+        + removeOrderItem(item: OrderItem): void
+        + setters...
+    }
+    
+    class OrderItem {
+        - id: Long
+        - dish: Dish
+        - quantity: Integer
+        - unitPrice: BigDecimal
+        + getId(): Long
+        + getDish(): Dish
+        + getQuantity(): Integer
+        + getUnitPrice(): BigDecimal
+        + getSubtotal(): BigDecimal @JsonIgnore
+        + setters...
+    }
+    
+    enum DishType {
+        FIRST_COURSE("Перша страва")
+        SECOND_COURSE("Друга страва")
+        DESSERT("Десерт")
+        DRINK("Напій")
+        SALAD("Салат")
+        APPETIZER("Закуска")
+    }
+    
+    enum OrderStatus {
+        PENDING("Очікує")
+        CONFIRMED("Підтверджено")
+        PREPARING("Готується")
+        DELIVERING("Доставляється")
+        DELIVERED("Доставлено")
+        CANCELLED("Скасовано")
+    }
+    
+    enum OrderType {
+        COMPLEX_LUNCH("Комплексний обід")
+        CUSTOM("Індивідуальний набір страв")
+        DELIVERY("Доставка")
+        TAKEAWAY("Самовинос")
+    }
+}
+
+package "Configuration" #F0F0F0 {
+    class App {
+        + main(args: String[]): void
+    }
+}
+
+' Dependency relationships
+DishController --> DishService
+DishController --> DtoMapper
+OrderController --> OrderService
+OrderController --> DtoMapper
+
+DishService --> DishRepository
+OrderService --> OrderRepository
+OrderService --> DishRepository
+
+FileDishRepository ..|> DishRepository
+FileOrderRepository ..|> OrderRepository
+
+DishService --> Dish
+OrderService --> Order
+OrderService --> OrderItem
+
+Order --> OrderItem
+OrderItem --> Dish
+
+DtoMapper --> Dish
+DtoMapper --> Order
+DtoMapper --> DishDto
+DtoMapper --> OrderDto
+
+' Annotations
+note right of FileDishRepository : @Component\nFile-based JSON storage
+note right of FileOrderRepository : @Component\nFile-based JSON storage
+note right of DishService : @Service\nBusiness logic
+note right of OrderService : @Service\nBusiness logic
+note right of DishController : @RestController\n@RequestMapping("/api/dishes")
+note right of OrderController : @RestController\n@RequestMapping("/api/orders")
+
+@enduml

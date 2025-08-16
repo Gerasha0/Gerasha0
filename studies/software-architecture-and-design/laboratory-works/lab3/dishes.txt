@@ -1,0 +1,106 @@
+[ {
+  "id" : 1,
+  "name" : "Борщ українский",
+  "description" : "Традиційний український борщ з м'ясом",
+  "price" : 85.00,
+  "dishType" : "FIRST_COURSE",
+  "available" : true
+}, {
+  "id" : 2,
+  "name" : "Солянка м'ясна",
+  "description" : "Густий суп з ковбасою, оливками та лимоном",
+  "price" : 95.00,
+  "dishType" : "FIRST_COURSE",
+  "available" : true
+}, {
+  "id" : 3,
+  "name" : "Куряча лапша",
+  "description" : "Домашня лапша на курячому бульйоні",
+  "price" : 75.00,
+  "dishType" : "FIRST_COURSE",
+  "available" : true
+}, {
+  "id" : 4,
+  "name" : "Котлета по-київськи",
+  "description" : "Куряча котлета з вершковим маслом",
+  "price" : 140.00,
+  "dishType" : "SECOND_COURSE",
+  "available" : true
+}, {
+  "id" : 5,
+  "name" : "Біфштекс з яйцем",
+  "description" : "Соковитий біфштекс з смаженим яйцем",
+  "price" : 180.00,
+  "dishType" : "SECOND_COURSE",
+  "available" : true
+}, {
+  "id" : 6,
+  "name" : "Риба запечена",
+  "description" : "Запечена риба з овочами та зеленню",
+  "price" : 160.00,
+  "dishType" : "SECOND_COURSE",
+  "available" : true
+}, {
+  "id" : 7,
+  "name" : "Олів'є",
+  "description" : "Класичний салат з картоплею та ковбасою",
+  "price" : 65.00,
+  "dishType" : "SALAD",
+  "available" : true
+}, {
+  "id" : 8,
+  "name" : "Грецький салат",
+  "description" : "Свіжі овочі з сиром фета",
+  "price" : 80.00,
+  "dishType" : "SALAD",
+  "available" : true
+}, {
+  "id" : 9,
+  "name" : "Тірамісу",
+  "description" : "Італійський десерт з маскарпоне",
+  "price" : 70.00,
+  "dishType" : "DESSERT",
+  "available" : true
+}, {
+  "id" : 10,
+  "name" : "Чізкейк",
+  "description" : "Нью-йоркський чізкейк з ягодами",
+  "price" : 65.00,
+  "dishType" : "DESSERT",
+  "available" : true
+}, {
+  "id" : 11,
+  "name" : "Компот з сухофруктів",
+  "description" : "Домашній компот",
+  "price" : 25.00,
+  "dishType" : "DRINK",
+  "available" : true
+}, {
+  "id" : 12,
+  "name" : "Свіжовичавлений сік",
+  "description" : "Апельсиновий сік",
+  "price" : 35.00,
+  "dishType" : "DRINK",
+  "available" : true
+}, {
+  "id" : 13,
+  "name" : "Тест страва",
+  "description" : "Тестова страва для перевірки збереження",
+  "price" : 50.00,
+  "dishType" : "APPETIZER",
+  "available" : true
+}, {
+  "id" : 14,
+  "name" : "Тестова страва",
+  "description" : "Створена через веб-інтерфейс",
+  "price" : 99.99,
+  "dishType" : "APPETIZER",
+  "available" : false
+}, {
+  "id" : 15,
+  "name" : "Тестова страва",
+  "description" : "Створена через веб-інтерфейс",
+  "price" : 99.99,
+  "dishType" : "APPETIZER",
+  "available" : false
+} ]

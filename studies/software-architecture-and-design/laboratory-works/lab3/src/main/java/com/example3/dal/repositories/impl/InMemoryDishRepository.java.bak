@@ -1,0 +1,123 @@
+package com.example3.dal.repositories.impl;
+
+import com.example3.dal.repositories.DishRepository;
+import com.example3.domain.models.Dish;
+import com.example3.domain.models.DishType;
+import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
+
+/**
+ * In-memory імплементація репозиторію для страв
+ */
+@Repository
+public class InMemoryDishRepository implements DishRepository {
+    
+    private final Map<Long, Dish> dishStorage = new ConcurrentHashMap<>();
+    private final AtomicLong idGenerator = new AtomicLong(1);
+    
+    public InMemoryDishRepository() {
+        initializeData();
+    }
+    
+    @Override
+    public Dish save(Dish dish) {
+        if (dish.getId() == null) {
+            dish.setId(idGenerator.getAndIncrement());
+        }
+        dishStorage.put(dish.getId(), dish);
+        return dish;
+    }
+    
+    @Override
+    public Optional<Dish> findById(Long id) {
+        return Optional.ofNullable(dishStorage.get(id));
+    }
+    
+    @Override
+    public List<Dish> findAll() {
+        return new ArrayList<>(dishStorage.values());
+    }
+    
+    @Override
+    public List<Dish> findByDishType(DishType dishType) {
+        return dishStorage.values().stream()
+                .filter(dish -> dish.getDishType() == dishType)
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<Dish> findByAvailableTrue() {
+        return dishStorage.values().stream()
+                .filter(Dish::isAvailable)
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<Dish> findByNameContainingIgnoreCase(String name) {
+        return dishStorage.values().stream()
+                .filter(dish -> dish.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public List<Dish> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice) {
+        return dishStorage.values().stream()
+                .filter(dish -> dish.getPrice().compareTo(minPrice) >= 0 && 
+                               dish.getPrice().compareTo(maxPrice) <= 0)
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public void deleteById(Long id) {
+        dishStorage.remove(id);
+    }
+    
+    @Override
+    public boolean existsById(Long id) {
+        return dishStorage.containsKey(id);
+    }
+    
+    /**
+     * Ініціалізація тестових даних
+     */
+    private void initializeData() {
+        // Перші страви
+        save(new Dish("Борщ українский", "Традиційний український борщ з м'ясом", 
+                new BigDecimal("85.00"), DishType.FIRST_COURSE));
+        save(new Dish("Солянка м'ясна", "Густий суп з ковбасою, оливками та лимоном", 
+                new BigDecimal("95.00"), DishType.FIRST_COURSE));
+        save(new Dish("Куряча лапша", "Домашня лапша на курячому бульйоні", 
+                new BigDecimal("75.00"), DishType.FIRST_COURSE));
+        
+        // Другі страви
+        save(new Dish("Котлета по-київськи", "Куряча котлета з вершковим маслом", 
+                new BigDecimal("140.00"), DishType.SECOND_COURSE));
+        save(new Dish("Біфштекс з яйцем", "Соковитий біфштекс з смаженим яйцем", 
+                new BigDecimal("180.00"), DishType.SECOND_COURSE));
+        save(new Dish("Риба запечена", "Запечена риба з овочами та зеленню", 
+                new BigDecimal("160.00"), DishType.SECOND_COURSE));
+        
+        // Салати
+        save(new Dish("Олів'є", "Класичний салат з картоплею та ковбасою", 
+                new BigDecimal("65.00"), DishType.SALAD));
+        save(new Dish("Грецький салат", "Свіжі овочі з сиром фета", 
+                new BigDecimal("80.00"), DishType.SALAD));
+        
+        // Десерти
+        save(new Dish("Тірамісу", "Італійський десерт з маскарпоне", 
+                new BigDecimal("70.00"), DishType.DESSERT));
+        save(new Dish("Чізкейк", "Нью-йоркський чізкейк з ягодами", 
+                new BigDecimal("65.00"), DishType.DESSERT));
+        
+        // Напої
+        save(new Dish("Компот з сухофруктів", "Домашній компот", 
+                new BigDecimal("25.00"), DishType.DRINK));
+        save(new Dish("Свіжовичавлений сік", "Апельсиновий сік", 
+                new BigDecimal("35.00"), DishType.DRINK));
+    }
+}

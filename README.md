@@ -46,7 +46,7 @@
 
 ### 🏗️ Software Architecture and Design
 - 📋 **Coursework**: [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) - University management system with REST API
-- 🔬 **Lab Works**: [View assignments](studies/software-architecture-and-design/laboratory-works)
+- 🔬 **Lab Works**: [lab1](studies/software-architecture-and-design/laboratory-works/lab1), [lab2](studies/software-architecture-and-design/laboratory-works/lab2), [lab3](studies/software-architecture-and-design/laboratory-works/lab3) - Grant management, food delivery systems, and multi-tier architecture
 
 ### 🎯 Object-Oriented Programming  
 - 📋 **Coursework**: [JobExchangeConsole](studies/object-oriented-programming/coursework/JobExchangeConsole) - Command-line job market management
