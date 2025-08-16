@@ -57,6 +57,9 @@
 ### 🔧 Software Construction and Documentation
 - 🔬 **Lab Works**: [spring-db-demo](studies/software-construction-and-documentation/laboratory-works/spring-db-demo) - Spring Boot database demo
 
+### 🛠️ Software Development Workshop
+- 🔬 **Lab Works**: [lab1](studies/software-development-workshop/laboratory-works/lab1), [lab2](studies/software-development-workshop/laboratory-works/lab2), [lab3](studies/software-development-workshop/laboratory-works/lab3), [lab4](studies/software-development-workshop/laboratory-works/lab4) - Java development fundamentals
+
 <div align="center">
   <a href="studies/">
     <img src="https://img.shields.io/badge/📚_Browse_All_Studies-8B5CF6?style=for-the-badge&logo=github&logoColor=white"/>

@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Text Processing App (English)",
+			"type": "shell",
+			"command": "java -cp target\\classes com.mrpz1.App",
+			"group": "build",
+			"isBackground": false
+		}
+	]
+}

@@ -42,7 +42,11 @@ jobs:
                     'electronic-department-system': 'studies/software-architecture-and-design/coursework/electronic-department-system',
                     'spring-db-demo': 'studies/software-construction-and-documentation/laboratory-works/spring-db-demo',
                     'JobExchangeConsole': 'studies/object-oriented-programming/coursework/JobExchangeConsole',
-                    'JobExchangeWebsite': 'studies/human-computer-interaction/laboratory-works/JobExchangeWebsite'
+                    'JobExchangeWebsite': 'studies/human-computer-interaction/laboratory-works/JobExchangeWebsite',
+                    'lab1': 'studies/software-development-workshop/laboratory-works/lab1',
+                    'lab2': 'studies/software-development-workshop/laboratory-works/lab2',
+                    'lab3': 'studies/software-development-workshop/laboratory-works/lab3',
+                    'lab4': 'studies/software-development-workshop/laboratory-works/lab4'
                   };
                   
                   const localPath = repoMap[repo.name] || repo.html_url;
