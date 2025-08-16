@@ -1,0 +1,1059 @@
+.manage-unemployed-desktop-container10 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.manage-unemployed-desktop-manage-unemployed-desktop {
+  width: 100%;
+  height: 1024px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(249, 250, 251, 1);
+}
+ 
+.manage-unemployed-desktop-header {
+  top: 0px;
+  left: 0px;
+  width: 1436px;
+  height: 65px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 0 0 1px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-unemployed-desktop-container11 {
+  top: 0px;
+  left: 78px;
+  width: 1280px;
+  height: 64px;
+  display: flex;
+  padding: 0 32px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-left-button-job-exchange-system {
+  top: 18px;
+  left: 32px;
+  width: 236px;
+  height: 28px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-button1 {
+  top: 2px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-unemployed-desktop-navlink1 {
+  display: contents;
+}
+ 
+.manage-unemployed-desktop-frame1 {
+  top: 0px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-heading1 {
+  top: 0px;
+  left: 40px;
+  width: 196px;
+  height: 28px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text10 {
+  top: 2px;
+  color: rgba(17, 24, 39, 1);
+  width: 196px;
+  height: auto;
+  position: absolute;
+  font-size: 17px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 28px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-about-us-sign-in {
+  top: 14px;
+  left: 1069.53125px;
+  width: 178px;
+  height: 36px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-navlink2 {
+  display: contents;
+}
+ 
+.manage-unemployed-desktop-about-us {
+  top: 6px;
+  left: 0px;
+  width: 89px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-frame2 {
+  top: 2px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-text11 {
+  top: 2px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 65px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-navlink3 {
+  display: contents;
+}
+ 
+.manage-unemployed-desktop-sign-in {
+  top: 0px;
+  left: 104.59375px;
+  width: 74px;
+  height: 36px;
+  display: flex;
+  padding: 8px 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: rgba(37, 99, 235, 1);
+}
+ 
+.manage-unemployed-desktop-text12 {
+  top: 9px;
+  left: 16px;
+  color: rgba(255, 255, 255, 1);
+  width: 42px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-body {
+  top: 65px;
+  left: 78px;
+  width: 1280px;
+  height: 338px;
+  display: flex;
+  padding: 32px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container12 {
+  top: 32px;
+  left: 32px;
+  width: 1216px;
+  height: 274px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-heading2 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 32px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text13 {
+  top: 1px;
+  color: rgba(17, 24, 39, 1);
+  width: 232px;
+  height: auto;
+  position: absolute;
+  font-size: 20.399999618530273px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 32px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container13 {
+  top: 56px;
+  left: 0px;
+  width: 1216px;
+  height: 218px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container14 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 42px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container15 {
+  top: 0px;
+  left: 0px;
+  width: 257px;
+  height: 42px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-input {
+  top: 0px;
+  left: 0px;
+  color: rgba(204, 204, 204, 1);
+  width: 257px;
+  height: 42px;
+  display: flex;
+  padding: 9px 17px 9px 41px;
+  position: absolute;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(209, 213, 219, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-unemployed-desktop-frame3 {
+  top: 11px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-button2 {
+  top: 1px;
+  left: 1091.234375px;
+  width: 125px;
+  height: 40px;
+  display: flex;
+  padding: 8px 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: rgba(37, 99, 235, 1);
+}
+ 
+.manage-unemployed-desktop-frame4 {
+  top: 10px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-text14 {
+  top: 10px;
+  left: 44px;
+  color: rgba(255, 255, 255, 1);
+  width: 65px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container16 {
+  top: 58px;
+  left: 0px;
+  width: 1216px;
+  height: 160px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.10000000149011612) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-unemployed-desktop-container17 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 160px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container18 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 48.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(249, 250, 251, 1);
+}
+ 
+.manage-unemployed-desktop-container19 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 48.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container20 {
+  top: 0px;
+  left: 0px;
+  width: 220px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text15 {
+  top: 16px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 69px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container21 {
+  top: 0px;
+  left: 219.515625px;
+  width: 106px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text16 {
+  top: 16px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 25px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container22 {
+  top: 0px;
+  left: 325.328125px;
+  width: 238px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text17 {
+  top: 16px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 72px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container23 {
+  top: 0px;
+  left: 563.140625px;
+  width: 249px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text18 {
+  top: 16px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 78px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container24 {
+  top: 0px;
+  left: 811.796875px;
+  width: 255px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text19 {
+  top: 16px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container25 {
+  top: 0px;
+  left: 1066.578125px;
+  width: 149px;
+  height: 48.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text20 {
+  top: 14px;
+  left: 70.484375px;
+  color: rgba(0, 0, 0, 1);
+  width: 55px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Bold;
+  text-align: right;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container26 {
+  top: 48.5px;
+  left: 0px;
+  width: 1216px;
+  height: 111.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-unemployed-desktop-container27 {
+  top: 0px;
+  left: 0px;
+  width: 1216px;
+  height: 56px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-container28 {
+  top: 0px;
+  left: 0px;
+  width: 220px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text21 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 103px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container29 {
+  top: 0px;
+  left: 219.515625px;
+  width: 106px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text22 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 16px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container30 {
+  top: 0px;
+  left: 325.328125px;
+  width: 238px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text23 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 89px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container31 {
+  top: 0px;
+  left: 563.140625px;
+  width: 249px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text24 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 123px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container32 {
+  top: 0px;
+  left: 811.796875px;
+  width: 255px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text25 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 128px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container33 {
+  top: 0px;
+  left: 1066.578125px;
+  width: 149px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-button3 {
+  top: 16.5px;
+  left: 73.421875px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-unemployed-desktop-frame5 {
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-button4 {
+  top: 16.5px;
+  left: 107.421875px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-unemployed-desktop-frame6 {
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-container34 {
+  top: 56px;
+  left: 0px;
+  width: 1216px;
+  height: 55.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+}
+ 
+.manage-unemployed-desktop-container35 {
+  top: 0px;
+  left: 0px;
+  width: 220px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text26 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container36 {
+  top: 0px;
+  left: 219.515625px;
+  width: 106px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text27 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 15px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container37 {
+  top: 0px;
+  left: 325.328125px;
+  width: 238px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text28 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 116px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container38 {
+  top: 0px;
+  left: 563.140625px;
+  width: 249px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text29 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 121px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container39 {
+  top: 0px;
+  left: 811.796875px;
+  width: 255px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text30 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 113px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-unemployed-desktop-container40 {
+  top: 0px;
+  left: 1066.578125px;
+  width: 149px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-button5 {
+  top: 16.5px;
+  left: 73.421875px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-unemployed-desktop-frame7 {
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-button6 {
+  top: 16.5px;
+  left: 107.421875px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-unemployed-desktop-frame8 {
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+ 
+.manage-unemployed-desktop-footer {
+  top: 959px;
+  left: 2px;
+  width: 1436px;
+  height: 65px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-unemployed-desktop-container41 {
+  top: 1px;
+  left: 78px;
+  width: 1280px;
+  height: 64px;
+  display: flex;
+  padding: 0 32px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-paragraph {
+  top: 22px;
+  left: 536.5px;
+  width: 207px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-unemployed-desktop-text31 {
+  top: 1px;
+  color: rgba(107, 114, 128, 1);
+  width: 207px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}

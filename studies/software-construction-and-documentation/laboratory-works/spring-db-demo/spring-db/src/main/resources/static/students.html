@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список студентов</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 60px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h2 { color: #1976d2; margin-bottom: 24px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        th, td { padding: 10px 8px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: #f0f4f8; }
+        tr:hover { background: #f5faff; }
+        a { color: #1976d2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Список студентов</h2>
+        <!-- Здесь будет динамический вывод студентов -->
+        <div id="students-table"></div>
+        <a href="/">На главную</a>
+    </div>
+    <script>
+    fetch('/students')
+      .then(r => r.json())
+      .then(data => {
+        if (!Array.isArray(data)) return;
+        let html = '<table><tr><th>ID</th><th>Имя</th><th>Email</th></tr>';
+        data.forEach(s => {
+          html += `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.email}</td></tr>`;
+        });
+        html += '</table>';
+        document.getElementById('students-table').innerHTML = html;
+      });
+    </script>
+</body>
+</html>

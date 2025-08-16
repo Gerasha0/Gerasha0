@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+                window.location.href = "./Job Exchange/Mobile/index.html";
+            } else {
+                window.location.href = "./Job Exchange/Desktop/index.html";
+            }
+        });
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>

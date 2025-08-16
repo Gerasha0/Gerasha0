@@ -1,0 +1,19 @@
+# Java/Spring Boot
+/target/
+*.iml
+/.idea/
+.DS_Store
+*.log
+*.class
+*.jar
+*.war
+*.db
+*.sqlite
+.env
+*.bat~
+# System
+Thumbs.db
+# VSCode
+.vscode/
+# OS
+*.swp

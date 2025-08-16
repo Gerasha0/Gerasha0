@@ -1,0 +1,1096 @@
+.manage-resumes-mobile-container10 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.manage-resumes-mobile-manage-resumes-mobile {
+  width: 100%;
+  height: 917px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-resumes-mobile-body {
+  gap: 10px;
+  top: 65px;
+  left: 18px;
+  width: 373px;
+  height: 360px;
+  display: flex;
+  padding: 32px 6px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container11 {
+  top: 32px;
+  left: 9px;
+  width: 361px;
+  height: 296px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-heading1 {
+  top: 0px;
+  left: 0px;
+  width: 350px;
+  height: 32px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text10 {
+  top: 1px;
+  color: rgba(17, 24, 39, 1);
+  width: 192px;
+  height: auto;
+  position: absolute;
+  font-size: 20.399999618530273px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 32px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container12 {
+  top: 56px;
+  left: 6px;
+  width: 350px;
+  height: 240px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-search-button {
+  top: 0px;
+  left: 0px;
+  width: 355px;
+  height: 64px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container13 {
+  top: 11px;
+  left: 0px;
+  width: 257px;
+  height: 42px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-input {
+  top: 0px;
+  left: 0px;
+  color: rgba(204, 204, 204, 1);
+  width: 257px;
+  height: 42px;
+  display: flex;
+  padding: 9px 17px 9px 41px;
+  position: absolute;
+  font-size: 16px;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(209, 213, 219, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-resumes-mobile-frame1 {
+  top: 11px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-resumes-mobile-button1 {
+  top: 0px;
+  left: 262px;
+  width: 93px;
+  height: 64px;
+  display: flex;
+  padding: 8px 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: rgba(37, 99, 235, 1);
+}
+ 
+.manage-resumes-mobile-frame2 {
+  top: 22px;
+  left: 16px;
+  width: 12px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-resumes-mobile-text11 {
+  top: 10px;
+  left: 42.609375px;
+  color: rgba(255, 255, 255, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-text12 {
+  top: 34px;
+  left: 40.25px;
+  color: rgba(255, 255, 255, 1);
+  width: 33px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-table {
+  top: 80px;
+  left: 0px;
+  width: 350px;
+  height: 190px;
+  display: block;
+  overflow: auto;
+  position: absolute;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.10000000149011612) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  white-space: nowrap;
+}
+ 
+.manage-resumes-mobile-container14 {
+  top: 0px;
+  left: 0px;
+  width: 826px;
+  height: 168px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container15 {
+  top: 0px;
+  left: 0px;
+  width: 826px;
+  height: 56.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(249, 250, 251, 1);
+}
+ 
+.manage-resumes-mobile-container16 {
+  top: 0px;
+  left: 0px;
+  width: 826px;
+  height: 56.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container17 {
+  top: 0px;
+  left: 0px;
+  width: 116px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text13 {
+  top: 12px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 29px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-text14 {
+  top: 28px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 36px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container18 {
+  top: 0px;
+  left: 115.734375px;
+  width: 163px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text15 {
+  top: 20px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 115px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container19 {
+  top: 0px;
+  left: 278.65625px;
+  width: 111px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text16 {
+  top: 12px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 63px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-text17 {
+  top: 28px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container20 {
+  top: 0px;
+  left: 389.78125px;
+  width: 210px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text18 {
+  top: 20px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 40px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container21 {
+  top: 0px;
+  left: 599.359375px;
+  width: 124px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text19 {
+  top: 20px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 76px;
+  height: auto;
+  position: absolute;
+  font-size: 10.199999809265137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 16px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container22 {
+  top: 0px;
+  left: 723.015625px;
+  width: 103px;
+  height: 56.5px;
+  display: flex;
+  padding: 12px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text20 {
+  top: 18px;
+  left: 24px;
+  color: rgba(0, 0, 0, 1);
+  width: 55px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Bold;
+  text-align: right;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container23 {
+  top: 56.5px;
+  left: 0px;
+  width: 826px;
+  height: 111.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-resumes-mobile-container24 {
+  top: 0px;
+  left: 0px;
+  width: 826px;
+  height: 56px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container25 {
+  top: 0px;
+  left: 0px;
+  width: 116px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text21 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container26 {
+  top: 0px;
+  left: 115.734375px;
+  width: 163px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text22 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 115px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container27 {
+  top: 0px;
+  left: 278.65625px;
+  width: 111px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text23 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container28 {
+  top: 0px;
+  left: 389.78125px;
+  width: 210px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text24 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 162px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container29 {
+  top: 0px;
+  left: 599.359375px;
+  width: 124px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text25 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 44px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container30 {
+  top: 0px;
+  left: 723.015625px;
+  width: 103px;
+  height: 56px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-button2 {
+  top: 16.5px;
+  left: 26.9375px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-resumes-mobile-button3 {
+  top: 16.5px;
+  left: 60.9375px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-resumes-mobile-container31 {
+  top: 56px;
+  left: 0px;
+  width: 826px;
+  height: 55.5px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+}
+ 
+.manage-resumes-mobile-container32 {
+  top: 0px;
+  left: 0px;
+  width: 116px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text26 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 68px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container33 {
+  top: 0px;
+  left: 115.734375px;
+  width: 163px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text27 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 108px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container34 {
+  top: 0px;
+  left: 278.65625px;
+  width: 111px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text28 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 53px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container35 {
+  top: 0px;
+  left: 389.78125px;
+  width: 210px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text29 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 129px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container36 {
+  top: 0px;
+  left: 599.359375px;
+  width: 124px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text30 {
+  top: 19px;
+  left: 24px;
+  color: rgba(17, 24, 39, 1);
+  width: 44px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-container37 {
+  top: 0px;
+  left: 723.015625px;
+  width: 103px;
+  height: 55.5px;
+  display: flex;
+  padding: 16px 24px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-button4 {
+  top: 16.5px;
+  left: 26.9375px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-resumes-mobile-button5 {
+  top: 16.5px;
+  left: 60.9375px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-resumes-mobile-footer {
+  top: 852px;
+  left: 20px;
+  width: 373px;
+  height: 65px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-resumes-mobile-container38 {
+  top: 1px;
+  left: 0px;
+  width: 373px;
+  height: 64px;
+  display: flex;
+  padding: 0 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-paragraph {
+  top: 22px;
+  left: 83px;
+  width: 207px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text31 {
+  top: 1px;
+  color: rgba(107, 114, 128, 1);
+  width: 207px;
+  height: auto;
+  position: absolute;
+  font-size: 11.899999618530273px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-header {
+  top: 0px;
+  left: 0px;
+  width: 412px;
+  height: 65px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(229, 231, 235, 1);
+  border-style: solid;
+  border-width: 0 0 1px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.manage-resumes-mobile-container39 {
+  top: 0px;
+  left: 0px;
+  width: 412px;
+  height: 64px;
+  display: flex;
+  padding: 0 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-container40 {
+  top: 4px;
+  left: 16px;
+  width: 189px;
+  height: 56px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-button6 {
+  top: 16px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+.manage-resumes-mobile-navlink1 {
+  display: contents;
+}
+ 
+.manage-resumes-mobile-frame3 {
+  top: 0px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-heading2 {
+  top: 0px;
+  left: 40px;
+  width: 154px;
+  height: 56px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-text32 {
+  top: 2px;
+  color: rgba(17, 24, 39, 1);
+  width: 124px;
+  height: auto;
+  position: absolute;
+  font-size: 17px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 28px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-text33 {
+  top: 30px;
+  color: rgba(17, 24, 39, 1);
+  width: 68px;
+  height: auto;
+  position: absolute;
+  font-size: 17px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 28px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-about-us-sign-in {
+  top: 4px;
+  left: 213px;
+  width: 181px;
+  height: 58px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.manage-resumes-mobile-navlink2 {
+  display: contents;
+}
+ 
+.manage-resumes-mobile-about-us {
+  top: 5px;
+  left: 9px;
+  width: 85px;
+  height: 48px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-frame4 {
+  top: 14px;
+  left: 0px;
+  width: 15px;
+  height: 20px;
+  position: absolute;
+}
+ 
+.manage-resumes-mobile-text34 {
+  top: 12px;
+  left: 24px;
+  color: rgba(107, 114, 128, 1);
+  width: 63px;
+  height: auto;
+  position: absolute;
+  font-size: 13.600000381469727px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.manage-resumes-mobile-navlink3 {
+  display: contents;
+}
+ 
+.manage-resumes-mobile-sign-in {
+  top: 0px;
+  left: 113px;
+  width: 64px;
+  height: 56px;
+  display: flex;
+  padding: 8px 16px;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: rgba(37, 99, 235, 1);
+}
+ 
+.manage-resumes-mobile-text35 {
+  top: 19px;
+  left: 9.75px;
+  color: rgba(255, 255, 255, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  font-size: 13px;
+  font-style: Medium;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}

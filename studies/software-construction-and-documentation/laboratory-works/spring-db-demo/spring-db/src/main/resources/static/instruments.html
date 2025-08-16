@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список музыкальных инструментов</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 60px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h2 { color: #1976d2; margin-bottom: 24px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        th, td { padding: 10px 8px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: #f0f4f8; }
+        tr:hover { background: #f5faff; }
+        a { color: #1976d2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Список музыкальных инструментов</h2>
+        <!-- Здесь будет динамический вывод инструментов -->
+        <div id="instruments-table"></div>
+        <a href="/">На главную</a>
+    </div>
+    <script>
+    fetch('/instruments')
+      .then(r => r.json())
+      .then(data => {
+        if (!Array.isArray(data)) return;
+        let html = '<table><tr><th>ID</th><th>Бренд</th><th>Цена</th><th>Материал</th><th>Кол-во струн</th></tr>';
+        data.forEach(i => {
+          html += `<tr><td>${i.id}</td><td>${i.brand}</td><td>${i.price}</td><td>${i.material}</td><td>${i.stringCount}</td></tr>`;
+        });
+        html += '</table>';
+        document.getElementById('instruments-table').innerHTML = html;
+      });
+    </script>
+</body>
+</html>
