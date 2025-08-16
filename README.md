@@ -24,10 +24,7 @@
 ## 🚀 Active Projects (sorted by latest activity)
 
 <!-- PROJECTS_START -->
-- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-08-09 17:18
-- [spring-db-demo](studies/software-construction-and-documentation/laboratory-works/spring-db-demo) — 2025-08-09 10:33
-- [JobExchangeConsole](studies/object-oriented-programming/coursework/JobExchangeConsole) — 2025-04-09 10:37
-- [JobExchangeWebsite](studies/human-computer-interaction/laboratory-works/JobExchangeWebsite) — 2025-02-07 11:34
+- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-08-16 14:40
 <!-- PROJECTS_END -->
 
 <br>
