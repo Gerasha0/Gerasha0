@@ -24,7 +24,7 @@
 ## 🚀 Active Projects (sorted by latest activity)
 
 <!-- PROJECTS_START -->
-- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-09-02 12:29
+- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-09-02 17:09
 <!-- PROJECTS_END -->
 
 <br>
