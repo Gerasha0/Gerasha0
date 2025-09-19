@@ -2,7 +2,11 @@ package com.kursova.bll.services.impl;
 
 import com.kursova.bll.dto.UserDto;
 import com.kursova.bll.mappers.UserMapper;
+import com.kursova.bll.services.ArchiveService;
 import com.kursova.bll.services.UserService;
+import com.kursova.dal.entities.Student;
+import com.kursova.dal.entities.StudyForm;
+import com.kursova.dal.entities.Teacher;
 import com.kursova.dal.entities.User;
 import com.kursova.dal.entities.UserRole;
 import com.kursova.dal.uow.UnitOfWork;
@@ -11,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -19,18 +24,20 @@ import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-    
+
     private final UnitOfWork unitOfWork;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
-    
+    private final ArchiveService archiveService;
+
     @Autowired
-    public UserServiceImpl(UnitOfWork unitOfWork, UserMapper userMapper, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UnitOfWork unitOfWork, UserMapper userMapper, PasswordEncoder passwordEncoder, ArchiveService archiveService) {
         this.unitOfWork = unitOfWork;
         this.userMapper = userMapper;
         this.passwordEncoder = passwordEncoder;
+        this.archiveService = archiveService;
     }
-    
+
     @Override
     public UserDto create(UserDto dto) {
         if (existsByUsername(dto.getUsername())) {
@@ -39,12 +46,18 @@ public class UserServiceImpl implements UserService {
         if (existsByEmail(dto.getEmail())) {
             throw new IllegalArgumentException("Email already exists: " + dto.getEmail());
         }
-        
+
         User entity = userMapper.toEntity(dto);
         entity = unitOfWork.getUserRepository().save(entity);
+
+        // If the user is a STUDENT, create a corresponding Student entity
+        if (entity.getRole() == UserRole.STUDENT) {
+            createStudentEntity(entity);
+        }
+
         return userMapper.toDto(entity);
     }
-    
+
     @Override
     public UserDto createWithPassword(UserDto userDto, String password) {
         if (existsByUsername(userDto.getUsername())) {
@@ -53,13 +66,32 @@ public class UserServiceImpl implements UserService {
         if (existsByEmail(userDto.getEmail())) {
             throw new IllegalArgumentException("Email already exists: " + userDto.getEmail());
         }
-        
+
         User entity = userMapper.toEntity(userDto);
         entity.setPassword(passwordEncoder.encode(password));
+        
+        // Set active status based on role - Students are active by default, others require admin activation
+        if (entity.getRole() == UserRole.STUDENT) {
+            entity.setIsActive(true);  // Students get automatic activation
+        } else {
+            entity.setIsActive(false); // Other roles require manual admin activation
+        }
+        
         entity = unitOfWork.getUserRepository().save(entity);
+
+        // If the user is a STUDENT, create a corresponding Student entity
+        if (entity.getRole() == UserRole.STUDENT) {
+            createStudentEntity(entity);
+        }
+
+        // If the user is a TEACHER, create a corresponding Teacher entity
+        if (entity.getRole() == UserRole.TEACHER) {
+            createTeacherEntity(entity);
+        }
+
         return userMapper.toDto(entity);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public UserDto findById(Long id) {
@@ -67,15 +99,27 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
         return userMapper.toDto(entity);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public UserDto findByUsername(String username) {
         User entity = unitOfWork.getUserRepository().findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + username));
-        return userMapper.toDto(entity);
+        
+        UserDto dto = userMapper.toDto(entity);
+        
+        // Set role-specific IDs
+        if (entity.getRole() == UserRole.TEACHER) {
+            unitOfWork.getTeacherRepository().findByUserId(entity.getId())
+                    .ifPresent(teacher -> dto.setTeacherId(teacher.getId()));
+        } else if (entity.getRole() == UserRole.STUDENT) {
+            unitOfWork.getStudentRepository().findByUserId(entity.getId())
+                    .ifPresent(student -> dto.setStudentId(student.getId()));
+        }
+        
+        return dto;
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public UserDto findByEmail(String email) {
@@ -83,47 +127,47 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + email));
         return userMapper.toDto(entity);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<UserDto> findAll() {
         List<User> entities = unitOfWork.getUserRepository().findAll();
         return userMapper.toDtoList(entities);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<UserDto> findByRole(UserRole role) {
         List<User> entities = unitOfWork.getUserRepository().findByRole(role);
         return userMapper.toDtoList(entities);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<UserDto> findActiveByRole(UserRole role) {
         List<User> entities = unitOfWork.getUserRepository().findByRoleAndIsActiveTrue(role);
         return userMapper.toDtoList(entities);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<UserDto> searchByName(String name) {
-        List<User> entities = unitOfWork.getUserRepository().findByFullNameContainingIgnoreCase(name);
+        List<User> entities = unitOfWork.getUserRepository().searchByNameOrEmail(name);
         return userMapper.toDtoList(entities);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<UserDto> findActiveUsers() {
         List<User> entities = unitOfWork.getUserRepository().findByIsActiveTrue();
         return userMapper.toDtoList(entities);
     }
-    
+
     @Override
     public UserDto update(Long id, UserDto dto) {
         User existingEntity = unitOfWork.getUserRepository().findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
-        
+
         // Check if username or email is being changed and doesn't conflict
         if (!existingEntity.getUsername().equals(dto.getUsername()) && existsByUsername(dto.getUsername())) {
             throw new IllegalArgumentException("Username already exists: " + dto.getUsername());
@@ -131,68 +175,170 @@ public class UserServiceImpl implements UserService {
         if (!existingEntity.getEmail().equals(dto.getEmail()) && existsByEmail(dto.getEmail())) {
             throw new IllegalArgumentException("Email already exists: " + dto.getEmail());
         }
-        
+
         userMapper.updateEntityFromDto(dto, existingEntity);
         existingEntity = unitOfWork.getUserRepository().save(existingEntity);
         return userMapper.toDto(existingEntity);
     }
-    
+
     @Override
     public void updatePassword(Long userId, String oldPassword, String newPassword) {
         User user = unitOfWork.getUserRepository().findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
-        
+
         if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
             throw new IllegalArgumentException("Current password is incorrect");
         }
-        
+
         user.setPassword(passwordEncoder.encode(newPassword));
         unitOfWork.getUserRepository().save(user);
     }
-    
+
     @Override
     public UserDto activateUser(Long userId) {
         User user = unitOfWork.getUserRepository().findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
-        
+
         user.setIsActive(true);
         user = unitOfWork.getUserRepository().save(user);
         return userMapper.toDto(user);
     }
-    
+
     @Override
     public UserDto deactivateUser(Long userId) {
         User user = unitOfWork.getUserRepository().findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
-        
+
         user.setIsActive(false);
         user = unitOfWork.getUserRepository().save(user);
         return userMapper.toDto(user);
     }
-    
+
     @Override
     public void delete(Long id) {
         if (!existsById(id)) {
             throw new IllegalArgumentException("User not found with id: " + id);
         }
-        unitOfWork.getUserRepository().deleteById(id);
+        
+        User user = unitOfWork.getUserRepository().findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
+        
+        // If user is a STUDENT, archive the student (preserves historical data)
+        if (user.getRole() == UserRole.STUDENT) {
+            boolean studentFound = unitOfWork.getStudentRepository().findByUserId(id).isPresent();
+            
+            if (studentFound) {
+                try {
+                    unitOfWork.getStudentRepository().findByUserId(id)
+                            .ifPresent(student -> {
+                                // Archive the student - this will move student and their grades to archive tables
+                                archiveService.archiveStudent(student.getId(), "ADMIN", "User deleted via admin interface");
+                            });                   
+                    // After archiving, delete the user record from the main system
+                    unitOfWork.getUserRepository().deleteById(id);
+                 } catch (Exception e) {
+                    // If archiving fails, still try to delete the user directly
+                    unitOfWork.getUserRepository().deleteById(id);
+                }
+            } else {
+                // If no student found, just delete the user directly
+                unitOfWork.getUserRepository().deleteById(id);
+            }
+        } 
+        else {
+            // For TEACHER, MANAGER, ADMIN - delete the user but keep their created data
+            // (grades they assigned, subjects they taught, groups they created, etc.)
+            
+            if (user.getRole() == UserRole.TEACHER) {
+                // Find and delete the teacher record, but keep grades and subjects
+                unitOfWork.getTeacherRepository().findByUserId(id)
+                        .ifPresent(teacher -> {
+                            // Clear the relationship with subjects but don't delete the subjects
+                            teacher.getSubjects().clear();
+                            unitOfWork.getTeacherRepository().save(teacher);
+                            
+                            // Delete the teacher record - grades will remain with teacher_id reference
+                            unitOfWork.getTeacherRepository().deleteById(teacher.getId());
+                        });
+            }
+            
+            // Delete the user record - all related data (grades, subjects, groups) will remain
+            // but without active user reference
+            unitOfWork.getUserRepository().deleteById(id);
+        }
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public boolean existsById(Long id) {
         return unitOfWork.getUserRepository().existsById(id);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public boolean existsByUsername(String username) {
         return unitOfWork.getUserRepository().existsByUsername(username);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public boolean existsByEmail(String email) {
         return unitOfWork.getUserRepository().existsByEmail(email);
+    }
+
+    /**
+     * Creates a Student entity for a User with STUDENT role
+     */
+    private void createStudentEntity(User user) {
+        String studentNumber = generateStudentNumber();
+        Integer enrollmentYear = LocalDateTime.now().getYear();
+
+        Student student = new Student(user, studentNumber, enrollmentYear, StudyForm.FULL_TIME);
+        student.setIsActive(true);
+
+        unitOfWork.getStudentRepository().save(student);
+    }
+
+    /**
+     * Generates a unique student number
+     */
+    private String generateStudentNumber() {
+        // Find the highest existing student number to generate next one
+        List<Student> students = unitOfWork.getStudentRepository().findAll();
+        int maxNumber = 0;
+
+        for (Student student : students) {
+            String number = student.getStudentNumber();
+            if (number != null && number.length() >= 3) {
+                try {
+                    // Extract number part (last 3 digits)
+                    String numberPart = number.substring(number.length() - 3);
+                    int currentNumber = Integer.parseInt(numberPart);
+                    maxNumber = Math.max(maxNumber, currentNumber);
+                } catch (NumberFormatException e) {
+                    // Ignore invalid numbers
+                }
+            }
+        }
+
+        // Generate next number
+        int nextNumber = maxNumber + 1;
+        int currentYear = LocalDateTime.now().getYear();
+        String yearSuffix = String.valueOf(currentYear).substring(2); // Last 2 digits of year
+
+        return String.format("БЗ%s%03d", yearSuffix, nextNumber);
+    }
+
+    /**
+     * Creates a Teacher entity when a user with TEACHER role is created
+     */
+    private void createTeacherEntity(User user) {
+        Teacher teacher = new Teacher();
+        teacher.setUser(user);
+        teacher.setIsActive(true);
+        teacher.setHireDate(LocalDateTime.now());
+        teacher.setDepartmentPosition("Викладач"); // Default position
+
+        unitOfWork.getTeacherRepository().save(teacher);
     }
 }

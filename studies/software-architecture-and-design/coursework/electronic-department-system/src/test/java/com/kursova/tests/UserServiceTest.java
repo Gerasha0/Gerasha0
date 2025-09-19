@@ -16,13 +16,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,6 +33,9 @@ class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
+    
+    @Mock
+    private com.kursova.dal.repositories.StudentRepository studentRepository;
 
     @Mock
     private UserMapper userMapper;
@@ -103,7 +105,9 @@ class UserServiceTest {
     void findByUsername_ShouldReturnUser_WhenUserExists() {
         // Arrange
         when(unitOfWork.getUserRepository()).thenReturn(userRepository);
+        when(unitOfWork.getStudentRepository()).thenReturn(studentRepository);
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(testUser));
+        when(studentRepository.findByUserId(1L)).thenReturn(Optional.empty()); // User is not a student
         when(userMapper.toDto(testUser)).thenReturn(testUserDto);
 
         // Act
@@ -140,9 +144,9 @@ class UserServiceTest {
     @DisplayName("Should find users by role")
     void findByRole_ShouldReturnUsers_WhenUsersExist() {
         // Arrange
-        List<User> users = Arrays.asList(testUser);
-        List<UserDto> userDtos = Arrays.asList(testUserDto);
-        
+        List<User> users = Collections.singletonList(testUser);
+        List<UserDto> userDtos = Collections.singletonList(testUserDto);
+
         when(unitOfWork.getUserRepository()).thenReturn(userRepository);
         when(userRepository.findByRole(UserRole.STUDENT)).thenReturn(users);
         when(userMapper.toDtoList(users)).thenReturn(userDtos);
@@ -163,11 +167,13 @@ class UserServiceTest {
     void create_ShouldReturnCreatedUser_WhenValidData() {
         // Arrange
         when(unitOfWork.getUserRepository()).thenReturn(userRepository);
+        when(unitOfWork.getStudentRepository()).thenReturn(studentRepository);
         when(userRepository.existsByUsername("testuser")).thenReturn(false);
         when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
         when(userMapper.toEntity(testUserDto)).thenReturn(testUser);
         when(userRepository.save(testUser)).thenReturn(testUser);
         when(userMapper.toDto(testUser)).thenReturn(testUserDto);
+        when(studentRepository.findAll()).thenReturn(List.of()); // Empty list for student number generation
 
         // Act
         UserDto result = userService.create(testUserDto);
@@ -212,12 +218,14 @@ class UserServiceTest {
     void createWithPassword_ShouldReturnUser_WhenValidData() {
         // Arrange
         when(unitOfWork.getUserRepository()).thenReturn(userRepository);
+        when(unitOfWork.getStudentRepository()).thenReturn(studentRepository);
         when(userRepository.existsByUsername("testuser")).thenReturn(false);
         when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
         when(passwordEncoder.encode("password123")).thenReturn("hashedpassword");
         when(userMapper.toEntity(testUserDto)).thenReturn(testUser);
         when(userRepository.save(testUser)).thenReturn(testUser);
         when(userMapper.toDto(testUser)).thenReturn(testUserDto);
+        when(studentRepository.findAll()).thenReturn(List.of()); // Empty list for student number generation
 
         // Act
         UserDto result = userService.createWithPassword(testUserDto, "password123");
@@ -282,7 +290,7 @@ class UserServiceTest {
         activatedUser.setId(1L);
         activatedUser.setUsername("testuser");
         activatedUser.setIsActive(true);
-        
+
         UserDto activatedUserDto = new UserDto();
         activatedUserDto.setId(1L);
         activatedUserDto.setUsername("testuser");
@@ -309,7 +317,7 @@ class UserServiceTest {
         deactivatedUser.setId(1L);
         deactivatedUser.setUsername("testuser");
         deactivatedUser.setIsActive(false);
-        
+
         UserDto deactivatedUserDto = new UserDto();
         deactivatedUserDto.setId(1L);
         deactivatedUserDto.setUsername("testuser");

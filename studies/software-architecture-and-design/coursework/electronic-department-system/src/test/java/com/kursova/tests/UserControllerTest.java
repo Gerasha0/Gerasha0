@@ -10,12 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -26,6 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(UserController.class)
+@AutoConfigureMockMvc(addFilters = false)
 @DisplayName("User Controller Tests")
 class UserControllerTest {
 
@@ -112,7 +114,7 @@ class UserControllerTest {
     @DisplayName("Should get all users successfully")
     void getAllUsers_ShouldReturnUsersList_WhenUsersExist() throws Exception {
         // Arrange
-        List<UserDto> users = Arrays.asList(testUserDto);
+        List<UserDto> users = Collections.singletonList(testUserDto);
         when(userService.findAll()).thenReturn(users);
 
         // Act & Assert
@@ -146,7 +148,7 @@ class UserControllerTest {
     @DisplayName("Should get users by role successfully")
     void getUsersByRole_ShouldReturnUsersList_WhenUsersExist() throws Exception {
         // Arrange
-        List<UserDto> students = Arrays.asList(testUserDto);
+        List<UserDto> students = Collections.singletonList(testUserDto);
         when(userService.findByRole(UserRole.STUDENT)).thenReturn(students);
 
         // Act & Assert
@@ -163,7 +165,7 @@ class UserControllerTest {
     @DisplayName("Should get active users by role successfully")
     void getActiveUsersByRole_ShouldReturnActiveUsersList_WhenUsersExist() throws Exception {
         // Arrange
-        List<UserDto> activeStudents = Arrays.asList(testUserDto);
+        List<UserDto> activeStudents = Collections.singletonList(testUserDto);
         when(userService.findActiveByRole(UserRole.STUDENT)).thenReturn(activeStudents);
 
         // Act & Assert

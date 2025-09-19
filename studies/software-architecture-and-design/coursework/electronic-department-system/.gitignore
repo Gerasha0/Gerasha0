@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files
-*.jar
+# *.jar
 *.war
 *.nar
 *.ear
@@ -48,6 +48,10 @@ buildNumber.properties
 .DS_Store
 .DS_Store?
 ._*
+
+# SonarQube credentials (security)
+.sonar-env
+sonar-analyze.sh
 .Spotlight-V100
 .Trashes
 ehthumbs.db
@@ -68,3 +72,6 @@ spring.log
 # Application specific
 /logs/
 application-local.properties
+
+# Updates
+last update.txt

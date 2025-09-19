@@ -1,0 +1,2 @@
+-- Add SPECIALIST to education_level enum in students table (already included in V1)
+-- This migration is redundant but kept for sequence

@@ -13,38 +13,58 @@ import java.util.List;
 /**
  * Mapper for Student entity and StudentDto
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class, StudentGroupMapper.class, DateTimeMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, DateTimeMapper.class, StudentGroupMapper.class})
 public interface StudentMapper {
-    
+
     StudentMapper INSTANCE = Mappers.getMapper(StudentMapper.class);
-    
+
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "averageGrade", ignore = true)
     @Mapping(target = "group", source = "group", qualifiedByName = "toDtoSimple")
     StudentDto toDto(Student entity);
-    
-    @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updatedAt", ignore = true)
-    @Mapping(target = "grades", ignore = true)
-    Student toEntity(StudentDto dto);
-    
-    @Named("studentToDtoSimple")
-    List<StudentDto> toDtoList(List<Student> entities);
-    
-    List<Student> toEntityList(List<StudentDto> dtos);
-    
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "user", ignore = true)
-    @Mapping(target = "createdAt", ignore = true)
-    @Mapping(target = "updatedAt", ignore = true)
-    @Mapping(target = "grades", ignore = true)
-    void updateEntityFromDto(StudentDto dto, @MappingTarget Student entity);
-    
-    // Simple mapping without nested objects for lists
+
     @Named("studentToDtoSimple")
     @Mapping(target = "user", source = "user")
     @Mapping(target = "group", ignore = true) // Avoid circular references in lists
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "averageGrade", ignore = true)
     StudentDto toDtoSimple(Student entity);
+
+    @Named("studentToDtoWithGroup")
+    @Mapping(target = "user", source = "user")
+    @Mapping(target = "group", source = "group", qualifiedByName = "toDtoSimple")
+    @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "averageGrade", ignore = true)
+    StudentDto toDtoWithGroup(Student entity);
+
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "grades", ignore = true)
+
+    Student toEntity(StudentDto dto);
+
+    @Named("studentToDtoSimple")
+    List<StudentDto> toDtoList(List<Student> entities);
+
+    List<Student> toEntityList(List<StudentDto> dtos);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "user", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "grades", ignore = true)
+
+    void updateEntityFromDto(StudentDto dto, @MappingTarget Student entity);
+
+    // Simple mapping without nested objects for lists
+    @Named("studentToDtoForList")
+    @Mapping(target = "user", source = "user")
+    @Mapping(target = "group", ignore = true) // Avoid circular references in lists
+    @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Mapping(target = "averageGrade", ignore = true)
+    StudentDto toDtoForList(Student entity);
 }

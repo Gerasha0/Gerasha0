@@ -19,13 +19,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 /**
@@ -41,6 +40,18 @@ class GradeServiceTest {
 
     @Mock
     private GradeRepository gradeRepository;
+    
+    @Mock
+    private com.kursova.dal.repositories.StudentRepository studentRepository;
+    
+    @Mock
+    private com.kursova.dal.repositories.TeacherRepository teacherRepository;
+    
+    @Mock
+    private com.kursova.dal.repositories.SubjectRepository subjectRepository;
+    
+    @Mock
+    private com.kursova.dal.repositories.ArchivedGradeRepository archivedGradeRepository;
 
     @Mock
     private GradeMapper gradeMapper;
@@ -69,7 +80,7 @@ class GradeServiceTest {
         testGrade = new Grade();
         testGrade.setId(1L);
         testGrade.setGradeValue(85);
-        testGrade.setGradeType(GradeType.MIDTERM);
+        testGrade.setGradeType(GradeType.CONTROL_WORK);
         testGrade.setStudent(testStudent);
         testGrade.setTeacher(testTeacher);
         testGrade.setSubject(testSubject);
@@ -78,7 +89,7 @@ class GradeServiceTest {
         testGradeDto = new GradeDto();
         testGradeDto.setId(1L);
         testGradeDto.setGradeValue(85);
-        testGradeDto.setGradeType(GradeType.MIDTERM);
+        testGradeDto.setGradeType(GradeType.CONTROL_WORK);
         testGradeDto.setStudentId(1L);
         testGradeDto.setTeacherId(1L);
         testGradeDto.setSubjectId(1L);
@@ -120,8 +131,8 @@ class GradeServiceTest {
     @DisplayName("Should find all grades by student ID")
     void findByStudentId_ShouldReturnGrades_WhenStudentHasGrades() {
         // Arrange
-        List<Grade> grades = Arrays.asList(testGrade);
-        
+        List<Grade> grades = Collections.singletonList(testGrade);
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
         when(gradeRepository.findByStudentIdOrderByGradeDateDesc(1L)).thenReturn(grades);
         when(gradeMapper.toDto(testGrade)).thenReturn(testGradeDto);
@@ -141,10 +152,10 @@ class GradeServiceTest {
     @DisplayName("Should find all grades by teacher ID")
     void findByTeacherId_ShouldReturnGrades_WhenTeacherHasGrades() {
         // Arrange
-        List<Grade> grades = Arrays.asList(testGrade);
-        
+        List<Grade> grades = Collections.singletonList(testGrade);
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
-        when(gradeRepository.findByTeacherIdOrderByGradeDateDesc(1L)).thenReturn(grades);
+        when(gradeRepository.findGradesByTeacherId(1L)).thenReturn(grades);
         when(gradeMapper.toDto(testGrade)).thenReturn(testGradeDto);
 
         // Act
@@ -155,7 +166,7 @@ class GradeServiceTest {
             .isNotNull()
             .hasSize(1);
         assertThat(result.get(0).getTeacherId()).isEqualTo(1L);
-        verify(gradeRepository).findByTeacherIdOrderByGradeDateDesc(1L);
+        verify(gradeRepository).findGradesByTeacherId(1L);
     }
 
     @Test
@@ -163,8 +174,16 @@ class GradeServiceTest {
     void create_ShouldReturnCreatedGrade_WhenValidGradeProvided() {
         // Arrange
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
+        when(unitOfWork.getStudentRepository()).thenReturn(studentRepository);
+        when(unitOfWork.getTeacherRepository()).thenReturn(teacherRepository);
+        when(unitOfWork.getSubjectRepository()).thenReturn(subjectRepository);
+        
         when(gradeMapper.toEntity(testGradeDto)).thenReturn(testGrade);
+        when(studentRepository.findById(1L)).thenReturn(Optional.of(testStudent));
+        when(teacherRepository.findById(1L)).thenReturn(Optional.of(testTeacher));
+        when(subjectRepository.findById(1L)).thenReturn(Optional.of(testSubject));
         when(gradeRepository.save(any(Grade.class))).thenReturn(testGrade);
+        when(gradeRepository.findByIdWithRelations(1L)).thenReturn(Optional.of(testGrade));
         when(gradeMapper.toDto(testGrade)).thenReturn(testGradeDto);
 
         // Act
@@ -187,8 +206,10 @@ class GradeServiceTest {
         updatedGradeDto.setGradeValue(90);
 
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
+        when(unitOfWork.getArchivedGradeRepository()).thenReturn(archivedGradeRepository);
         when(gradeRepository.findById(1L)).thenReturn(Optional.of(testGrade));
         when(gradeRepository.save(any(Grade.class))).thenReturn(testGrade);
+        when(archivedGradeRepository.save(any())).thenReturn(null); // We don't care about archived result
         when(gradeMapper.toDto(testGrade)).thenReturn(updatedGradeDto);
 
         // Act
@@ -199,6 +220,7 @@ class GradeServiceTest {
         assertThat(result.getGradeValue()).isEqualTo(90);
         verify(gradeRepository).findById(1L);
         verify(gradeRepository).save(any(Grade.class));
+        verify(archivedGradeRepository).save(any());
     }
 
     @Test
@@ -206,13 +228,16 @@ class GradeServiceTest {
     void delete_ShouldDeleteGrade_WhenGradeExists() {
         // Arrange
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
-        when(gradeRepository.existsById(1L)).thenReturn(true);
+        when(unitOfWork.getArchivedGradeRepository()).thenReturn(archivedGradeRepository);
+        when(gradeRepository.findById(1L)).thenReturn(Optional.of(testGrade));
+        when(archivedGradeRepository.save(any())).thenReturn(null); // We don't care about archived result
 
         // Act
         gradeService.delete(1L);
 
         // Assert
-        verify(gradeRepository).existsById(1L);
+        verify(gradeRepository).findById(1L);
+        verify(archivedGradeRepository).save(any());
         verify(gradeRepository).deleteById(1L);
     }
 
@@ -221,20 +246,23 @@ class GradeServiceTest {
     void delete_ShouldThrowException_WhenGradeNotExists() {
         // Arrange
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
-        when(gradeRepository.existsById(999L)).thenReturn(false);
+        when(gradeRepository.findById(999L)).thenReturn(Optional.empty());
 
         // Act & Assert
         assertThatThrownBy(() -> gradeService.delete(999L))
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("Grade not found with id: 999");
+        
+        verify(gradeRepository).findById(999L);
+        verify(gradeRepository, never()).deleteById(any());
     }
 
     @Test
     @DisplayName("Should find grades by student and subject")
     void findByStudentAndSubject_ShouldReturnGrades_WhenGradesExist() {
         // Arrange
-        List<Grade> grades = Arrays.asList(testGrade);
-        
+        List<Grade> grades = Collections.singletonList(testGrade);
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
         when(gradeRepository.findByStudentIdAndSubjectIdOrderByGradeDateDesc(1L, 1L)).thenReturn(grades);
         when(gradeMapper.toDto(testGrade)).thenReturn(testGradeDto);
@@ -256,7 +284,7 @@ class GradeServiceTest {
     void getAverageGradeForStudentInSubject_ShouldReturnAverage_WhenGradesExist() {
         // Arrange
         Double expectedAverage = 85.5;
-        
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
         when(gradeRepository.getAverageGradeForStudentInSubject(1L, 1L)).thenReturn(expectedAverage);
 
@@ -273,7 +301,7 @@ class GradeServiceTest {
     void getOverallAverageGradeForStudent_ShouldReturnAverage_WhenGradesExist() {
         // Arrange
         Double expectedAverage = 82.7;
-        
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
         when(gradeRepository.getOverallAverageGradeForStudent(1L)).thenReturn(expectedAverage);
 
@@ -291,8 +319,8 @@ class GradeServiceTest {
         // Arrange
         testGrade.setIsFinal(true);
         testGradeDto.setIsFinal(true);
-        List<Grade> finalGrades = Arrays.asList(testGrade);
-        
+        List<Grade> finalGrades = Collections.singletonList(testGrade);
+
         when(unitOfWork.getGradeRepository()).thenReturn(gradeRepository);
         when(gradeRepository.findByStudentIdAndIsFinalTrueOrderBySubjectSubjectNameAsc(1L)).thenReturn(finalGrades);
         when(gradeMapper.toDto(testGrade)).thenReturn(testGradeDto);
