@@ -5,9 +5,6 @@ import org.mapstruct.Mapper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Common mapper for date time conversions
- */
 @Mapper(componentModel = "spring")
 public interface DateTimeMapper {
 

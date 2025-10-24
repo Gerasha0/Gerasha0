@@ -3,83 +3,35 @@ package com.kursova.bll.services;
 import com.kursova.bll.dto.StudentDto;
 import java.util.List;
 
-/**
- * Service interface for Student management
- */
 public interface StudentService extends BaseService<StudentDto, Long> {
 
-    /**
-     * Find all active students
-     */
     List<StudentDto> findActiveStudents();
 
-    /**
-     * Find student by user ID
-     */
     StudentDto findByUserId(Long userId);
 
-    /**
-     * Search students by name
-     */
     List<StudentDto> searchByName(String name);
 
-    /**
-     * Find students by group
-     */
     List<StudentDto> findByGroup(Long groupId);
 
-    /**
-     * Find students without group (not assigned to any group)
-     */
     List<StudentDto> findStudentsWithoutGroup();
 
-    /**
-     * Find students by enrollment year
-     */
     List<StudentDto> findByEnrollmentYear(Integer year);
 
-    /**
-     * Calculate average grade for student
-     */
     Double calculateAverageGrade(Long studentId);
 
-    /**
-     * Get student with calculated course (based on enrollment year)
-     */
     StudentDto findByIdWithCalculatedData(Long id);
 
-    /**
-     * Find students by group ID
-     */
     List<StudentDto> findByGroupId(Long groupId);
 
-    /**
-     * Activate student account
-     */
     StudentDto activateStudent(Long studentId);
 
-    /**
-     * Deactivate student account
-     */
     StudentDto deactivateStudent(Long studentId);
 
-    /**
-     * Assign student to group
-     */
     StudentDto assignToGroup(Long studentId, Long groupId);
 
-    /**
-     * Remove student from group
-     */
     StudentDto removeFromGroup(Long studentId);
 
-    /**
-     * Search students with group information for group assignment
-     */
     List<Object> searchStudentsForGroup(String query, Long groupId);
 
-    /**
-     * Find student by username (used for current authenticated student)
-     */
     StudentDto findByEmail(String username); // Parameter name kept as 'email' for API compatibility
 }

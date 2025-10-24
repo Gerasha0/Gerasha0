@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Implementation of SubjectService
- */
 @Service
 @Transactional(readOnly = true)
 public class SubjectServiceImpl implements SubjectService {

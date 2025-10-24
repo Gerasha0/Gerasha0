@@ -11,9 +11,6 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * Mapper for StudentGroup entity and StudentGroupDto
- */
 @Mapper(componentModel = "spring", uses = {DateTimeMapper.class})
 public interface StudentGroupMapper {
 
@@ -21,7 +18,7 @@ public interface StudentGroupMapper {
 
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
-    @Mapping(target = "students", ignore = true) // Avoid circular references
+    @Mapping(target = "students", ignore = true)
     @Mapping(target = "currentStudentCount", expression = "java(entity.getCurrentStudentCount())")
     @Named("toDto")
     StudentGroupDto toDto(StudentGroup entity);

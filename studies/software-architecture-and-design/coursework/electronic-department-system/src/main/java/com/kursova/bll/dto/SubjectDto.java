@@ -8,9 +8,6 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-/**
- * DTO for Subject entity
- */
 public class SubjectDto {
 
     private Long id;
@@ -43,7 +40,7 @@ public class SubjectDto {
     private String updatedAt;
 
     private List<TeacherDto> teachers;
-    private Integer groupCount; // Number of groups assigned to this subject
+    private Integer groupCount;
 
     // Constructors
     public SubjectDto() {}

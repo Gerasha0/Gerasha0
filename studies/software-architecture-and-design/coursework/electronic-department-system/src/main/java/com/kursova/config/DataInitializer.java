@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Data initializer to populate the database with sample data
- */
 @Component
 @ConditionalOnProperty(name = "app.data.initialize", havingValue = "true", matchIfMissing = true)
 public class DataInitializer implements CommandLineRunner {
@@ -30,7 +27,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
         // Check if data already exists
         if (unitOfWork.getUserRepository().count() > 0) {
-            return; // Data already initialized
+            return;
         }
 
         initializeUsers();

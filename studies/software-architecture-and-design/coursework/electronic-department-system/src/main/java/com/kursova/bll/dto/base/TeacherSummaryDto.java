@@ -1,9 +1,5 @@
 package com.kursova.bll.dto.base;
 
-/**
- * Lightweight DTO for teacher information in other DTOs
- * Reduces complexity of main DTOs
- */
 public class TeacherSummaryDto {
     private Long id;
     private String name;
@@ -17,7 +13,6 @@ public class TeacherSummaryDto {
         this.academicTitle = academicTitle;
     }
 
-    // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

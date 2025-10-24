@@ -10,9 +10,6 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * Mapper for Student entity and StudentDto
- */
 @Mapper(componentModel = "spring", uses = {UserMapper.class, DateTimeMapper.class, StudentGroupMapper.class})
 public interface StudentMapper {
 
@@ -26,7 +23,7 @@ public interface StudentMapper {
 
     @Named("studentToDtoSimple")
     @Mapping(target = "user", source = "user")
-    @Mapping(target = "group", ignore = true) // Avoid circular references in lists
+    @Mapping(target = "group", ignore = true)
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "averageGrade", ignore = true)
@@ -62,7 +59,7 @@ public interface StudentMapper {
     // Simple mapping without nested objects for lists
     @Named("studentToDtoForList")
     @Mapping(target = "user", source = "user")
-    @Mapping(target = "group", ignore = true) // Avoid circular references in lists
+    @Mapping(target = "group", ignore = true)
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "averageGrade", ignore = true)

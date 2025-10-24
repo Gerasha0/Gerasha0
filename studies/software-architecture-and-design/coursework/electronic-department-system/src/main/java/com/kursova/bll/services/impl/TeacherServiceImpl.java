@@ -24,9 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Implementation of TeacherService for managing teachers
- */
 @Service
 @Transactional
 public class TeacherServiceImpl implements TeacherService {

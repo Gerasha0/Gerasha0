@@ -8,9 +8,6 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-/**
- * DTO for StudentGroup entity
- */
 public class StudentGroupDto {
 
     private Long id;

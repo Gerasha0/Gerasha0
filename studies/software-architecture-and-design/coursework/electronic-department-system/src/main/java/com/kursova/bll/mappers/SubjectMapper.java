@@ -10,9 +10,6 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * Mapper for Subject entity and SubjectDto
- */
 @Mapper(componentModel = "spring", uses = {DateTimeMapper.class})
 public interface SubjectMapper {
 
@@ -20,7 +17,7 @@ public interface SubjectMapper {
 
     @Mapping(target = "createdAt", source = "createdAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
     @Mapping(target = "updatedAt", source = "updatedAt", dateFormat = "yyyy-MM-dd HH:mm:ss")
-    @Mapping(target = "teachers", ignore = true) // Handle teachers separately to avoid circular dependency
+    @Mapping(target = "teachers", ignore = true)
     @Mapping(target = "groupCount", expression = "java(entity.getGroups() != null ? entity.getGroups().size() : 0)")
     SubjectDto toDto(Subject entity);
 

@@ -21,36 +21,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 import java.util.Arrays;
 
-/**
- * Security configuration for the Electronic Department System
- * 
- * CSRF Protection Analysis:
- * ========================
- * This application disables CSRF protection because:
- * 
- * 1. Stateless Architecture: Uses SessionCreationPolicy.STATELESS - no server-side sessions
- * 2. JWT Authentication: All authentication is done via JWT tokens in Authorization headers
- * 3. No Cookie-based Authentication: No session cookies that could be vulnerable to CSRF
- * 4. REST API Design: Primarily serves JSON APIs with @RestController annotations
- * 
- * When CSRF protection IS needed:
- * - Applications using session cookies for authentication
- * - Form-based authentication with server-side sessions
- * - Any stateful authentication mechanism
- * - Applications serving HTML forms that modify server state
- * 
- * When CSRF protection can be safely disabled:
- * - Stateless APIs using token-based authentication (like JWT)
- * - APIs that authenticate via Authorization headers
- * - Pure REST APIs without browser-based form submissions
- * - Applications where all clients are controlled (mobile apps, SPAs)
- * 
- * Additional Security Measures in place:
- * - CORS configuration with restricted origins (NOT using "*" wildcard)
- * - JWT token validation for all protected endpoints
- * - Role-based access control with @PreAuthorize annotations
- * - Security headers (HSTS, Content-Type Options)
- */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -71,11 +41,6 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, com.kursova.config.jwt.JwtUtils jwtUtils, com.kursova.config.jwt.DbUserDetailsService userDetailsService) throws Exception {
         http
-            // CSRF is disabled because:
-            // 1. This is a stateless REST API using JWT tokens
-            // 2. No session cookies are used (SessionCreationPolicy.STATELESS)
-            // 3. Authentication is done via Authorization header, not cookies
-            // 4. All state is maintained client-side in JWT tokens
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

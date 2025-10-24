@@ -10,9 +10,6 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * Mapper for Grade entity and GradeDto
- */
 @Mapper(componentModel = "spring", uses = {DateTimeMapper.class})
 public interface GradeMapper {
 

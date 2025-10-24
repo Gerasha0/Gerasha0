@@ -1,9 +1,5 @@
 package com.kursova.bll.dto.base;
 
-/**
- * Lightweight DTO for subject information in other DTOs
- * Reduces complexity of main DTOs
- */
 public class SubjectSummaryDto {
     private Long id;
     private String name;
@@ -17,7 +13,6 @@ public class SubjectSummaryDto {
         this.code = code;
     }
 
-    // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

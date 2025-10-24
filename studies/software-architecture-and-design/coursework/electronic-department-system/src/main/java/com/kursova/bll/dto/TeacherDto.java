@@ -5,9 +5,6 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-/**
- * DTO for Teacher entity
- */
 public class TeacherDto {
 
     private Long id;

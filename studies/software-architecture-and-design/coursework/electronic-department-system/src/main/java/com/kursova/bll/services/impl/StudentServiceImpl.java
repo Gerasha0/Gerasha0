@@ -22,9 +22,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
-/**
- * Implementation of StudentService
- */
 @Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
@@ -60,7 +57,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional(readOnly = true)
     public StudentDto findByIdWithCalculatedData(Long id) {
-        return findById(id); // Already includes calculated data
+        return findById(id);
     }
 
     @Override

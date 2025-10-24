@@ -6,9 +6,6 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-/**
- * DTO for Grade entity
- */
 public class GradeDto {
 
     private Long id;
@@ -24,7 +21,7 @@ public class GradeDto {
     @NotNull(message = "Grade category is required")
     private GradeCategory gradeCategoryEnum;
 
-    private String gradeCategory; // For backward compatibility
+    private String gradeCategory;
     private String gradeDate;
     private String comments;
     private Boolean isFinal;
@@ -33,7 +30,7 @@ public class GradeDto {
 
     // Related entities as simple references
     private Long studentId;
-    private Long studentUserId; // User ID of the student
+    private Long studentUserId;
     private String studentName;
     private String studentNumber;
 

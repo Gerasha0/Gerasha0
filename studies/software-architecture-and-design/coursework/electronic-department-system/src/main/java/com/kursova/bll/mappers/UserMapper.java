@@ -9,9 +9,6 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-/**
- * Mapper for User entity and UserDto
- */
 @Mapper(componentModel = "spring", uses = {DateTimeMapper.class})
 public interface UserMapper {
 
@@ -23,7 +20,7 @@ public interface UserMapper {
     @Mapping(target = "studentId", source = "student.id")
     UserDto toDto(User entity);
 
-    @Mapping(target = "password", ignore = true) // Password should be handled separately
+    @Mapping(target = "password", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "teacher", ignore = true)

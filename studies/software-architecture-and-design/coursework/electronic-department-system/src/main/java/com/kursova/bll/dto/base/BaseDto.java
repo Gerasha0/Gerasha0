@@ -1,16 +1,11 @@
 package com.kursova.bll.dto.base;
 
-/**
- * Base DTO class containing common fields for all DTOs
- * Reduces code duplication across DTO classes
- */
 public abstract class BaseDto {
     protected Long id;
     protected Boolean isActive;
     protected String createdAt;
     protected String updatedAt;
 
-    // Common getters and setters
     public Long getId() {
         return id;
     }

@@ -21,9 +21,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Implementation of GradeService for managing grades
- */
 @Service
 @Transactional
 public class GradeServiceImpl implements GradeService {

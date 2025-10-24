@@ -10,9 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * Implementation of ArchiveService
- */
 @Service
 @Transactional
 public class ArchiveServiceImpl implements ArchiveService {

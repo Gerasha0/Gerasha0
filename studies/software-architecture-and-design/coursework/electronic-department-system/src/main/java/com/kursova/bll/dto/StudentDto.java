@@ -6,9 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-/**
- * DTO for Student entity
- */
 public class StudentDto {
 
     private Long id;
@@ -39,7 +36,7 @@ public class StudentDto {
     private StudentGroupDto group;
 
     // Calculated fields
-    private Double averageGrade; // Calculated based on grades
+    private Double averageGrade;
 
     // Constructors
     public StudentDto() {}
