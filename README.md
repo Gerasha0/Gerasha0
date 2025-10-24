@@ -24,8 +24,8 @@
 ## 🚀 Active Projects (sorted by latest activity)
 
 <!-- PROJECTS_START -->
+- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-10-24 10:19
 - [appliance-store](https://github.com/Gerasha0/appliance-store) — 2025-10-16 15:00
-- [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) — 2025-09-15 10:38
 <!-- PROJECTS_END -->
 
 <br>
