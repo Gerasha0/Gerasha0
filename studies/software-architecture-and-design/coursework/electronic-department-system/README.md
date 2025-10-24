@@ -154,11 +154,11 @@ Electronic Department System — це **сучасна веб-система у�
 
 ---
 
-# 🏗️ Архитектура системы
+# 🏗️ Архітектура системи
 
 <div align="center">
 
-### 📐 Архитектурная схема
+### 📐 Архітектурна схема
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -750,7 +750,7 @@ DELETE /api/archive/grades/{id}                           # Видалити з 
 ### 🔧 API Testing
 
 Усі endpoints доступні для тестування через:
-- 📚 **Swagger UI**  : http://localhost:8080/swagger-ui.html
+- 📚 **Swagger UI**  D: http://localhost:8080/swagger-ui.html
 - 📄 **OpenAPI Spec**: http://localhost:8080/api-docs
 - 🧪 **Manual Tests**: `manual_tests.http` (у корені проекту)
 
