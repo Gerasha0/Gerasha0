@@ -45,17 +45,20 @@ public class AppTest
         String testText = "This cat and dog are near the home.";
         List<String> removedWords = new ArrayList<>();
         
-        // Видаляємо слова довжиною 3 символи, що починаються на приголосні (cat, dog)
+        // Видаляємо слова довжиною 3 символи, що починаються на приголосні (cat, dog, the)
         String result = (String) processTextMethod.invoke(null, testText, 3, removedWords);
+        
         assertTrue("Слово 'cat' повинно бути видалено", !result.contains("cat"));
         assertTrue("Слово 'dog' повинно бути видалено", !result.contains("dog"));
         assertTrue("Слово 'and' повинно залишитися (починається на голосну)", result.contains("and"));
         assertTrue("Слово 'are' повинно залишитися (починається на голосну)", result.contains("are"));
         
         // Перевіряємо що видалені слова збережено
-        assertTrue("У списку видалених слів повинно бути 2 елементи", removedWords.size() == 2);
+        // У тексті "This cat and dog are near the home." слова довжиною 3 на приголосні: cat, dog, the (3 слова!)
+        assertTrue("У списку видалених слів повинно бути 3 елементи (cat, dog, the)", removedWords.size() == 3);
         assertTrue("Список повинен містити 'cat'", removedWords.contains("cat"));
         assertTrue("Список повинен містити 'dog'", removedWords.contains("dog"));
+        assertTrue("Список повинен містити 'the'", removedWords.contains("the"));
     }
     
     /**
