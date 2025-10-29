@@ -1,0 +1,35 @@
+@startuml CreateOrderSequence
+
+actor User
+participant ConsoleApplication
+participant OrderService
+participant UnitOfWork
+participant OrderRepository
+participant Order
+participant OrderMapper
+
+User -> ConsoleApplication : createOrder()
+ConsoleApplication -> ConsoleApplication : getStringInput("Ім'я клієнта")
+ConsoleApplication -> ConsoleApplication : getStringInput("Адреса")
+ConsoleApplication -> ConsoleApplication : getStringInput("Телефон")
+
+ConsoleApplication -> OrderService : createOrder(name, address, phone)
+
+OrderService -> UnitOfWork : beginTransaction()
+OrderService -> Order : new Order(name, address, phone)
+Order -> Order : setStatus(PENDING)
+Order -> Order : setOrderDate(LocalDate.now())
+
+OrderService -> UnitOfWork : getOrderRepository()
+UnitOfWork -> OrderRepository : return repository
+OrderService -> OrderRepository : save(order)
+OrderRepository -> OrderRepository : persist(order)
+
+OrderService -> UnitOfWork : commit()
+OrderService -> OrderMapper : toDto(order)
+OrderMapper -> OrderService : return orderDto
+
+OrderService -> ConsoleApplication : return orderDto
+ConsoleApplication -> User : "Замовлення створено з ID: {id}"
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml OrderStateDiagram
+
+[*] --> PENDING : createOrder()
+
+PENDING --> CONFIRMED : confirmOrder()
+PENDING --> CANCELLED : cancelOrder()
+
+CONFIRMED --> PREPARING : startPreparing()
+CONFIRMED --> CANCELLED : cancelOrder()
+
+PREPARING --> READY : finishPreparing()
+PREPARING --> CANCELLED : cancelOrder()
+
+READY --> DELIVERED : deliverOrder()
+READY --> CANCELLED : cancelOrder()
+
+DELIVERED --> [*]
+CANCELLED --> [*]
+
+note right of PENDING : Замовлення створено,\nможна додавати страви
+note right of CONFIRMED : Замовлення підтверджено,\nпочинається приготування
+note right of PREPARING : Страви готуються
+note right of READY : Замовлення готове\nдо доставки
+note right of DELIVERED : Замовлення доставлено\nклієнту
+note right of CANCELLED : Замовлення скасовано
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml SequenceDiagram
+!theme plain
+
+title Створення замовлення - Sequence Diagram
+
+actor Client
+participant "OrderController" as Controller
+participant "OrderService" as Service
+participant "OrderRepository" as OrderRepo
+participant "DishRepository" as DishRepo
+participant "DtoMapper" as Mapper
+database "orders.txt" as File
+
+Client -> Controller : POST /api/orders\n(CreateOrderDto)
+activate Controller
+
+Controller -> Mapper : validate orderDto
+activate Mapper
+Mapper --> Controller : validated
+deactivate Mapper
+
+Controller -> Service : createOrder(customerName,\ncustomerPhone, deliveryAddress, orderItems)
+activate Service
+
+Service -> Service : validateOrder(order)
+
+loop for each orderItem
+    Service -> DishRepo : findById(dishId)
+    activate DishRepo
+    DishRepo --> Service : Optional<Dish>
+    deactivate DishRepo
+    
+    Service -> Service : check dish availability
+end
+
+Service -> OrderRepo : save(order)
+activate OrderRepo
+OrderRepo -> File : write order data
+File --> OrderRepo : success
+OrderRepo --> Service : saved order
+deactivate OrderRepo
+
+Service -> Service : calculateOrderTotal(order)
+Service --> Controller : Order
+deactivate Service
+
+Controller -> Mapper : toDto(order)
+activate Mapper
+Mapper --> Controller : OrderDto
+deactivate Mapper
+
+Controller --> Client : ResponseEntity<OrderDto>\n201 CREATED
+deactivate Controller
+
+@enduml

@@ -1,0 +1,78 @@
+@startuml PackageDiagram
+
+package "com.example2" {
+    package "ui.console" {
+        class ConsoleApplication
+    }
+    
+    package "bll" {
+        package "services" {
+            package "interfaces" {
+                interface IDishService
+                interface IOrderService
+            }
+            package "implementations" {
+                class DishService
+                class OrderService
+            }
+        }
+        
+        package "dto" {
+            class DishDto
+            class OrderDto
+            class OrderItemDto
+        }
+        
+        package "mappers" {
+            class DishMapper
+            class OrderMapper
+            class OrderItemMapper
+        }
+        
+        package "exceptions" {
+            class EntityNotFoundException
+            class InvalidOperationException
+        }
+    }
+    
+    package "dal" {
+        package "entities" {
+            class Dish
+            class Order
+            class OrderItem
+            enum DishType
+            enum OrderStatus
+        }
+        
+        package "repositories" {
+            interface IRepository
+            interface IDishRepository
+            interface IOrderRepository
+            class GenericRepository
+            class DishRepository
+            class OrderRepository
+        }
+        
+        package "uow" {
+            interface IUnitOfWork
+            class UnitOfWork
+        }
+        
+        package "config" {
+            class DatabaseConfig
+        }
+    }
+    
+    class App
+}
+
+' Dependencies
+"ui.console" ..> "bll.services.interfaces"
+"bll.services.implementations" ..> "dal.uow"
+"bll.services.implementations" ..> "bll.mappers"
+"bll.mappers" ..> "bll.dto"
+"bll.mappers" ..> "dal.entities"
+"dal.repositories" ..> "dal.entities"
+"dal.uow" ..> "dal.repositories"
+
+@enduml

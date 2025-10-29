@@ -1,0 +1,41 @@
+@startuml AddDishToOrderSequence
+
+actor User
+participant ConsoleApplication
+participant OrderService
+participant UnitOfWork
+participant OrderRepository
+participant DishRepository
+participant Order
+participant Dish
+participant OrderItem
+
+User -> ConsoleApplication : addDishToOrder()
+ConsoleApplication -> ConsoleApplication : getLongInput("ID замовлення")
+ConsoleApplication -> ConsoleApplication : showAvailableDishes()
+ConsoleApplication -> ConsoleApplication : getLongInput("ID страви")
+ConsoleApplication -> ConsoleApplication : getIntInput("Кількість")
+
+ConsoleApplication -> OrderService : addDishToOrder(orderId, dishId, quantity)
+
+OrderService -> UnitOfWork : beginTransaction()
+OrderService -> UnitOfWork : getOrderRepository()
+OrderService -> OrderRepository : findById(orderId)
+OrderRepository -> OrderService : return Optional<Order>
+
+OrderService -> UnitOfWork : getDishRepository()
+OrderService -> DishRepository : findById(dishId)
+DishRepository -> OrderService : return Optional<Dish>
+
+OrderService -> OrderService : validate order status
+OrderService -> OrderItem : new OrderItem(order, dish, quantity)
+OrderService -> Order : addOrderItem(orderItem)
+Order -> Order : calculateTotalPrice()
+
+OrderService -> OrderRepository : save(order)
+OrderService -> UnitOfWork : commit()
+OrderService -> ConsoleApplication : return updatedOrderDto
+
+ConsoleApplication -> User : "Страву додано до замовлення"
+
+@enduml

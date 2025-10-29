@@ -1,0 +1,76 @@
+@startuml ComponentDiagram
+!theme plain
+
+title Система доставки їжі - Діаграма компонентів
+
+package "Web Application" {
+    component "Spring Boot Server" {
+        [REST API Controllers]
+        [Static Web Content]
+        [DTO Mappers]
+    }
+    
+    component "Business Logic" {
+        [DishService]
+        [OrderService]
+        [Validation Logic]
+    }
+    
+    component "Data Access" {
+        [DishRepository]
+        [OrderRepository]
+        [File Storage Handler]
+    }
+    
+    component "Domain Model" {
+        [Dish Entity]
+        [Order Entity]
+        [OrderItem Entity]
+        [Enums]
+    }
+}
+
+database "File System" {
+    file "dishes.txt" as dishes
+    file "orders.txt" as orders
+}
+
+folder "Static Resources" {
+    file "index.html"
+    file "styles.css"
+    file "app.js"
+}
+
+[REST API Controllers] --> [DishService]
+[REST API Controllers] --> [OrderService]
+[REST API Controllers] --> [DTO Mappers]
+
+[DishService] --> [DishRepository]
+[OrderService] --> [OrderRepository]
+[OrderService] --> [DishRepository]
+
+[DishRepository] --> [File Storage Handler]
+[OrderRepository] --> [File Storage Handler]
+
+[File Storage Handler] --> dishes
+[File Storage Handler] --> orders
+
+[DishService] --> [Domain Model]
+[OrderService] --> [Domain Model]
+[DishRepository] --> [Domain Model]
+[OrderRepository] --> [Domain Model]
+
+[Static Web Content] --> [Static Resources]
+
+note right of [File Storage Handler]
+    Uses Jackson ObjectMapper
+    for JSON serialization
+end note
+
+note right of [REST API Controllers]
+    @RestController
+    @RequestMapping
+    Handles HTTP requests
+end note
+
+@enduml

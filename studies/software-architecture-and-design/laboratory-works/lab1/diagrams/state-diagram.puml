@@ -1,0 +1,32 @@
+@startuml StatesDiagram
+
+[*] --> Created : createApplication()
+
+Created --> UnderReview : submitForReview()
+Created --> Cancelled : cancel()
+
+UnderReview --> Approved : approve()
+UnderReview --> Rejected : reject()
+UnderReview --> Deferred : defer()
+UnderReview --> Cancelled : cancel()
+
+Rejected --> UnderReview : resubmit()
+Rejected --> Cancelled : cancel()
+
+Deferred --> UnderReview : submitForReview() / resubmit()
+Deferred --> Approved : approve()
+Deferred --> Rejected : reject()
+Deferred --> Cancelled : cancel()
+
+Approved --> Cancelled : cancel()
+
+Cancelled --> [*]
+
+note right of Created : Початковий стан\nзаявки після створення
+note right of UnderReview : Заявка розглядається\nкомісією
+note right of Approved : Заявка схвалена,\nгрант буде виділено
+note right of Rejected : Заявка відхилена,\nможна подати повторно
+note right of Deferred : Заявка відкладена\nдля додаткового розгляду
+note right of Cancelled : Заявка скасована,\nостаточний стан
+
+@enduml

@@ -330,63 +330,49 @@
         </div>
     </footer>
 
+    <!-- Модальне вікно кошика -->
+    <div id="cartModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: white; border-radius: 20px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="margin: 0;">🛒 Ваше замовлення</h2>
+                <button onclick="closeCart()" style="background: none; border: none; font-size: 24px; cursor: pointer;">✕</button>
+            </div>
+            <div id="cartItems"></div>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+                <div style="display: flex; justify-content: space-between; font-size: 1.3em; font-weight: bold; margin-bottom: 20px;">
+                    <span>Загальна сума:</span>
+                    <span id="cartTotal">0 ₴</span>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="customerName" placeholder="Ваше ім'я" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; margin-bottom: 10px;">
+                    <input type="tel" id="customerPhone" placeholder="Телефон +380..." required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; margin-bottom: 10px;">
+                    <input type="text" id="customerAddress" placeholder="Адреса доставки" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;">
+                </div>
+                <button onclick="submitOrder()" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s;">
+                    📦 Оформити замовлення
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка кошика (плаваюча) -->
+    <div id="cartButton" style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999;" onclick="openCart()">
+        🛒
+        <span id="cartCount" style="position: absolute; top: -5px; right: -5px; background: #fff; color: #ff6b6b; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold;">0</span>
+    </div>
+
     <script>
+        // Глобальні змінні
+        let cart = [];
+        let allDishes = [];
+
         // Завантаження меню з API
         async function loadMenu() {
             try {
                 const response = await fetch('/api/dishes');
-                const dishes = await response.json();
+                allDishes = await response.json();
                 
-                // Групуємо страви за типами
-                const dishTypes = {
-                    'FIRST_COURSE': { name: '🍲 Перші страви', class: 'first-course', dishes: [] },
-                    'SECOND_COURSE': { name: '🍖 Другі страви', class: 'second-course', dishes: [] },
-                    'SALAD': { name: '🥗 Салати', class: 'salads', dishes: [] },
-                    'DESSERT': { name: '🍰 Десерти', class: 'desserts', dishes: [] },
-                    'DRINK': { name: '🥤 Напої', class: 'drinks', dishes: [] }
-                };
-                
-                // Розподіляємо страви по категоріях
-                dishes.forEach(dish => {
-                    if (dishTypes[dish.dishType]) {
-                        dishTypes[dish.dishType].dishes.push(dish);
-                    }
-                });
-                
-                // Створюємо HTML для меню
-                const menuGrid = document.getElementById('menuGrid');
-                menuGrid.innerHTML = '';
-                
-                Object.values(dishTypes).forEach(category => {
-                    if (category.dishes.length > 0) {
-                        const card = document.createElement('div');
-                        card.className = 'menu-card';
-                        
-                        card.innerHTML = `
-                            <div class="menu-card-header ${category.class}">
-                                ${category.name}
-                            </div>
-                            <div class="menu-card-content">
-                                ${category.dishes.map(dish => `
-                                    <div class="dish-item">
-                                        <div class="dish-info">
-                                            <h4>${dish.name}</h4>
-                                            <p>${dish.description}</p>
-                                        </div>
-                                        <div style="display: flex; align-items: center;">
-                                            <span class="dish-price">${dish.price} ₴</span>
-                                            <button class="order-button" onclick="orderDish('${dish.name}', ${dish.price})">
-                                                🛒 Замовити
-                                            </button>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        `;
-                        
-                        menuGrid.appendChild(card);
-                    }
-                });
+                displayDishes(allDishes);
                 
             } catch (error) {
                 console.error('Помилка завантаження меню:', error);
@@ -398,12 +384,216 @@
                 `;
             }
         }
-        
-        // Функція замовлення страви
-        function orderDish(dishName, price) {
-            alert(`🎉 Дякуємо за замовлення!\n\nСтрава: ${dishName}\nЦіна: ${price} ₴\n\nНезабаром з вами зв'яжеться наш менеджер для підтвердження замовлення.`);
+
+        // Відображення страв
+        function displayDishes(dishes) {
+            const dishTypes = {
+                'FIRST_COURSE': { name: '🍲 Перші страви', class: 'first-course', dishes: [] },
+                'SECOND_COURSE': { name: '🍖 Другі страви', class: 'second-course', dishes: [] },
+                'SALAD': { name: '🥗 Салати', class: 'salads', dishes: [] },
+                'DESSERT': { name: '🍰 Десерти', class: 'desserts', dishes: [] },
+                'DRINK': { name: '🥤 Напої', class: 'drinks', dishes: [] },
+                'APPETIZER': { name: '🥙 Закуски', class: 'appetizers', dishes: [] }
+            };
+            
+            dishes.forEach(dish => {
+                if (dishTypes[dish.dishType]) {
+                    dishTypes[dish.dishType].dishes.push(dish);
+                }
+            });
+            
+            const menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = '';
+            
+            Object.values(dishTypes).forEach(category => {
+                if (category.dishes.length > 0) {
+                    const card = document.createElement('div');
+                    card.className = 'menu-card';
+                    
+                    card.innerHTML = `
+                        <div class="menu-card-header ${category.class}">
+                            ${category.name}
+                        </div>
+                        <div class="menu-card-content">
+                            ${category.dishes.map(dish => `
+                                <div class="dish-item">
+                                    <div class="dish-info">
+                                        <h4>${dish.name}</h4>
+                                        <p>${dish.description}</p>
+                                        ${!dish.available ? '<span style="color: red; font-size: 0.9em;">Недоступно</span>' : ''}
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span class="dish-price">${dish.price} ₴</span>
+                                        <button class="order-button" onclick="addToCart(${dish.id})" ${!dish.available ? 'disabled' : ''}>
+                                            🛒 Додати
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    
+                    menuGrid.appendChild(card);
+                }
+            });
         }
-        
+
+        // Додати страву в кошик
+        function addToCart(dishId) {
+            const dish = allDishes.find(d => d.id === dishId);
+            if (!dish) return;
+
+            const existingItem = cart.find(item => item.dish.id === dishId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ dish: dish, quantity: 1 });
+            }
+            
+            updateCartUI();
+            showNotification(`✅ ${dish.name} додано в кошик!`);
+        }
+
+        // Оновити UI кошика
+        function updateCartUI() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+
+        // Відкрити кошик
+        function openCart() {
+            if (cart.length === 0) {
+                showNotification('⚠️ Кошик порожній! Додайте страви з меню.');
+                return;
+            }
+
+            const cartModal = document.getElementById('cartModal');
+            const cartItems = document.getElementById('cartItems');
+            
+            cartItems.innerHTML = cart.map((item, index) => `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee;">
+                    <div style="flex: 1;">
+                        <strong>${item.dish.name}</strong><br>
+                        <span style="color: #666;">${item.dish.price} ₴ × ${item.quantity}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <button onclick="changeQuantity(${index}, -1)" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ff6b6b; background: white; color: #ff6b6b; cursor: pointer;">−</button>
+                        <span style="font-weight: bold; min-width: 30px; text-align: center;">${item.quantity}</span>
+                        <button onclick="changeQuantity(${index}, 1)" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ff6b6b; background: white; color: #ff6b6b; cursor: pointer;">+</button>
+                        <button onclick="removeFromCart(${index})" style="background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer;">�️</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            const total = cart.reduce((sum, item) => sum + (item.dish.price * item.quantity), 0);
+            document.getElementById('cartTotal').textContent = total.toFixed(2) + ' ₴';
+            
+            cartModal.style.display = 'flex';
+        }
+
+        // Закрити кошик
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        // Змінити кількість
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        // Видалити з кошика
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+            if (cart.length === 0) {
+                closeCart();
+            } else {
+                openCart();
+            }
+        }
+
+        // Оформити замовлення
+        async function submitOrder() {
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+
+            if (!name || !phone || !address) {
+                showNotification('⚠️ Заповніть всі поля!');
+                return;
+            }
+
+            const orderData = {
+                customerName: name,
+                customerPhone: phone,
+                deliveryAddress: address,
+                orderType: 'DELIVERY',
+                orderItems: cart.map(item => ({
+                    dish: { id: item.dish.id },
+                    quantity: item.quantity,
+                    unitPrice: item.dish.price
+                }))
+            };
+
+            try {
+                const response = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                if (response.ok) {
+                    const order = await response.json();
+                    showNotification(`🎉 Замовлення №${order.id} успішно оформлено!\n\nСума: ${order.totalAmount} ₴\nОчікуйте дзвінка від менеджера!`);
+                    cart = [];
+                    updateCartUI();
+                    closeCart();
+                    
+                    // Очистити форму
+                    document.getElementById('customerName').value = '';
+                    document.getElementById('customerPhone').value = '';
+                    document.getElementById('customerAddress').value = '';
+                } else {
+                    const error = await response.text();
+                    showNotification('❌ Помилка оформлення замовлення: ' + error);
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання з сервером');
+            }
+        }
+
+        // Показати сповіщення
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 10000;
+                max-width: 300px;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = `<div style="white-space: pre-line;">${message}</div>`;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
         // Плавна прокрутка до меню
         document.querySelector('a[href="#menu"]').addEventListener('click', function(e) {
             e.preventDefault();
@@ -411,9 +601,34 @@
                 behavior: 'smooth'
             });
         });
-        
+
+        // Закриття модального вікна по кліку поза ним
+        document.getElementById('cartModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCart();
+            }
+        });
+
         // Завантажуємо меню при завантаженні сторінки
         document.addEventListener('DOMContentLoaded', loadMenu);
+
+        // CSS анімації
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+            .order-button:disabled {
+                background: #ccc !important;
+                cursor: not-allowed !important;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

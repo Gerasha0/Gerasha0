@@ -1,0 +1,31 @@
+@startuml StatePatternSequence
+
+actor User
+participant GrantApplicationService
+participant GrantApplication
+participant CreatedState
+participant UnderReviewState
+participant StateLogger
+participant ApplicantNotifier
+
+User -> GrantApplicationService : createApplication(...)
+GrantApplicationService -> GrantApplication : new GrantApplication(...)
+GrantApplication -> CreatedState : new CreatedState()
+GrantApplication -> StateLogger : addObserver()
+GrantApplication -> ApplicantNotifier : addObserver()
+
+User -> GrantApplicationService : submitForReview(id)
+GrantApplicationService -> GrantApplication : submitForReview()
+GrantApplication -> CreatedState : submitForReview(this)
+CreatedState -> GrantApplication : setState(new UnderReviewState())
+GrantApplication -> StateLogger : onStateChanged(...)
+GrantApplication -> ApplicantNotifier : onStateChanged(...)
+
+User -> GrantApplicationService : approveApplication(id)
+GrantApplicationService -> GrantApplication : approve()
+GrantApplication -> UnderReviewState : approve(this)
+UnderReviewState -> GrantApplication : setState(new ApprovedState())
+GrantApplication -> StateLogger : onStateChanged(...)
+GrantApplication -> ApplicantNotifier : onStateChanged(...)
+
+@enduml

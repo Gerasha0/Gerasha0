@@ -1,0 +1,116 @@
+@startuml LayeredArchitecture
+!theme plain
+
+title Багаторівнева архітектура системи
+
+package "Presentation Layer (API)" #E8F4FD {
+    rectangle "REST Controllers" {
+        [DishController]
+        [OrderController]
+        [WebController]
+    }
+    
+    rectangle "DTOs" {
+        [DishDto]
+        [OrderDto]
+        [CreateOrderDto]
+        [ComplexLunchDto]
+    }
+    
+    rectangle "Mappers" {
+        [DtoMapper]
+    }
+}
+
+package "Business Logic Layer" #F0F8E8 {
+    rectangle "Services" {
+        [DishService]
+        [OrderService]
+    }
+    
+    rectangle "Business Rules" {
+        [Validation]
+        [Calculations]
+        [Complex Lunch Logic]
+    }
+}
+
+package "Data Access Layer" #FFF0E8 {
+    rectangle "Repositories" {
+        interface "DishRepository" as IDishRepo
+        interface "OrderRepository" as IOrderRepo
+        [FileDishRepository]
+        [FileOrderRepository]
+    }
+    
+    rectangle "Data Storage" {
+        [File Operations]
+        [JSON Serialization]
+    }
+}
+
+package "Domain Layer" #F8F0FF {
+    rectangle "Entities" {
+        [Dish]
+        [Order]
+        [OrderItem]
+    }
+    
+    rectangle "Enumerations" {
+        [DishType]
+        [OrderStatus]
+        [OrderType]
+    }
+}
+
+database "File System" {
+    folder "dishes.txt"
+    folder "orders.txt"
+}
+
+' Dependencies (top-down only)
+[REST Controllers] --> [Services]
+[REST Controllers] --> [DTOs]
+[REST Controllers] --> [Mappers]
+
+[Services] --> [Repositories]
+[Services] --> [Business Rules]
+[Services] --> [Entities]
+
+[Repositories] --> [Data Storage]
+[Repositories] --> [Entities]
+
+[Data Storage] --> [File System]
+
+[Mappers] --> [DTOs]
+[Mappers] --> [Entities]
+
+note right of "Presentation Layer (API)"
+    Відповідає за:
+    - HTTP запити/відповіді
+    - Валідацію вхідних даних
+    - Перетворення Entity ↔ DTO
+end note
+
+note right of "Business Logic Layer"
+    Відповідає за:
+    - Бізнес-логіку
+    - Розрахунки
+    - Валідацію бізнес-правил
+end note
+
+note right of "Data Access Layer"
+    Відповідає за:
+    - Збереження даних
+    - Завантаження даних
+    - Управління файлами
+end note
+
+note right of "Domain Layer"
+    Відповідає за:
+    - Доменну модель
+    - Сутності системи
+    - Бізнес-об'єкти
+end note
+
+@enduml

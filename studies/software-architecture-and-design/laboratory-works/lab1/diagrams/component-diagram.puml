@@ -1,0 +1,50 @@
+@startuml ComponentDiagram
+
+package "Grant Application System" {
+    component "State Management" {
+        [State Pattern Implementation]
+        [GrantApplicationState]
+        [Concrete States]
+    }
+    
+    component "Factory System" {
+        [Factory Method Pattern]
+        [Grant Type Factories]
+        [Validation Logic]
+    }
+    
+    component "Evaluation System" {
+        [Strategy Pattern]
+        [Evaluation Strategies]
+        [Scoring Algorithms]
+    }
+    
+    component "Notification System" {
+        [Observer Pattern]
+        [State Observers]
+        [Notification Logic]
+    }
+    
+    component "Core Model" {
+        [GrantApplication]
+        [GrantType]
+        [Business Logic]
+    }
+    
+    component "Service Layer" {
+        [GrantApplicationService]
+        [Facade Pattern]
+        [Coordination Logic]
+    }
+}
+
+[State Management] --> [Core Model]
+[Factory System] --> [Core Model]
+[Evaluation System] --> [Core Model]
+[Notification System] --> [Core Model]
+[Service Layer] --> [State Management]
+[Service Layer] --> [Factory System]
+[Service Layer] --> [Evaluation System]
+[Service Layer] --> [Notification System]
+
+@enduml

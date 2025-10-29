@@ -1,0 +1,53 @@
+@startuml OrderStateDiagram
+!theme plain
+
+title Діаграма станів замовлення (Order State Diagram)
+
+[*] --> PENDING : createOrder()
+
+PENDING --> CONFIRMED : confirmOrder()
+PENDING --> CANCELLED : cancelOrder()
+
+CONFIRMED --> PREPARING : startPreparing()
+CONFIRMED --> CANCELLED : cancelOrder()
+
+PREPARING --> DELIVERING : startDelivery()
+PREPARING --> CANCELLED : cancelOrder()
+
+DELIVERING --> DELIVERED : completeDelivery()
+DELIVERING --> CANCELLED : cancelOrder()
+
+DELIVERED --> [*]
+CANCELLED --> [*]
+
+note right of PENDING
+    Нове замовлення
+    Очікує підтвердження
+end note
+
+note right of CONFIRMED
+    Замовлення підтверджено
+    Готується до виконання
+end note
+
+note right of PREPARING
+    Страви готуються
+    на кухні
+end note
+
+note right of DELIVERING
+    Замовлення доставляється
+    кур'єром
+end note
+
+note right of DELIVERED
+    Замовлення успішно
+    доставлено клієнту
+end note
+
+note right of CANCELLED
+    Замовлення скасовано
+    (фінальний стан)
+end note
+
+@enduml

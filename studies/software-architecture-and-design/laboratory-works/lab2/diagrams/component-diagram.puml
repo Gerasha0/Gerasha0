@@ -1,0 +1,46 @@
+@startuml ComponentDiagram
+
+package "Food Delivery System" {
+    component "UI Layer" {
+        [Console Application]
+        [Menu System]
+        [Input Validation]
+        [Data Display]
+    }
+    
+    component "Business Logic Layer" {
+        [Dish Service]
+        [Order Service]
+        [DTO Objects]
+        [Mappers]
+        [Business Rules]
+        [Exception Handling]
+    }
+    
+    component "Data Access Layer" {
+        [Repository Pattern]
+        [Unit of Work]
+        [Entity Models]
+        [Database Context]
+    }
+    
+    component "Infrastructure" {
+        [H2 Database]
+        [Hibernate/JPA]
+        [Configuration]
+        [Logging]
+    }
+}
+
+[Console Application] --> [Dish Service]
+[Console Application] --> [Order Service]
+[Dish Service] --> [Repository Pattern]
+[Order Service] --> [Repository Pattern]
+[Repository Pattern] --> [Unit of Work]
+[Unit of Work] --> [Database Context]
+[Database Context] --> [Hibernate/JPA]
+[Hibernate/JPA] --> [H2 Database]
+[Mappers] --> [DTO Objects]
+[Mappers] --> [Entity Models]
+
+@enduml

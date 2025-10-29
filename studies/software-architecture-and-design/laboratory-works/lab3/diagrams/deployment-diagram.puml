@@ -1,0 +1,62 @@
+@startuml DeploymentDiagram
+!theme plain
+
+title Система доставки їжі - Діаграма розгортання
+
+node "Client Device" {
+    component "Web Browser" {
+        [HTML5 Application]
+        [JavaScript (Fetch API)]
+    }
+}
+
+node "Application Server" {
+    component "Spring Boot" {
+        artifact "food-delivery.jar" {
+            [Embedded Tomcat]
+            [REST Controllers]
+            [Business Services]
+            [File Repositories]
+        }
+    }
+    
+    component "JVM" {
+        note right: Java 17+
+    }
+}
+
+node "File System" {
+    folder "Application Data" {
+        file "dishes.txt"
+        file "orders.txt"
+    }
+    
+    folder "Static Resources" {
+        file "index.html"
+        file "styles.css"
+        file "app.js"
+    }
+}
+
+[HTML5 Application] --> [Embedded Tomcat] : HTTP/REST\n(port 8080)
+[JavaScript (Fetch API)] --> [REST Controllers] : JSON/HTTP
+
+[REST Controllers] --> [Business Services]
+[Business Services] --> [File Repositories]
+[File Repositories] --> "dishes.txt" : Read/Write JSON
+[File Repositories] --> "orders.txt" : Read/Write JSON
+
+[Embedded Tomcat] --> "Static Resources" : Serve static files
+
+note right of "Application Server"
+    Spring Boot standalone application
+    No external database required
+    File-based persistence
+end note
+
+note bottom of "Client Device"
+    Modern web browser
+    ES6+ JavaScript support
+end note
+
+@enduml

@@ -1,0 +1,425 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------< [0;36mcom.example3:food-delivery-api[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Food Delivery API 1.0-SNAPSHOT[m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[0;1m > [0;1mtest-compile[m @ [36mfood-delivery-api[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:resources[m [1m(default-resources)[m @ [36mfood-delivery-api[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 2 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.11.0:compile[m [1m(default-compile)[m @ [36mfood-delivery-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:testResources[m [1m(default-testResources)[m @ [36mfood-delivery-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/mensotor/Desktop/Gerasha0/studies/software-architecture-and-design/laboratory-works/lab3/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mfood-delivery-api[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 3 source files with javac [debug release 17] to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[0;1m < [0;1mtest-compile[m @ [36mfood-delivery-api[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[m @ [36mfood-delivery-api[0;1m ---[m
+[[1;34mINFO[m] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-10-29T16:37:54.450+02:00  INFO 118402 --- [food-delivery-api] [           main] com.example3.App                         : Starting App using Java 17.0.16 with PID 118402 (/home/mensotor/Desktop/Gerasha0/studies/software-architecture-and-design/laboratory-works/lab3/target/classes started by mensotor in /home/mensotor/Desktop/Gerasha0/studies/software-architecture-and-design/laboratory-works/lab3)
+2025-10-29T16:37:54.453+02:00 DEBUG 118402 --- [food-delivery-api] [           main] com.example3.App                         : Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-10-29T16:37:54.454+02:00  INFO 118402 --- [food-delivery-api] [           main] com.example3.App                         : No active profile set, falling back to 1 default profile: "default"
+2025-10-29T16:37:54.957+02:00  INFO 118402 --- [food-delivery-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-29T16:37:54.979+02:00  INFO 118402 --- [food-delivery-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2025-10-29T16:37:55.395+02:00  INFO 118402 --- [food-delivery-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-29T16:37:55.403+02:00  INFO 118402 --- [food-delivery-api] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-29T16:37:55.404+02:00  INFO 118402 --- [food-delivery-api] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-29T16:37:55.443+02:00  INFO 118402 --- [food-delivery-api] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-29T16:37:55.444+02:00  INFO 118402 --- [food-delivery-api] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 950 ms
+2025-10-29T16:37:55.490+02:00  INFO 118402 --- [food-delivery-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-29T16:37:55.615+02:00  INFO 118402 --- [food-delivery-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:fooddeliverydb user=SA
+2025-10-29T16:37:55.616+02:00  INFO 118402 --- [food-delivery-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-29T16:37:55.625+02:00  INFO 118402 --- [food-delivery-api] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:fooddeliverydb'
+2025-10-29T16:37:55.713+02:00  INFO 118402 --- [food-delivery-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-29T16:37:55.755+02:00  INFO 118402 --- [food-delivery-api] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-10-29T16:37:55.779+02:00  INFO 118402 --- [food-delivery-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-29T16:37:55.961+02:00  INFO 118402 --- [food-delivery-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-29T16:37:56.002+02:00  WARN 118402 --- [food-delivery-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-29T16:37:56.650+02:00  INFO 118402 --- [food-delivery-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-29T16:37:56.662+02:00 DEBUG 118402 --- [food-delivery-api] [           main] org.hibernate.SQL                        : 
+    drop table if exists dishes cascade 
+Hibernate: 
+    drop table if exists dishes cascade 
+2025-10-29T16:37:56.670+02:00 DEBUG 118402 --- [food-delivery-api] [           main] org.hibernate.SQL                        : 
+    create table dishes (
+        available boolean not null,
+        price numeric(10,2) not null,
+        id bigint generated by default as identity,
+        description TEXT,
+        dish_type varchar(255) not null check (dish_type in ('FIRST_COURSE','SECOND_COURSE','DESSERT','DRINK','SALAD','APPETIZER')),
+        name varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table dishes (
+        available boolean not null,
+        price numeric(10,2) not null,
+        id bigint generated by default as identity,
+        description TEXT,
+        dish_type varchar(255) not null check (dish_type in ('FIRST_COURSE','SECOND_COURSE','DESSERT','DRINK','SALAD','APPETIZER')),
+        name varchar(255) not null,
+        primary key (id)
+    )
+2025-10-29T16:37:56.683+02:00  INFO 118402 --- [food-delivery-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-29T16:37:56.793+02:00  WARN 118402 --- [food-delivery-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-29T16:37:56.813+02:00  INFO 118402 --- [food-delivery-api] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-10-29T16:37:56.872+02:00 DEBUG 118402 --- [food-delivery-api] [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2025-10-29T16:37:56.936+02:00 DEBUG 118402 --- [food-delivery-api] [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-10-29T16:37:56.963+02:00 DEBUG 118402 --- [food-delivery-api] [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-29T16:37:56.986+02:00 DEBUG 118402 --- [food-delivery-api] [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-29T16:37:57.090+02:00  INFO 118402 --- [food-delivery-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-10-29T16:37:57.097+02:00  INFO 118402 --- [food-delivery-api] [           main] com.example3.App                         : Started App in 2.968 seconds (process running for 3.236)
+============================================================
+  SISTEMA DOSTAVKI YZHI ZAPUSHCHENA!
+============================================================
+  Web Interface: http://localhost:8080/
+  WebAPI dostupniy za adresoyu: http://localhost:8080/api
+  Dokumentatsiya API:
+    Stravi: http://localhost:8080/api/dishes
+    Zamovlennya: http://localhost:8080/api/orders
+============================================================
+  Vikoristovuyte web interface dlya testuvannya!
+============================================================
+2025-10-29T16:37:58.702+02:00  INFO 118402 --- [food-delivery-api] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-29T16:37:58.703+02:00  INFO 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-29T16:37:58.703+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-29T16:37:58.703+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-29T16:37:58.703+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-29T16:37:58.704+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1adf387e
+2025-10-29T16:37:58.704+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@14d53884
+2025-10-29T16:37:58.704+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-29T16:37:58.704+02:00  INFO 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-29T16:37:58.710+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:37:58.717+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:37:58.754+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:37:58.863+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:37:58.865+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:37:58.882+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:37:58.884+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@454c0a27, com.example3.pl.dto.DishDto@65f6d3e9, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:37:58.890+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-10-29T16:37:58.891+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:37:58.892+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:37:58.894+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-10-29T16:37:58.895+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:37:58.898+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:37:58.900+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:37:58.906+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:37:58.907+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2025-10-29T16:37:58.909+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:37:58 EET 2025, status=404, error=Not Found, path=/favicon.ico}]
+2025-10-29T16:37:58.919+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:02.908+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:38:02.909+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:02.911+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:02.936+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:02.936+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:02.938+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:02.938+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@3309a6b4, com.example3.pl.dto.DishDto@3dce5ea5, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:02.940+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:02.948+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-10-29T16:38:02.950+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:02.951+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:38:02.951+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-10-29T16:38:02.952+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:38:02.953+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:38:02.954+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:38:02.955+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2025-10-29T16:38:02.956+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:38:02 EET 2025, status=404, error=Not Found, path=/favicon.ico}]
+2025-10-29T16:38:02.958+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:03.611+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:38:03.612+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:03.614+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:03.638+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:03.639+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:03.640+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:03.641+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@4243fea3, com.example3.pl.dto.DishDto@4c84089b, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:03.642+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:03.650+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-10-29T16:38:03.651+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:03.652+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:38:03.652+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-10-29T16:38:03.652+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:38:03.653+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:38:03.653+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:38:03.654+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2025-10-29T16:38:03.654+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:38:03 EET 2025, status=404, error=Not Found, path=/favicon.ico}]
+2025-10-29T16:38:03.655+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:04.139+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:38:04.141+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:04.142+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:04.173+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:04.174+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:04.175+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:04.176+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@22872449, com.example3.pl.dto.DishDto@3428a072, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:04.177+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:04.181+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2025-10-29T16:38:04.182+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:04.184+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:38:04.184+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-10-29T16:38:04.184+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:38:04.185+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:38:04.185+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:38:04.186+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2025-10-29T16:38:04.186+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:38:04 EET 2025, status=404, error=Not Found, path=/favicon.ico}]
+2025-10-29T16:38:04.188+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:21.259+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2025-10-29T16:38:21.264+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-29T16:38:21.265+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2025-10-29T16:38:21.266+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.servlet.view.InternalResourceView  : Forwarding to [index.html]
+2025-10-29T16:38:21.266+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/index.html", parameters={}
+2025-10-29T16:38:21.267+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:21.268+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2025-10-29T16:38:21.269+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:21.299+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:21.300+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:21.301+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:21.302+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@57ffd4b5, com.example3.pl.dto.DishDto@5938303a, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:21.303+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:28.162+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:28.163+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:28.164+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:28.164+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@72d0153b, com.example3.pl.dto.DishDto@1141bb80, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:28.165+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:29.579+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/orders/1", parameters={}
+2025-10-29T16:38:29.580+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.OrderController#getOrderById(Long)
+2025-10-29T16:38:29.593+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:29.593+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example3.pl.dto.OrderDto@29d8380f]
+2025-10-29T16:38:29.596+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:31.418+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2025-10-29T16:38:31.419+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:31.420+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:38:31.420+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+2025-10-29T16:38:31.420+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:38:31.421+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:38:31.421+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:38:31.422+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:31.422+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:38:31 EET 2025, status=404, error=Not Found, path=/.well-known/appspecific/ (truncated)...]
+2025-10-29T16:38:31.423+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:32.820+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/api/orders/complex-lunch", parameters={}
+2025-10-29T16:38:32.821+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.OrderController#createComplexLunch(ComplexLunchDto)
+2025-10-29T16:38:32.835+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example3.pl.dto.ComplexLunchDto@bb0deff]
+2025-10-29T16:38:32.857+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:32.857+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example3.pl.dto.OrderDto@3dac89d6]
+2025-10-29T16:38:32.859+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-10-29T16:38:33.803+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/orders", parameters={}
+2025-10-29T16:38:33.804+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.OrderController#getAllOrders()
+2025-10-29T16:38:33.806+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:33.807+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.OrderDto@2d5c23e1, com.example3.pl.dto.OrderDto@2963b292, com.example3.pl.dto.O (truncated)...]
+2025-10-29T16:38:33.809+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:34.424+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:38:34.425+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:34.427+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2025-10-29T16:38:34.559+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:34.560+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:34.561+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:34.562+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@301d6279, com.example3.pl.dto.DishDto@4db6dbe0, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:34.563+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:38.877+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2025-10-29T16:38:38.878+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:38:38.879+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:38:38.879+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+2025-10-29T16:38:38.880+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:38:38.880+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:38:38.880+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:38:38.881+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:38.881+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:38:38 EET 2025, status=404, error=Not Found, path=/.well-known/appspecific/ (truncated)...]
+2025-10-29T16:38:38.882+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:38:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@415d9f7d, com.example3.pl.dto.DishDto@7c6ad60c, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:38:50.021+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:50.023+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:50.025+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:50.025+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@4179c676, com.example3.pl.dto.DishDto@64d4144, com.example3.pl.dto.Dish (truncated)...]
+2025-10-29T16:38:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:38:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:38:52.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:52.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@4058d0f5, com.example3.pl.dto.DishDto@1989070, com.example3.pl.dto.Dish (truncated)...]
+2025-10-29T16:38:52.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:38:59.868+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/orders", parameters={}
+2025-10-29T16:38:59.868+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.OrderController#createOrder(CreateOrderDto)
+2025-10-29T16:38:59.870+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example3.pl.dto.CreateOrderDto@57acae4d]
+2025-10-29T16:38:59.872+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:38:59.873+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example3.pl.dto.OrderDto@53933060]
+2025-10-29T16:38:59.873+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2025-10-29T16:39:22.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:39:22.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:39:22.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:39:22.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@4ad0f69f, com.example3.pl.dto.DishDto@73f3f3f2, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:39:22.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:39:50.016+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:39:50.016+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:39:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:39:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1727d5c9, com.example3.pl.dto.DishDto@79e023c8, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:39:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:39:50.021+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:39:50.021+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:39:50.022+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:39:50.022+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@fcf2ee8, com.example3.pl.dto.DishDto@108d161, com.example3.pl.dto.DishD (truncated)...]
+2025-10-29T16:39:50.023+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:39:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:39:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:39:52.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:39:52.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@6fccdac2, com.example3.pl.dto.DishDto@27d74500, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:39:52.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:39:59.665+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2025-10-29T16:39:59.666+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:39:59.666+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:39:59.666+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+2025-10-29T16:39:59.667+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:39:59.667+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:39:59.667+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:39:59.668+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:39:59.668+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:39:59 EET 2025, status=404, error=Not Found, path=/.well-known/appspecific/ (truncated)...]
+2025-10-29T16:39:59.669+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:40:22.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:40:22.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:40:22.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:40:22.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@16fc762a, com.example3.pl.dto.DishDto@2fe87a76, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:40:22.013+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:40:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:40:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:40:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:40:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@2b2b9e56, com.example3.pl.dto.DishDto@5a7f57f4, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:40:50.022+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:40:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:40:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:40:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:40:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1d981133, com.example3.pl.dto.DishDto@1ec522c5, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:40:50.029+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:40:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:40:52.010+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:40:52.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:40:52.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@3e432925, com.example3.pl.dto.DishDto@7d92b829, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:40:52.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:41:22.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:41:22.011+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:41:22.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:41:22.012+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1691a476, com.example3.pl.dto.DishDto@1521de6f, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:41:22.013+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:41:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:41:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:41:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:41:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@7276f360, com.example3.pl.dto.DishDto@430906c1, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:41:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:41:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:41:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:41:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:41:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@130362cb, com.example3.pl.dto.DishDto@4dffc506, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:41:50.027+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:42:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:42:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:42:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:42:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1b76ca1b, com.example3.pl.dto.DishDto@877cee8, com.example3.pl.dto.Dish (truncated)...]
+2025-10-29T16:42:50.021+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:42:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:42:50.027+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:42:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:42:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@46e2c658, com.example3.pl.dto.DishDto@6d90bf7b, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:42:50.029+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:42:50.032+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:42:50.032+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:42:50.034+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:42:50.034+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@6897b73d, com.example3.pl.dto.DishDto@62be6cb1, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:42:50.035+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:43:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:43:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:43:50.020+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1841006b, com.example3.pl.dto.DishDto@5da5f7ad, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:43:50.021+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:50.025+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:43:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:43:50.027+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:43:50.027+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@406c15b6, com.example3.pl.dto.DishDto@1cb0c84, com.example3.pl.dto.Dish (truncated)...]
+2025-10-29T16:43:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:50.030+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:43:50.031+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:43:50.032+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:43:50.032+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@652216a, com.example3.pl.dto.DishDto@134d1d6, com.example3.pl.dto.DishD (truncated)...]
+2025-10-29T16:43:50.033+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:56.492+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/restaurant.html", parameters={}
+2025-10-29T16:43:56.493+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:43:56.494+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:56.544+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:43:56.545+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:43:56.546+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:43:56.546+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@2bf6042c, com.example3.pl.dto.DishDto@324f46d4, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:43:56.547+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:43:56.571+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2025-10-29T16:43:56.571+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-29T16:43:56.572+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2025-10-29T16:43:56.573+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+2025-10-29T16:43:56.573+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2025-10-29T16:43:56.573+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2025-10-29T16:43:56.574+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-29T16:43:56.575+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:43:56.575+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Oct 29 16:43:56 EET 2025, status=404, error=Not Found, path=/.well-known/appspecific/ (truncated)...]
+2025-10-29T16:43:56.577+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2025-10-29T16:44:50.016+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:44:50.016+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:44:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:44:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@1942a1ce, com.example3.pl.dto.DishDto@1dc91833, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:44:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:44:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:44:50.027+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:44:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:44:50.028+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@5226a2, com.example3.pl.dto.DishDto@711ad05a, com.example3.pl.dto.DishD (truncated)...]
+2025-10-29T16:44:50.029+02:00 DEBUG 118402 --- [food-delivery-api] [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:44:50.033+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:44:50.034+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:44:50.035+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:44:50.035+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@6cf43286, com.example3.pl.dto.DishDto@7518620c, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:44:50.037+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:45:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:45:50.017+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:45:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:45:50.018+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@428ee17e, com.example3.pl.dto.DishDto@3d03af14, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:45:50.019+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:45:50.023+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:45:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:45:50.024+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:45:50.025+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@33cbc85f, com.example3.pl.dto.DishDto@536a4cc9, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:45:50.026+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:45:50.029+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:45:50.029+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:45:50.030+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:45:50.030+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@3dc2b2b8, com.example3.pl.dto.DishDto@7b1cbc03, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:45:50.031+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:46:05.367+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:46:05.367+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:46:05.369+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:46:05.369+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@56edc251, com.example3.pl.dto.DishDto@69dd22a2, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:46:05.370+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:46:06.502+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/dishes", parameters={}
+2025-10-29T16:46:06.502+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example3.pl.controllers.DishController#getAllDishes()
+2025-10-29T16:46:06.503+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-10-29T16:46:06.503+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.example3.pl.dto.DishDto@6403ed7f, com.example3.pl.dto.DishDto@4f67a6da, com.example3.pl.dto.Dis (truncated)...]
+2025-10-29T16:46:06.504+02:00 DEBUG 118402 --- [food-delivery-api] [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-29T16:46:22.609+02:00  INFO 118402 --- [food-delivery-api] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-29T16:46:22.610+02:00 DEBUG 118402 --- [food-delivery-api] [ionShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists dishes cascade 
+Hibernate: 
+    drop table if exists dishes cascade 
+2025-10-29T16:46:22.613+02:00  INFO 118402 --- [food-delivery-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-29T16:46:22.615+02:00  INFO 118402 --- [food-delivery-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

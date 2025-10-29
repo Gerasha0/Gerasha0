@@ -103,4 +103,11 @@
   "price" : 99.99,
   "dishType" : "APPETIZER",
   "available" : false
+}, {
+  "id" : 16,
+  "name" : "Тестова страва",
+  "description" : "Створена через веб-інтерфейс",
+  "price" : 99.99,
+  "dishType" : "APPETIZER",
+  "available" : false
 } ]

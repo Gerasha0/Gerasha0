@@ -1,0 +1,58 @@
+@startuml ComplexLunchSequence
+!theme plain
+
+title Створення комплексного обіду - Sequence Diagram
+
+actor Client
+participant "OrderController" as Controller
+participant "OrderService" as Service
+participant "DishRepository" as DishRepo
+participant "OrderRepository" as OrderRepo
+database "orders.txt" as File
+
+Client -> Controller : POST /api/orders/complex-lunch\n(ComplexLunchDto)
+activate Controller
+
+Controller -> Service : createComplexLunch(\ncustomerName, firstCourseId,\nsecondCourseId, saladId, drinkId)
+activate Service
+
+Service -> Service : validateComplexLunch()
+
+Service -> DishRepo : findById(firstCourseId)
+activate DishRepo
+DishRepo --> Service : Dish (FIRST_COURSE)
+deactivate DishRepo
+
+Service -> DishRepo : findById(secondCourseId)
+activate DishRepo
+DishRepo --> Service : Dish (SECOND_COURSE)
+deactivate DishRepo
+
+Service -> DishRepo : findById(saladId)
+activate DishRepo
+DishRepo --> Service : Dish (SALAD)
+deactivate DishRepo
+
+Service -> DishRepo : findById(drinkId)
+activate DishRepo
+DishRepo --> Service : Dish (DRINK)
+deactivate DishRepo
+
+Service -> Service : createComplexLunchItems()
+Service -> Service : create Order with\nOrderType.COMPLEX_LUNCH
+
+Service -> OrderRepo : save(order)
+activate OrderRepo
+OrderRepo -> File : write order
+OrderRepo --> Service : saved order
+deactivate OrderRepo
+
+Service -> Service : calculateOrderTotal()
+Service --> Controller : Order
+deactivate Service
+
+Controller -> Controller : map to OrderDto
+Controller --> Client : ResponseEntity<OrderDto>\n201 CREATED
+deactivate Controller
+
+@enduml
