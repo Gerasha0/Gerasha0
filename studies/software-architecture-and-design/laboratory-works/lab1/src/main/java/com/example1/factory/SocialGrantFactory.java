@@ -32,4 +32,13 @@ public class SocialGrantFactory extends GrantApplicationFactory {
                projectTitle.toLowerCase().contains("допомога") ||
                projectTitle.toLowerCase().contains("спільнота");
     }
+    
+    @Override
+    public String getValidationRequirements() {
+        return "Соціальний грант:\n" +
+               "  • Максимальна сума: 75,000 грн\n" +
+               "  • Назва проекту має містити: 'соціальний', 'благодійність', 'допомога' або 'спільнота'\n" +
+               "  • Мінімальна довжина назви: 5 символів\n" +
+               "  • Мінімальна довжина імені заявника: 2 символи";
+    }
 }

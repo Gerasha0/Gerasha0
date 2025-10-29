@@ -33,4 +33,13 @@ public class CulturalGrantFactory extends GrantApplicationFactory {
                projectTitle.toLowerCase().contains("музика") ||
                projectTitle.toLowerCase().contains("проект");
     }
+    
+    @Override
+    public String getValidationRequirements() {
+        return "Культурний грант:\n" +
+               "  • Максимальна сума: 40,000 грн\n" +
+               "  • Назва проекту має містити: 'культур', 'мистецтво', 'театр', 'музика' або 'проект'\n" +
+               "  • Мінімальна довжина назви: 5 символів\n" +
+               "  • Мінімальна довжина імені заявника: 2 символи";
+    }
 }

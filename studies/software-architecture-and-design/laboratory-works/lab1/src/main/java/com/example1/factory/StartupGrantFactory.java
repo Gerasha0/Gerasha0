@@ -32,4 +32,13 @@ public class StartupGrantFactory extends GrantApplicationFactory {
                projectTitle.toLowerCase().contains("підприємництво") ||
                projectTitle.toLowerCase().contains("інновація");
     }
+    
+    @Override
+    public String getValidationRequirements() {
+        return "Стартап грант:\n" +
+               "  • Максимальна сума: 200,000 грн\n" +
+               "  • Назва проекту має містити: 'стартап', 'бізнес', 'підприємництво' або 'інновація'\n" +
+               "  • Мінімальна довжина назви: 5 символів\n" +
+               "  • Мінімальна довжина імені заявника: 2 символи";
+    }
 }

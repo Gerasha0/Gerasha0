@@ -136,7 +136,7 @@ CompositeEvaluation --> GrantTypeBasedEvaluation
 ## Діаграма станів (State Diagram)
 
 ```plantuml
-@startumlStatesDiagram
+@startuml StatesDiagram
 
 [*] --> Created : createApplication()
 

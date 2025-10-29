@@ -125,6 +125,9 @@ public class App {
                     case 5:
                         showSummary();
                         break;
+                    case 6:
+                        showValidationRequirements();
+                        break;
                     case 0:
                         System.out.println("До побачення!");
                         return;
@@ -151,6 +154,7 @@ public class App {
         System.out.println("| 3. [~] Управлiння станом заявки                           |");
         System.out.println("| 4. [%] Оцiнити заявку                                     |");
         System.out.println("| 5. [=] Показати пiдсумок                                  |");
+        System.out.println("| 6. [?] Вимоги до заявок                                   |");
         System.out.println("| 0. [X] Вихiд                                              |");
         System.out.println("+============================================================+");
         System.out.print("Ваш вибiр: ");
@@ -405,5 +409,9 @@ public class App {
         grantService.printApplicationsSummary();
         System.out.println("\nНатиснiть Enter для повернення до головного меню...");
         scanner.nextLine();
+    }
+    
+    private static void showValidationRequirements() {
+        grantService.printAllValidationRequirements();
     }
 }

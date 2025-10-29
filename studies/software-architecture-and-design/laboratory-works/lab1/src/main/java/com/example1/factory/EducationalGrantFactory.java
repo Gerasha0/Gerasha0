@@ -32,4 +32,13 @@ public class EducationalGrantFactory extends GrantApplicationFactory {
                projectTitle.toLowerCase().contains("курс") ||
                projectTitle.toLowerCase().contains("школа");
     }
+    
+    @Override
+    public String getValidationRequirements() {
+        return "Освітній грант:\n" +
+               "  • Максимальна сума: 50,000 грн\n" +
+               "  • Назва проекту має містити: 'освіта', 'навчання', 'курс' або 'школа'\n" +
+               "  • Мінімальна довжина назви: 5 символів\n" +
+               "  • Мінімальна довжина імені заявника: 2 символи";
+    }
 }

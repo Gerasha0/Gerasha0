@@ -49,7 +49,8 @@ public class GrantApplicationService {
         }
         
         if (!factory.validateApplication(applicantName, projectTitle, requestedAmount)) {
-            throw new IllegalArgumentException("Заявка не пройшла валідацію для типу гранту: " + grantType);
+            String errorMessage = "Заявка не пройшла валідацію!\n\n" + factory.getValidationRequirements();
+            throw new IllegalArgumentException(errorMessage);
         }
         
         String id = "GRANT-" + String.format("%03d", idCounter.getAndIncrement());
@@ -152,4 +153,35 @@ public class GrantApplicationService {
             System.out.printf("%s: %d заявок%n", state, count));
         System.out.println("===========================================\n");
     }
+    
+    /**
+     * Показує вимоги валідації для конкретного типу гранту
+     */
+    public String getValidationRequirements(GrantType grantType) {
+        GrantApplicationFactory factory = factories.get(grantType);
+        if (factory == null) {
+            return "Невідомий тип гранту";
+        }
+        return factory.getValidationRequirements();
+    }
+    
+    /**
+     * Показує вимоги валідації для всіх типів грантів
+     */
+    public void printAllValidationRequirements() {
+        System.out.println("\n╔════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║           ВИМОГИ ДО ЗАЯВОК НА РІЗНІ ТИПИ ГРАНТІВ                 ║");
+        System.out.println("╚════════════════════════════════════════════════════════════════════╝\n");
+        
+        for (GrantType type : GrantType.values()) {
+            System.out.println(getValidationRequirements(type));
+            System.out.println();
+        }
+        
+        System.out.println("Загальні вимоги для всіх типів:");
+        System.out.println("  • Ім'я заявника: мінімум 2 символи");
+        System.out.println("  • Назва проекту: мінімум 5 символів");
+        System.out.println("  • Сума має бути більше 0 і не перевищувати максимум для типу\n");
+    }
 }
+

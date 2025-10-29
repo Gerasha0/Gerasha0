@@ -31,4 +31,13 @@ public class ResearchGrantFactory extends GrantApplicationFactory {
                projectTitle.toLowerCase().contains("наука") ||
                projectTitle.toLowerCase().contains("експеримент");
     }
+    
+    @Override
+    public String getValidationRequirements() {
+        return "Науковий грант:\n" +
+               "  • Максимальна сума: 100,000 грн\n" +
+               "  • Назва проекту має містити: 'дослідження', 'наука' або 'експеримент'\n" +
+               "  • Мінімальна довжина назви: 5 символів\n" +
+               "  • Мінімальна довжина імені заявника: 2 символи";
+    }
 }

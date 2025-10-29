@@ -39,4 +39,9 @@ public abstract class GrantApplicationFactory {
     
     protected abstract double getMaxAmount();
     protected abstract boolean performSpecificValidation(String applicantName, String projectTitle, double requestedAmount);
+    
+    /**
+     * Повертає опис вимог для даного типу гранту
+     */
+    public abstract String getValidationRequirements();
 }
