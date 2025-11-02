@@ -275,7 +275,7 @@ public class TextPatternRecognizer {
      */
     public static void demonstrateRegexMatching(List<String> testWords) {
         System.out.println("=== ДЕМОНСТРАЦІЯ РЕГУЛЯРНИХ ВИРАЗІВ ===");
-        System.out.println("Шаблон: слова виду {цифри} або {великі лі��ери}");
+        System.out.println("Шаблон: слова виду {цифри} або {великі літери}");
         System.out.println();
 
         for (String word : testWords) {

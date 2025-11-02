@@ -11,30 +11,29 @@ import java.util.Scanner;
  * Дослідження комбінаторних алгоритмів
  *
  * Варіант 7
- * Автор: [Ваше ім'я]
- */
+  */
 public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("╔" + "═".repeat(48) + "╗");
-        System.out.println("║     ЛАБОРАТОРНА РОБОТА 2.3                   ║");
+        System.out.println("╔" + "═".repeat(46) + "╗");
+        System.out.println("║         ЛАБОРАТОРНА РОБОТА 2.3               ║");
         System.out.println("║  Дослідження комбінаторних алгоритмів        ║");
         System.out.println("║              Варіант 7                       ║");
-        System.out.println("╚" + "═".repeat(48) + "╝");
+        System.out.println("╚" + "═".repeat(46) + "╝");
         System.out.println();
 
         while (true) {
-            System.out.println("╭" + "─".repeat(48) + "╮");
+            System.out.println("╭" + "─".repeat(46) + "╮");
             System.out.println("│                ГОЛОВНЕ МЕНЮ                  │");
-            System.out.println("├" + "─".repeat(48) + "┤");
+            System.out.println("├" + "─".repeat(46) + "┤");
             System.out.println("│ 1. Завдання першого рівня                    │");
             System.out.println("│ 2. Завдання другого рівня                    │");
             System.out.println("│ 3. Завдання третього рівня                   │");
             System.out.println("│ 4. Виконати всі завдання послідовно          │");
             System.out.println("│ 0. Вихід                                     │");
-            System.out.println("╰" + "─".repeat(48) + "╯");
+            System.out.println("╰" + "─".repeat(46) + "╯");
             System.out.print("Оберіть опцію (0-4): ");
 
             int choice = getValidIntInput(scanner, 0, 4);
@@ -53,10 +52,10 @@ public class App {
                     executeAllTasks(scanner);
                     break;
                 case 0:
-                    System.out.println("\n╔" + "═".repeat(40) + "╗");
-                    System.out.println("║   Дякує��о за використання програми!    ║");
+                    System.out.println("\n╔" + "═".repeat(41) + "╗");
+                    System.out.println("║   Дякуємо за використання програми!     ║");
                     System.out.println("║          До побачення! 👋               ║");
-                    System.out.println("╚" + "═".repeat(40) + "╝");
+                    System.out.println("╚" + "═".repeat(41) + "╝");
                     scanner.close();
                     return;
                 default:
@@ -210,7 +209,7 @@ public class App {
         System.out.println("\n💡 ТИП ВИБІРКИ: РОЗМІЩЕННЯ З ПОВТОРЕННЯМИ");
         System.out.println("📐 ФОРМУЛА: A'(n,k) = n^k");
 
-        System.out.print("\n���️  Обчислюємо...");
+        System.out.print("\n⚙️  Обчислюємо...");
         for (int i = 0; i < 3; i++) {
             try {
                 Thread.sleep(500);
@@ -226,7 +225,7 @@ public class App {
         System.out.println("\n🎯 ВІДПОВІДЬ: " + result2 + " різних чисел розміром " + bits + " біт");
 
         if (bits <= 4) {
-            System.out.println("\n��� Приклади чисел (перші кілька):");
+            System.out.println("\n⚙️ Приклади чисел (перші кілька):");
             showBinaryNumbers(bits, Math.min(16, (int)result2));
         }
     }
@@ -267,9 +266,9 @@ public class App {
     }
 
     private static void executeAllTasks(Scanner scanner) {
-        System.out.println("\n╭" + "─".repeat(55) + "╮");
-        System.out.println("│        ВИКОНАННЯ ВСІХ ЗАВДАНЬ ПОСЛІДОВНО        │");
-        System.out.println("╰" + "���".repeat(55) + "╯");
+        System.out.println("\n╭" + "─".repeat(50) + "╮");
+        System.out.println("│        ВИКОНАННЯ ВСІХ ЗАВДАНЬ ПОСЛІДОВНО         │");
+        System.out.println("╰" + "─".repeat(50) + "╯");
 
         // Завдання 1
         System.out.println("\n🔴 Виконуємо завдання першого рівня...");
