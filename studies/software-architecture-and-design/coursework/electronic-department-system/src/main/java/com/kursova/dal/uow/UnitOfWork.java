@@ -82,24 +82,13 @@ public class UnitOfWork {
         return archivedGradeRepository;
     }
 
-    /**
-     * Commit all pending changes
-     * Spring automatically handles transaction commit/rollback
-     */
     @Transactional
     public void commit() {
-        // Spring's transaction management handles the actual commit
-        // This method is here for explicit commit calls if needed
     }
 
-    /**
-     * Rollback current transaction
-     * Spring automatically handles rollback on exceptions
-     */
+
     @Transactional
     public void rollback() {
-        // Spring's transaction management handles the actual rollback
-        // This method is here for explicit rollback calls if needed
         throw new RuntimeException("Transaction rollback requested");
     }
 }

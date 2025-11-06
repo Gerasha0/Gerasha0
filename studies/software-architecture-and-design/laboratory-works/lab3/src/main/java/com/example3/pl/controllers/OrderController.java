@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "*") // Для тестування з фронтенду
+@CrossOrigin(origins = "*")
 public class OrderController {
     
     private final OrderService orderService;

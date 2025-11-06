@@ -2,42 +2,37 @@ package org.atsd;
 
 import java.util.List;
 
-/**
- * Демонстраційна версія лабораторної роботи 1.2
- * Дослідження структури даних «хеш-таблиця»
- */
+// Демо
 public class DemoApp {
     public static void main(String[] args) {
         System.out.println("=".repeat(60));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.2");
-        System.out.println("ДОСЛІДЖЕННЯ СТРУКТУРИ ДАНИХ «ХЕШ-ТАБЛИЦЯ»");
+        System.out.println("Лаба 1.2");
+        System.out.println("Дослідження структури даних «хеш-таблиця»");
         System.out.println("=".repeat(60));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання");
         System.out.println("Створення хеш-таблиці без колізій");
         System.out.println("-".repeat(40));
 
         levelOneTaskDemo();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("Розв'язання колізій методом подвійного хешування");
         System.out.println("-".repeat(50));
 
         levelTwoTaskDemo();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("Видалення елементів за критерієм площі");
         System.out.println("-".repeat(40));
 
         levelThreeTaskDemo();
     }
 
-    /**
-     * Демонстрація завдання першого рівня: створення хеш-таблиці без колізій
-     */
+    // Демонстрація завдання першого рівня: створення хеш-таблиці без колізій
     private static void levelOneTaskDemo() {
         int tableSize = 11; // Просте число для кращого розподілу
         System.out.printf("Розмір хеш-таблиці: %d%n", tableSize);
@@ -70,9 +65,7 @@ public class DemoApp {
         hashTable.display();
     }
 
-    /**
-     * Демонстрація завдання другого рівня: розв'язання колізій подвійним хешуванням
-     */
+    // Демонстрація завдання другого рівня: розв'язання колізій подвійним хешуванням
     private static void levelTwoTaskDemo() {
         int tableSize = 7; // Менший розмір для демонстрації колізій
         System.out.printf("Розмір хеш-таблиці: %d%n", tableSize);
@@ -102,9 +95,7 @@ public class DemoApp {
         hashTable.display();
     }
 
-    /**
-     * Демонстрація завдання третього рівня: видалення елементів за критерієм
-     */
+    // Демонстрація завдання третього рівня: видалення елементів за критерієм
     private static void levelThreeTaskDemo() {
         int tableSize = 13;
         System.out.printf("Розмір хеш-таблиці: %d%n", tableSize);
@@ -164,9 +155,5 @@ public class DemoApp {
         } else {
             System.out.println("\nТаблиця порожня, нічого видаляти.");
         }
-
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("ДЕМОНСТРАЦІЮ ЗАВЕРШЕНО");
-        System.out.println("=".repeat(60));
     }
 }

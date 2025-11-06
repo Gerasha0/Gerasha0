@@ -14,7 +14,6 @@ public class CreateOrderDto {
     
     // Конструктори
     public CreateOrderDto() {
-        // Порожній конструктор для десеріалізації
     }
     
     public CreateOrderDto(String customerName, String customerPhone, 

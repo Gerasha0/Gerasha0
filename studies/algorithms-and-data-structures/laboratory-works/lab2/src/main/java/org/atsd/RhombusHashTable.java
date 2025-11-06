@@ -3,11 +3,9 @@ package org.atsd;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Хеш-таблиця з відкритою адресацією для елементів типу Rhombus
- * Використовує метод ділення для хешування за ключем (периметр)
- * Розв'язання колізій - подвійне хешування
- */
+// Хеш-таблиця з відкритою адресацією для елементів типу Rhombus
+// Використовує метод ділення для хешування за ключем (периметр)
+// Розв'язання колізій - подвійне хешування
 public class RhombusHashTable {
     private Rhombus[] table;
     private boolean[] deleted; // Масив для позначення видалених елементів
@@ -21,18 +19,14 @@ public class RhombusHashTable {
         this.size = 0;
     }
 
-    /**
-     * Основна хеш-функція (метод ділення)
-     */
+    // Основна хеш-функція (метод ділення)
     private int hash1(double key) {
         // Перетворюємо double в int для хешування
-        int intKey = (int) (key * 1000); // Множимо на 1000 для врахування десятк��вих знаків
+        int intKey = (int) (key * 1000); // Множимо на 1000 для врахування десяткових знаків
         return Math.abs(intKey) % capacity;
     }
 
-    /**
-     * Друга хеш-функція для подвійного хешування
-     */
+    // Друга хеш-функція для подвійного хешування
     private int hash2(double key) {
         int intKey = (int) (key * 1000);
         // Використовуємо просте число, менше розміру таблиці
@@ -41,11 +35,9 @@ public class RhombusHashTable {
         return prime - (Math.abs(intKey) % prime);
     }
 
-    /**
-     * Вставка елемента в хеш-таблицю
-     * @param rhombus елемент для вставки
-     * @return true якщо вставка успішна, false якщо не вдалося вставити
-     */
+    // Вставка елемента в хеш-таблицю
+    // @param rhombus елемент для вставки
+    // @return true якщо вставка успішна, false якщо не вдалося вставити
     public boolean insert(Rhombus rhombus) {
         if (size >= capacity) {
             return false; // Таблиця заповнена
@@ -72,9 +64,7 @@ public class RhombusHashTable {
         return false; // Не вдалося знайти вільне місце
     }
 
-    /**
-     * Вставка елемента без колізій (для першого рівня завдання)
-     */
+    // Вставка елемента без колізій (для першого рівня завдання)
     public boolean insertWithoutCollisions(Rhombus rhombus) {
         double key = rhombus.getPerimeter();
         int index = hash1(key);
@@ -89,9 +79,7 @@ public class RhombusHashTable {
         return false; // Позиція зайнята - колізія
     }
 
-    /**
-     * Пошук елемента за ключем
-     */
+    // Пошук елемента за ключем
     public Rhombus search(double key) {
         int index = hash1(key);
         int step = hash2(key);
@@ -108,9 +96,7 @@ public class RhombusHashTable {
         return null; // Не знайдено
     }
 
-    /**
-     * Видалення елементів за критерієм (площа більша за задану)
-     */
+    // Видалення елементів за критерієм (площа більша за задану)
     public int removeByAreaCriterion(double maxArea) {
         int removedCount = 0;
 
@@ -125,9 +111,7 @@ public class RhombusHashTable {
         return removedCount;
     }
 
-    /**
-     * Отримання всіх елементів таблиці
-     */
+    //Отримання всіх елементів таблиці
     public List<Rhombus> getAllElements() {
         List<Rhombus> elements = new ArrayList<>();
         for (int i = 0; i < capacity; i++) {
@@ -138,11 +122,9 @@ public class RhombusHashTable {
         return elements;
     }
 
-    /**
-     * Виведення вмісту хеш-таблиці
-     */
+    // Виведення вмісту хеш-таблиці
     public void display() {
-        System.out.println("\\n=== Вміст хеш-таблиці ===");
+        System.out.println("\n=== Вміст хеш-таблиці ===");
         System.out.printf("%-8s %-15s %-10s %s%n", "Позиція", "Ключ(периметр)", "Статус", "Елемент");
         System.out.println("─".repeat(80));
 
@@ -156,26 +138,20 @@ public class RhombusHashTable {
             }
         }
 
-        System.out.printf("\\nВсього елементів: %d з %d\\n", size, capacity);
+        System.out.printf("\nВсього елементів: %d з %d\n", size, capacity);
     }
 
-    /**
-     * Перевірка на порожність
-     */
+    // Перевірка на порожність
     public boolean isEmpty() {
         return size == 0;
     }
 
-    /**
-     * Отримання поточного розміру
-     */
+    // Отримання поточного розміру
     public int getSize() {
         return size;
     }
 
-    /**
-     * Отримання ємності
-     */
+    // Отримання ємності
     public int getCapacity() {
         return capacity;
     }

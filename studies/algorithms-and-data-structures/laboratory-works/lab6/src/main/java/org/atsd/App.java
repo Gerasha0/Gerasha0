@@ -2,47 +2,41 @@ package org.atsd;
 
 import java.util.List;
 
-/**
- * Лабораторна робота 1.6
- * Дослідження методів аналізу алгоритмів
- */
 public class App {
     public static void main(String[] args) {
         System.out.println("=".repeat(70));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.6");
-        System.out.println("ДОСЛІДЖЕННЯ МЕТОДІВ АНАЛІЗУ АЛГОРИТМІВ");
+        System.out.println("Лаба 1.6");
+        System.out.println("Дослідження методу аналізу алгоритмів");
         System.out.println("=".repeat(70));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання завдання");
         System.out.println("Дослідження сортування розподіленого підрахунку");
         System.out.println("-".repeat(50));
 
         levelOneTask();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("Порівняння двох алгоритмів сортування");
         System.out.println("-".repeat(40));
 
         levelTwoTask();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("Дослідження впливу структурованості даних");
         System.out.println("-".repeat(45));
 
         levelThreeTask();
 
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("ДЕМОНСТРАЦІЮ ЗАВЕРШЕНО");
+        System.out.println("Демо завершено.");
         System.out.println("Всі результати готові для побудови графіків у Excel");
         System.out.println("=".repeat(70));
     }
 
-    /**
-     * Завдання першого рівня: дослідження counting sort
-     */
+    // Завдання першого рівня: дослідження counting sort
     private static void levelOneTask() {
         System.out.println("Алгоритм: Сортування розподіленого підрахунку (Counting Sort)");
         System.out.println("Структура даних: Одновимірний масив");
@@ -68,9 +62,7 @@ public class App {
                 r.getArraySize(), r.getExecutionTimeMs()));
     }
 
-    /**
-     * Завдання другого рівня: порівняння counting sort та radix sort
-     */
+    // Завдання другого рівня: порівняння counting sort та radix sort
     private static void levelTwoTask() {
         System.out.println("Алгоритми для порівняння:");
         System.out.println("1. Сортування розподіленого підрахунку (Counting Sort)");
@@ -138,9 +130,7 @@ public class App {
         }
     }
 
-    /**
-     * Завдання третього рівня: вплив структурованості даних
-     */
+    // Завдання третього рівня: вплив структурованості даних
     private static void levelThreeTask() {
         System.out.println("Дослідження впливу послідовності розташування елементів");
         System.out.println("Розмір масиву: 10000 елементів");

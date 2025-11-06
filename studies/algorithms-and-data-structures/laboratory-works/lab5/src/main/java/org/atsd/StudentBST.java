@@ -3,30 +3,22 @@ package org.atsd;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * BST-дерево студентів з балансуванням
- * Ключ - середній бал студента
- */
+// BST-дерево студентів з балансуванням
+// Ключ - середній бал студента
 public class StudentBST {
     private BSTNode root; // Корінь дерева
 
-    /**
-     * Конструктор порожнього дерева
-     */
+    // Конструктор порожнього дерева
     public StudentBST() {
         this.root = null;
     }
 
-    /**
-     * Додає студента в корінь дерева з використанням ротацій
-     */
+    // Додає студента в корінь дерева з використанням ротацій
     public void insertAtRoot(Student student) {
         root = insertAtRootRecursive(root, student);
     }
 
-    /**
-     * Рекурсивна вставка в корінь
-     */
+    // Рекурсивна вставка в корінь
     private BSTNode insertAtRootRecursive(BSTNode node, Student student) {
         if (node == null) {
             return new BSTNode(student);
@@ -47,16 +39,12 @@ public class StudentBST {
         return node;
     }
 
-    /**
-     * Додає студента з балансуванням AVL
-     */
+    // Додає студента з балансуванням AVL
     public void insertBalanced(Student student) {
         root = insertBalancedRecursive(root, student);
     }
 
-    /**
-     * Рекурсивна вставка з балансуванням
-     */
+    // Рекурсивна вставка з балансуванням
     private BSTNode insertBalancedRecursive(BSTNode node, Student student) {
         // Звичайна BST вставка
         if (node == null) {
@@ -106,9 +94,7 @@ public class StudentBST {
         return node;
     }
 
-    /**
-     * Ротація вліво
-     */
+    // Ротація вліво
     public BSTNode rotateLeft(BSTNode y) {
         BSTNode x = y.getRight();
         BSTNode T2 = x.getLeft();
@@ -124,9 +110,7 @@ public class StudentBST {
         return x;
     }
 
-    /**
-     * Ротація вправо
-     */
+    // Ротація вправо
     public BSTNode rotateRight(BSTNode x) {
         BSTNode y = x.getLeft();
         BSTNode T2 = y.getRight();
@@ -142,17 +126,13 @@ public class StudentBST {
         return y;
     }
 
-    /**
-     * Пошук студента за середнім балом
-     */
+    // Пошук студента за середнім балом
     public Student search(double averageGrade) {
         BSTNode node = searchRecursive(root, averageGrade);
         return node != null ? node.getData() : null;
     }
 
-    /**
-     * Рекурсивний пошук
-     */
+    // Рекурсивний пошук
     private BSTNode searchRecursive(BSTNode node, double averageGrade) {
         if (node == null || Math.abs(node.getData().getAverageGrade() - averageGrade) < 0.001) {
             return node;
@@ -165,9 +145,7 @@ public class StudentBST {
         }
     }
 
-    /**
-     * Обхід у ширину (breadth-first)
-     */
+    // Обхід у ширину (breadth-first)
     public void displayBreadthFirst(String title) {
         System.out.println("\n" + title);
         System.out.println("Обхід дерева у ширину (по рівнях):");
@@ -185,11 +163,10 @@ public class StudentBST {
         int level = 0;
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            System.out.printf("Рівень %d: ", level);
 
             for (int i = 0; i < levelSize; i++) {
                 BSTNode current = queue.poll();
-                System.out.println(current.getData());
+                System.out.printf("Рівень %d: %s%n", level, current.getData());
 
                 if (current.getLeft() != null) {
                     queue.add(current.getLeft());
@@ -203,23 +180,17 @@ public class StudentBST {
         System.out.println();
     }
 
-    /**
-     * Перевіряє, чи порожнє дерево
-     */
+    // Перевіряє, чи порожнє дерево
     public boolean isEmpty() {
         return root == null;
     }
 
-    /**
-     * Підраховує кількість вузлів
-     */
+    // Підраховує кількість вузлів
     public int size() {
         return sizeRecursive(root);
     }
 
-    /**
-     * Рекурсивний підрахунок розміру
-     */
+    // Рекурсивний підрахунок розміру
     private int sizeRecursive(BSTNode node) {
         if (node == null) {
             return 0;
@@ -227,23 +198,17 @@ public class StudentBST {
         return 1 + sizeRecursive(node.getLeft()) + sizeRecursive(node.getRight());
     }
 
-    /**
-     * Обчислює висоту дерева
-     */
+    // Обчислює висоту дерева
     public int height() {
         return root != null ? root.getHeight() : 0;
     }
 
-    /**
-     * Перевіряє збалансованість дерева
-     */
+    // Перевіряє збалансованість дерева
     public boolean isBalanced() {
         return isBalancedRecursive(root);
     }
 
-    /**
-     * Рекурсивна перевірка збалансованості
-     */
+    // Рекурсивна перевірка збалансованості
     private boolean isBalancedRecursive(BSTNode node) {
         if (node == null) {
             return true;

@@ -3,35 +3,31 @@ package org.atsd;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Лабораторна робота 1.3
- * Дослідження нелінійних структур даних
- */
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=".repeat(60));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.3");
-        System.out.println("ДОСЛІДЖЕННЯ НЕЛІНІЙНИХ СТРУКТУР ДАНИХ");
+        System.out.println("Лаба 1.3");
+        System.out.println("Дослідження нелінійних структур даних");
         System.out.println("=".repeat(60));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання");
         System.out.println("Створення бінарного дерева та паралельний обхід");
         System.out.println("-".repeat(50));
 
         levelOneTask();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("Пошук студентів за критерієм");
         System.out.println("-".repeat(40));
 
         levelTwoTask();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("Видалення студентів за критерієм");
         System.out.println("-".repeat(40));
 
@@ -40,9 +36,7 @@ public class App {
         scanner.close();
     }
 
-    /**
-     * Завдання першого рівня: створ��ння дерева та паралельний обхід
-     */
+    // Завдання першого рівня: створення дерева та паралельний обхід
     private static void levelOneTask() {
         BinaryTree tree = new BinaryTree();
 
@@ -63,9 +57,7 @@ public class App {
         tree.displayParallelTraversal();
     }
 
-    /**
-     * Завдання другого рівня: пошук за критерієм
-     */
+    // Завдання другого рівня: пошук за критерієм
     private static void levelTwoTask() {
         BinaryTree tree = new BinaryTree();
 
@@ -90,9 +82,7 @@ public class App {
         tree.displaySearchResults(foundStudents, "відмінники, які беруть участь у конференціях");
     }
 
-    /**
-     * Завдання третього рівня: видалення за критерієм
-     */
+    // Завдання третього рівня: видалення за критерієм
     private static void levelThreeTask() {
         BinaryTree tree = new BinaryTree();
 
@@ -104,23 +94,23 @@ public class App {
         System.out.println("- Батьківсько-дочірні зв'язки");
 
         // Створюємо дерево з різними випадками розміщення вузлів
-        // Корінь
-        tree.insert(new Student("Корінь_Відмінник", 50000, 4.8, true)); // видалити
+        // Корінь - відмінник (видалити, випадок: два нащадки)
+        tree.insert(new Student("Бондаренко", 50000, 4.8, true)); // видалити
 
         // Лівий бік
-        tree.insert(new Student("Лівий_Звичайний", 30000, 4.0, false)); // залишити
-        tree.insert(new Student("ЛівЛів_Відмінник", 20000, 4.9, true)); // видалити (лист)
-        tree.insert(new Student("ЛівПрав_Звичайний", 35000, 3.8, true)); // залишити
-        tree.insert(new Student("ЛівПравЛів_Відм", 32000, 4.6, true)); // видалити (один нащадок)
-        tree.insert(new Student("ЛівПравЛівЛів", 31000, 3.5, false)); // залишити
+        tree.insert(new Student("Ткаченко", 30000, 4.0, false)); // залишити
+        tree.insert(new Student("Лисенко", 20000, 4.9, true)); // видалити (випадок: лист)
+        tree.insert(new Student("Гриценко", 35000, 3.8, true)); // залишити
+        tree.insert(new Student("Савченко", 32000, 4.6, true)); // видалити (випадок: один нащадок)
+        tree.insert(new Student("Павленко", 31000, 3.5, false)); // залишити
 
         // Правий бік
-        tree.insert(new Student("Правий_Відмінник", 70000, 4.7, true)); // видалити (два нащадки)
-        tree.insert(new Student("ПравЛів_Звичайний", 60000, 4.1, false)); // залишити
-        tree.insert(new Student("ПравПрав_Відмінник", 80000, 5.0, true)); // видалити
-        tree.insert(new Student("ПравЛівПрав", 65000, 4.3, true)); // залишити
-        tree.insert(new Student("ПравПравЛів", 75000, 3.9, false)); // залишити
-        tree.insert(new Student("ПравПравПрав", 85000, 4.4, true)); // залишити
+        tree.insert(new Student("Морозенко", 70000, 4.7, true)); // видалити (випадок: два нащадки)
+        tree.insert(new Student("Давиденко", 60000, 4.1, false)); // залишити
+        tree.insert(new Student("Романенко", 80000, 5.0, true)); // видалити (випадок: лист)
+        tree.insert(new Student("Васильченко", 65000, 4.3, true)); // залишити
+        tree.insert(new Student("Литвиненко", 75000, 3.9, false)); // залишити
+        tree.insert(new Student("Марченко", 85000, 4.4, true)); // залишити
 
         System.out.println("\nДодано студентів до дерева");
         System.out.printf("Загальна кількість студентів: %d%n", tree.size());
@@ -128,6 +118,7 @@ public class App {
         // Показуємо початковий стан
         System.out.println("\n--- Стан дерева до видалення ---");
         tree.displayParallelTraversal();
+        tree.displayInOrderTraversal();
 
         // Знаходимо студентів для видалення
         List<Student> toRemove = tree.findBySearchCriteria();
@@ -141,6 +132,7 @@ public class App {
         // Показуємо кінцевий стан
         System.out.println("\n--- Стан дерева після видалення ---");
         tree.displayParallelTraversal();
+        tree.displayInOrderTraversal();
 
         System.out.println("\n" + "=".repeat(60));
         System.out.println("ДЕМОНСТРАЦІЮ ЗАВЕРШЕНО");

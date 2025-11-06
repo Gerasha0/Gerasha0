@@ -1,17 +1,13 @@
 package org.atsd;
 
-/**
- * Вузол BST-дерева для студентів
- */
+// Вузол BST-дерева для студентів
 public class BSTNode {
     private Student data; // Дані студента
     private BSTNode left; // Лівий нащадок
     private BSTNode right; // Правий нащадок
     private int height; // Висота вузла (для AVL-балансування)
 
-    /**
-     * Конструктор вузла
-     */
+    // Конструктор вузла
     public BSTNode(Student data) {
         this.data = data;
         this.left = null;
@@ -52,25 +48,19 @@ public class BSTNode {
         this.height = height;
     }
 
-    /**
-     * Перевіряє, чи є вузол листком
-     */
+    // Перевіряє, чи є вузол листком
     public boolean isLeaf() {
         return left == null && right == null;
     }
 
-    /**
-     * Обчислює баланс-фактор вузла
-     */
+    // Обчислює баланс-фактор вузла
     public int getBalanceFactor() {
         int leftHeight = (left != null) ? left.height : 0;
         int rightHeight = (right != null) ? right.height : 0;
         return leftHeight - rightHeight;
     }
 
-    /**
-     * Оновлює висоту вузла
-     */
+    // Оновлює висоту вузла
     public void updateHeight() {
         int leftHeight = (left != null) ? left.height : 0;
         int rightHeight = (right != null) ? right.height : 0;

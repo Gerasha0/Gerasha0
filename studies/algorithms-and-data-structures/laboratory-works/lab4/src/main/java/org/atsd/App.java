@@ -1,39 +1,35 @@
 package org.atsd;
 
-/**
- * Лабораторна робота 1.4
- * Дослідження алгоритмів сортування
- */
 public class App {
     public static void main(String[] args) {
         System.out.println("=".repeat(60));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.4");
-        System.out.println("ДОСЛІДЖЕННЯ АЛГОРИТМІВ СОРТУВАННЯ");
+        System.out.println("Лаба 1.4");
+        System.out.println("Дослідження алгоритмів сортування");
         System.out.println("=".repeat(60));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання");
         System.out.println("Сортування масиву вставкою за зростанням середнього бала");
         System.out.println("-".repeat(60));
 
         levelOneTask();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("Сортування двоспрямованого списку вставкою");
         System.out.println("-".repeat(50));
 
         levelTwoTask();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("Кишеньковий алгоритм сортування");
         System.out.println("-".repeat(40));
 
         levelThreeTask();
 
         System.out.println("\n" + "=".repeat(60));
-        System.out.println("ДЕМОНСТРАЦІЮ ЗАВЕРШЕНО");
+        System.out.println("Демонстрацію завершено");
         System.out.println("Продемонстровано алгоритми сортування:");
         System.out.println("✓ Сортування вставкою для масиву");
         System.out.println("✓ Сортування вставкою для двоспрямованого списку");
@@ -41,9 +37,7 @@ public class App {
         System.out.println("=".repeat(60));
     }
 
-    /**
-     * Завдання першого рівня: сортування масиву вставкою
-     */
+    // Завдання першого рівня: сортування масиву вставкою
     private static void levelOneTask() {
         System.out.println("Створення та ініціювання масиву студентів:");
 
@@ -64,9 +58,7 @@ public class App {
         System.out.println("Алгоритм: Сортування вставкою, складність O(n²)");
     }
 
-    /**
-     * Завдання другого рівня: сортування двоспрямованого списку
-     */
+    // Завдання другого рівня: сортування двоспрямованого списку
     private static void levelTwoTask() {
         System.out.println("Створення двоспрямованого списку студентів:");
 
@@ -95,9 +87,7 @@ public class App {
         System.out.println("переміщуватися в обох напрямках при сортуванні вставкою");
     }
 
-    /**
-     * Завдання третього рівня: кишеньковий алгоритм сортування
-     */
+    // Завдання третього рівня: кишеньковий алгоритм сортування
     private static void levelThreeTask() {
         System.out.println("Демонстрація кишенькового алгоритму сортування:");
 
@@ -134,9 +124,7 @@ public class App {
         System.out.println("✓ Стабільний алгоритм сортування");
     }
 
-    /**
-     * Перевіряє, чи однакові два масиви студентів за балами
-     */
+    // Перевіряє, чи однакові два масиви студентів за балами
     private static boolean areArraysEqual(Student[] array1, Student[] array2) {
         if (array1.length != array2.length) {
             return false;

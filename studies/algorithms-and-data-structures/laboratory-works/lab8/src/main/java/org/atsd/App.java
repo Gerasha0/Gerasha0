@@ -4,10 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/**
- * Головний клас для демонстрації алгоритмів ідентифікації
- * Лабораторна робота 2.2 - Варіант 7
- */
 public class App {
 
     private static Scanner scanner = new Scanner(System.in);
@@ -15,10 +11,10 @@ public class App {
     private static final String DELIMITED_TEXT_FILE = "delimited_text.txt";
 
     public static void main(String[] args) {
-        System.out.println("╔════════════════════════════════════════════════════════════════╗");
-        System.out.println("║         ЛАБОРАТОРНА РОБОТА 2.2 - ВАРІАНТ 7                     ║");
-        System.out.println("║        ДОСЛІДЖЕННЯ АЛГОРИТМІВ ІДЕНТИФІКАЦІЇ                    ║");
-        System.out.println("╚════════════════════════════════════════════════════════════════╝");
+        System.out.println(" ");
+        System.out.println("         Лаба 2.2 - ВАРІАНТ 7                     ");
+        System.out.println("        Дослідження алгоритмів ідентифікації      ");
+        System.out.println(" ");
         System.out.println();
 
         // Створюємо тестові файли якщо вони не існують
@@ -58,26 +54,25 @@ public class App {
     }
 
     private static void showMainMenu() {
-        System.out.println("┌─────────────────────────────────────────────────────────────┐");
-        System.out.println("│                        ГОЛОВНЕ МЕНЮ                         │");
-        System.out.println("├─────────────────────────────────────────────────────────────┤");
-        System.out.println("│ 1. Завдання 1 - Пошук слів регулярними виразами             │");
-        System.out.println("│    Шаблон: {цифри} або {великі літери}                      │");
-        System.out.println("├─────────────────────────────────────────────────────────────┤");
-        System.out.println("│ 2. Завдання 2 - Скінченний автомат (switch)                 │");
-        System.out.println("│    Розпізнавання: \\{(\\d+|[A-Z]+)\\}                       │");
-        System.out.println("├─────────────────────────────────────────────────────────────┤");
-        System.out.println("│ 3. Завдання 3 - Автомат з таблицею переходів (for)          │");
-        System.out.println("│    Слова з роздільниками: !content&                         │");
-        System.out.println("├─────────────────────────────────────────────────────────────┤");
-        System.out.println("│ 4. Демонстрація всіх завдань                                │");
-        System.out.println("│ 5. Показати графи автоматів та таблиці переходів            │");
-        System.out.println("│ 0. Вихід                                                    │");
-        System.out.println("└─────────────────────────────────────────────────────────────┘");
+        System.out.println(" ");
+        System.out.println("                        ГОЛОВНЕ МЕНЮ                         ");
+        System.out.println(" ");
+        System.out.println(" 1. Завдання 1 - Пошук слів регулярними виразами             ");
+        System.out.println("    Шаблон: {цифри} або {великі літери}                      ");
+        System.out.println(" ");
+        System.out.println(" 2. Завдання 2 - Скінченний автомат (switch)                 ");
+        System.out.println("    Розпізнавання: \\{(\\d+|[A-Z]+)\\}                       ");
+        System.out.println(" ");
+        System.out.println(" 3. Завдання 3 - Автомат з таблицею переходів (for)          ");
+        System.out.println("    Слова з роздільниками: !content&                         ");
+        System.out.println(" ");
+        System.out.println(" 4. Демонстрація всіх завдань                                ");
+        System.out.println(" 5. Показати графи автоматів та таблиці переходів            ");
+        System.out.println(" 0. Вихід                                                    ");
+        System.out.println(" ");
     }
 
-    // =============== ЗАВДАННЯ 1: РЕГУЛЯРНІ ВИРАЗИ ===============
-
+    // Завдання 1: Пошук слів регулярними виразами
     private static void performTask1() {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("             ЗАВДАННЯ 1: ПОШУК СЛІВ РЕГУЛЯРНИМИ ВИРАЗАМИ");
@@ -126,8 +121,7 @@ public class App {
         waitForEnter();
     }
 
-    // =============== ЗАВДАННЯ 2: СКІНЧЕННИЙ АВТОМАТ (SWITCH) ===============
-
+    // Завдання 2: Скінченний автомат (switch)
     private static void performTask2() {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("        ЗАВДАННЯ 2: СКІНЧЕННИЙ АВТОМАТ (SWITCH)");
@@ -170,8 +164,7 @@ public class App {
         waitForEnter();
     }
 
-    // =============== ЗАВДАННЯ 3: АВТОМАТ З ТАБЛИЦЕЮ ПЕРЕХОДІВ ===============
-
+    // Завдання 3: Автомат з таблицею переходів (for)
     private static void performTask3() {
         System.out.println("\n" + "═".repeat(60));
         System.out.println("     ЗАВДАННЯ 3: АВТОМАТ З ТАБЛИЦЕЮ ПЕРЕХОДІВ (FOR)");
@@ -240,7 +233,7 @@ public class App {
         waitForEnter();
     }
 
-    // =============== ДЕМОНСТРАЦІЯ ВСІХ ЗАВДАНЬ ===============
+    // Демонстрація всіх завдань послідовно
 
     private static void demonstrateAllTasks() {
         System.out.println("\n" + "═".repeat(80));
@@ -275,8 +268,7 @@ public class App {
         waitForEnter();
     }
 
-    // =============== ГРАФИ ТА ТАБЛИЦІ ПЕРЕХОДІВ ===============
-
+    // Графи та таблиці переходів
     private static void showAutomatonGraphs() {
         System.out.println("\n" + "═".repeat(80));
         System.out.println("            ГРАФИ СКІНЧЕННИХ АВТОМАТІВ ТА ТАБЛИЦІ ПЕРЕХОДІВ");
@@ -287,7 +279,7 @@ public class App {
         waitForEnter();
     }
 
-    // =============== РОБОТА З ФАЙЛАМИ ===============
+    // Робота з файлами
 
     private static void createTestFilesIfNotExist() {
         File wordsFile = new File(WORDS_FILE);
@@ -379,7 +371,7 @@ public class App {
         return content.toString().trim();
     }
 
-    // =============== ДОПОМІЖНІ МЕТОДИ ===============
+    // Допоміжні методи
 
     private static int getIntInput(String prompt) {
         while (true) {

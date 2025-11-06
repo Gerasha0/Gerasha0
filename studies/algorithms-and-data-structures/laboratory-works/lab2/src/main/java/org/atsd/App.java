@@ -2,36 +2,31 @@ package org.atsd;
 
 import java.util.Scanner;
 import java.util.List;
-
-/**
- * Лабораторна робота 1.2
- * Дослідження структури даних «хеш-таблиця»
- */
 public class App {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
+    public static void main(String[] args) {
         System.out.println("=".repeat(60));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.2");
-        System.out.println("ДОСЛІДЖЕННЯ СТРУКТУРИ ДАНИХ «ХЕШ-ТАБЛИЦЯ»");
+        System.out.println("Лаба 1.2");
+        System.out.println("Дослідження структури даних «хеш-таблиця»");
         System.out.println("=".repeat(60));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання");
         System.out.println("Створення хеш-таблиці без колізій");
         System.out.println("-".repeat(40));
 
         levelOneTask();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("Розв'язання колізій методом подвійного хешування");
         System.out.println("-".repeat(50));
 
         levelTwoTask();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("Видалення елементів за критерієм площі");
         System.out.println("-".repeat(40));
 
@@ -40,12 +35,9 @@ public class App {
         scanner.close();
     }
 
-    /**
-     * Завдання першого рівня: створення хеш-таблиці без колізій
-     */
+    // Завдання першого рівня: створення хеш-таблиці без колізій
     private static void levelOneTask() {
         System.out.print("Введіть розмір хеш-таблиці: ");
-        Scanner scanner = new Scanner(System.in);
         int tableSize = scanner.nextInt();
 
         RhombusHashTable hashTable = new RhombusHashTable(tableSize);
@@ -53,30 +45,31 @@ public class App {
         System.out.println("\nГенерація ромбів і спроба вставки без колізій:");
 
         int attempts = 0;
+        int successfulInserts = 0;
         int maxAttempts = tableSize * 3; // Обмежуємо кількість спроб
+        int targetInserts = Math.min(tableSize / 2, 10);
 
-        while (hashTable.getSize() < Math.min(tableSize / 2, 10) && attempts < maxAttempts) {
+        while (successfulInserts < targetInserts && attempts < maxAttempts) {
             attempts++;
             Rhombus rhombus = Rhombus.createRandomRhombus();
 
             if (rhombus.isValidRhombus()) {
                 boolean inserted = hashTable.insertWithoutCollisions(rhombus);
-                System.out.printf("Спроба %d: %s - %s%n",
-                    attempts,
-                    inserted ? "ВСТАВЛЕНО" : "КОЛІЗІЯ",
-                    rhombus);
+                if (inserted) {
+                    successfulInserts++;
+                    System.out.printf("Спроба %d: Вставлено - %s%n", attempts, rhombus);
+                } else {
+                    System.out.printf("Спроба %d: Колізія - %s%n", attempts, rhombus);
+                }
             }
         }
 
         hashTable.display();
     }
 
-    /**
-     * Завдання другого рівня: розв'язання колізій подвійним хешуванням
-     */
+    // Завдання другого рівня: розв'язання колізій подвійним хешуванням
     private static void levelTwoTask() {
         System.out.print("Введіть розмір хеш-таблиці: ");
-        Scanner scanner = new Scanner(System.in);
         int tableSize = scanner.nextInt();
 
         RhombusHashTable hashTable = new RhombusHashTable(tableSize);
@@ -92,7 +85,7 @@ public class App {
                 boolean inserted = hashTable.insert(rhombus);
                 System.out.printf("Елемент %d: %s - %s%n",
                     i + 1,
-                    inserted ? "ВСТАВЛЕНО" : "НЕ ВДАЛОСЯ ВСТАВИТИ",
+                    inserted ? "Вставлено" : "Не вдалося вставити",
                     rhombus);
 
                 if (!inserted) {
@@ -104,12 +97,9 @@ public class App {
         hashTable.display();
     }
 
-    /**
-     * Завдання третього рівня: видалення елементів за критерієм
-     */
+    // Завдання третього рівня: видалення елементів за критерієм
     private static void levelThreeTask() {
         System.out.print("Введіть розмір хеш-таблиці: ");
-        Scanner scanner = new Scanner(System.in);
         int tableSize = scanner.nextInt();
 
         RhombusHashTable hashTable = new RhombusHashTable(tableSize);

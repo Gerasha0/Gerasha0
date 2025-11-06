@@ -1,9 +1,9 @@
 [ {
   "id" : 1,
-  "name" : "Борщ українский",
-  "description" : "Традиційний український борщ з м'ясом",
-  "price" : 85.00,
-  "dishType" : "FIRST_COURSE",
+  "name" : "Оновлена страва",
+  "description" : "тест",
+  "price" : 120,
+  "dishType" : "SECOND_COURSE",
   "available" : true
 }, {
   "id" : 2,
@@ -97,17 +97,31 @@
   "dishType" : "APPETIZER",
   "available" : false
 }, {
-  "id" : 15,
-  "name" : "Тестова страва",
-  "description" : "Створена через веб-інтерфейс",
-  "price" : 99.99,
-  "dishType" : "APPETIZER",
-  "available" : false
-}, {
   "id" : 16,
   "name" : "Тестова страва",
   "description" : "Створена через веб-інтерфейс",
   "price" : 99.99,
   "dishType" : "APPETIZER",
   "available" : false
+}, {
+  "id" : 17,
+  "name" : "Тестова страва",
+  "description" : "Створена через веб-інтерфейс",
+  "price" : 99.99,
+  "dishType" : "APPETIZER",
+  "available" : false
+}, {
+  "id" : 18,
+  "name" : "Тестова страва",
+  "description" : "Створена через веб-інтерфейс",
+  "price" : 99.99,
+  "dishType" : "APPETIZER",
+  "available" : false
+}, {
+  "id" : 19,
+  "name" : "Салат Цезарь",
+  "description" : "салатик",
+  "price" : 65,
+  "dishType" : "SALAD",
+  "available" : true
 } ]

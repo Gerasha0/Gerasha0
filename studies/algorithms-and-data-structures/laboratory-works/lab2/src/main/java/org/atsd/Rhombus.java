@@ -2,18 +2,14 @@ package org.atsd;
 
 import java.util.Random;
 
-/**
- * Клас, що представляє ромб
- */
+//Клас, що представляє ромб
 public class Rhombus {
     private double x1, y1; // Перша вершина
-    private double x2, y2; // Друга вершина
-    private double x3, y3; // Третя вершина
-    private double x4, y4; // Четверта вершина
+    private double x2, y2; // Друга
+    private double x3, y3; // ...
+    private double x4, y4; // ...
 
-    /**
-     * Конструктор із заданими координатами вершин
-     */
+    //Конструктор із заданими координатами вершин
     public Rhombus(double x1, double y1, double x2, double y2,
                    double x3, double y3, double x4, double y4) {
         this.x1 = x1; this.y1 = y1;
@@ -22,9 +18,7 @@ public class Rhombus {
         this.x4 = x4; this.y4 = y4;
     }
 
-    /**
-     * Конструктор, що створює випадковий ромб
-     */
+    // Конструктор, що створює випадковий ромб
     public static Rhombus createRandomRhombus() {
         Random random = new Random();
 
@@ -49,33 +43,25 @@ public class Rhombus {
         return new Rhombus(x1, y1, x2, y2, x3, y3, x4, y4);
     }
 
-    /**
-     * Обчислює довжину сторони між двома точками
-     */
+    // Обчислює довжину сторони між двома точками
     private double distance(double x1, double y1, double x2, double y2) {
         return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 
-    /**
-     * Обчислює периметр ромба
-     */
+    // Обчислює периметр ромба
     public double getPerimeter() {
         double side = distance(x1, y1, x2, y2);
         return 4 * side; // У ромба всі сторони рівні
     }
 
-    /**
-     * Обчислює площу ромба через координати вершин
-     */
+    // Обчислює площу ромба через координати вершин
     public double getArea() {
-        // Використовуємо формулу площі через координати (формула шнурків)
+        // Використовуємо формулу площі через координати
         double area = Math.abs((x1 * (y2 - y4) + x2 * (y3 - y1) + x3 * (y4 - y2) + x4 * (y1 - y3))) / 2.0;
         return area;
     }
 
-    /**
-     * Перевіряє, чи є фігура дійсно ромбом
-     */
+    // Перевіряє, чи є фігура дійсно ромбом
     public boolean isValidRhombus() {
         double side1 = distance(x1, y1, x2, y2);
         double side2 = distance(x2, y2, x3, y3);

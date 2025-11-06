@@ -7,37 +7,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Лабораторна робота 2.2 - Дослідження алгоритмів ідентифікації
- * Варіант 7
- *
- * Завдання:
- * 1. Регулярні вирази для пошуку слів типу {цифри або великі літери}
- * 2. Скінченний автомат на основі switch для розпізнавання \{(\d+|[A-Z]+)\}
- * 3. Скінченний автомат на основі таблиці переходів для слів з роздільниками ! та &
- */
 public class TextPatternRecognizer {
 
-    // =============== ЗАВДАННЯ 1: РЕГУЛЯРНІ ВИРАЗИ ===============
+    // Завдання 1: Регулярні вирази
 
-    /**
-     * Регулярний вираз для варіанта 7:
-     * Слово обов'язково починається символом «{», потім можуть йти послідовність із символів «0÷9»
-     * або «A÷Z», закінчується слово символом «}»
-     */
+    // Регулярний вираз для варіанта 7:
+    // Слово обов'язково починається символом «{», потім можуть йти послідовність із символів «0÷9»
+    // або «A÷Z», закінчується слово символом «}»
     private static final Pattern TASK1_PATTERN = Pattern.compile("^\\{([0-9]+|[A-Z]+)\\}$");
 
-    /**
-     * Перевіряє слово на відповідність регулярному виразу завдання 1
-     */
+    // Перевіряє слово на відповідність регулярному виразу завдання 1
     public static boolean matchesTask1Pattern(String word) {
         if (word == null) return false;
         return TASK1_PATTERN.matcher(word).matches(); // Прибрав .trim()
     }
 
-    /**
-     * Знаходить усі слова у тексті, що відповідають регулярному виразу завдання 1
-     */
+    // Знаходить усі слова у тексті, що відповідають регулярному виразу завдання 1
     public static List<String> findMatchingWords(List<String> words) {
         List<String> matchingWords = new ArrayList<>();
         for (String word : words) {
@@ -48,12 +33,10 @@ public class TextPatternRecognizer {
         return matchingWords;
     }
 
-    // =============== ЗАВДАННЯ 2: СКІНЧЕННИЙ АВТОМАТ (SWITCH) ===============
+    // Завдання 2: Скінченний автомат на основі switch
 
-    /**
-     * Стани скінченного автомата для завдання 2
-     * Регулярний вираз: \{(\d+|[A-Z]+)\}
-     */
+    // Стани скінченного автомата для завдання 2
+    // Регулярний вираз: \{(\d+|[A-Z]+)\}
     public enum AutomatonState {
         START,          // Початковий стан
         OPEN_BRACE,     // Після відкриваючої дужки {
@@ -64,10 +47,8 @@ public class TextPatternRecognizer {
         REJECT          // Стан відхилення
     }
 
-    /**
-     * Синтаксичний аналізатор на основі скінченного автомата (switch)
-     * Розпізнає текстові образи типу {123} або {ABC}
-     */
+    // Синтаксичний аналізатор на основі скінченного автомата (switch)
+    // Розпізнає текстові образи типу {123} або {ABC}
     public static boolean recognizeWithSwitchAutomaton(String input) {
         if (input == null || input.isEmpty()) {
             return false;
@@ -137,12 +118,10 @@ public class TextPatternRecognizer {
         return currentState == AutomatonState.CLOSE_BRACE;
     }
 
-    // =============== ЗАВДАННЯ 3: СКІНЧЕННИЙ АВТОМАТ (ТАБЛИЦЯ ПЕРЕХОДІВ) ===============
+    // Завдання 3: Скінченний автомат на основі таблиці переходів
 
-    /**
-     * Стани скінченного автомата для завдання 3
-     * Слова з роздільниками: починаються з '!', закінчуються '&'
-     */
+    // Стани скінченного автомата для завдання 3
+    // Слова з роздільниками: починаються з '!', закінчуються '&'
     public enum Task3State {
         S0,     // Початковий стан
         S1,     // Після символу '!'
@@ -151,10 +130,8 @@ public class TextPatternRecognizer {
         ERROR   // Стан помилки
     }
 
-    /**
-     * Таблиця переходів для скінченного автомата завдання 3
-     * Ключ: поточний стан + символ → новий стан
-     */
+    // Таблиця переходів для скінченного автомата завдання 3
+    // Ключ: поточний стан + символ → новий стан
     private static final Map<String, Task3State> TRANSITION_TABLE = new HashMap<>();
 
     static {
@@ -192,10 +169,8 @@ public class TextPatternRecognizer {
         TRANSITION_TABLE.put("S1_&", Task3State.S3);
     }
 
-    /**
-     * Синтаксичний аналізатор на основі таблиці переходів (for)
-     * Розпізнає слова типу !content&
-     */
+    // Синтаксичний аналізатор на основі таблиці переходів (for)
+    // Розпізнає слова типу !content&
     public static boolean recognizeWithTableAutomaton(String input) {
         if (input == null || input.isEmpty()) {
             return false;
@@ -219,9 +194,7 @@ public class TextPatternRecognizer {
         return currentState == Task3State.S3;
     }
 
-    /**
-     * Розбиває текст на слова, що розділяються символами '!' та '&'
-     */
+    // Розбиває текст на слова, що розділяються символами '!' та '&'
     public static List<String> extractWordsWithDelimiters(String text) {
         List<String> words = new ArrayList<>();
         if (text == null || text.isEmpty()) {
@@ -240,11 +213,9 @@ public class TextPatternRecognizer {
         return words;
     }
 
-    // =============== ДОПОМІЖНІ МЕТОДИ ===============
+    // Допоміжні методи
 
-    /**
-     * Створює візуальне представлення переходів автомата
-     */
+    // Створює візуальне представлення переходів автомата
     public static String getAutomatonDescription() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== ГРАФ СКІНЧЕННОГО АВТОМАТА ===\n");
@@ -270,9 +241,7 @@ public class TextPatternRecognizer {
         return sb.toString();
     }
 
-    /**
-     * Демонстрація роботи регулярних виразів
-     */
+    // Демонстрація роботи регулярних виразів
     public static void demonstrateRegexMatching(List<String> testWords) {
         System.out.println("=== ДЕМОНСТРАЦІЯ РЕГУЛЯРНИХ ВИРАЗІВ ===");
         System.out.println("Шаблон: слова виду {цифри} або {великі літери}");
@@ -285,9 +254,7 @@ public class TextPatternRecognizer {
         System.out.println();
     }
 
-    /**
-     * Демонстрація роботи скінченного автомата
-     */
+    // Демонстрація роботи скінченного автомата
     public static void demonstrateAutomatonRecognition(List<String> testInputs) {
         System.out.println("=== ДЕМОНСТРАЦІЯ СКІНЧЕННОГО АВТОМАТА ===");
         System.out.println("Автомат на основі switch для розпізнавання {цифри} або {літери}");
@@ -300,9 +267,7 @@ public class TextPatternRecognizer {
         System.out.println();
     }
 
-    /**
-     * Демонстрація роботи автомата з таблицею переходів
-     */
+    // Демонстрація роботи автомата з таблицею переходів
     public static void demonstrateTableAutomaton(List<String> testInputs) {
         System.out.println("=== ДЕМОНСТРАЦІЯ АВТОМАТА З ТАБЛИЦЕЮ ПЕРЕХОДІВ ===");
         System.out.println("Розпізнавання слів виду !content&");

@@ -262,6 +262,47 @@
         <div class="container">
             <h2 class="section-title">🍽️ Наше меню</h2>
             
+            <!-- Панель пошуку та фільтрів -->
+            <div style="background: white; border-radius: 15px; padding: 25px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">🔍 Пошук страви</label>
+                        <input type="text" id="searchInput" placeholder="Введіть назву страви..."
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;"
+                               oninput="filterDishes()">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">💰 Мін. ціна (₴)</label>
+                        <input type="number" id="minPrice" placeholder="0" value="0"
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;"
+                               oninput="filterDishes()">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">💰 Макс. ціна (₴)</label>
+                        <input type="number" id="maxPrice" placeholder="1000" value="1000"
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;"
+                               oninput="filterDishes()">
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="filterDishes()" style="padding: 10px 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                        Застосувати фільтри
+                    </button>
+                    <button onclick="resetFilters()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                        Скинути
+                    </button>
+                    <button onclick="openComplexLunchModal()" style="padding: 10px 20px; background: linear-gradient(135deg, #f093fb, #f5576c); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                        🍱 Комплексний обід
+                    </button>
+                    <button onclick="openOrderHistoryModal()" style="padding: 10px 20px; background: linear-gradient(135deg, #10ac84, #0e9570); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                        📜 Мої замовлення
+                    </button>
+                    <button onclick="openAdminPanel()" style="padding: 10px 20px; background: linear-gradient(135deg, #5f27cd, #341f97); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                        ⚙️ Адмін-панель
+                    </button>
+                </div>
+            </div>
+
             <div class="menu-grid" id="menuGrid">
                 <!-- Меню буде завантажено динамічно -->
             </div>
@@ -594,6 +635,278 @@
             }, 3000);
         }
 
+        // Фільтрація страв
+        function filterDishes() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || 1000000;
+
+            const filteredDishes = allDishes.filter(dish => {
+                const matchesSearch = dish.name.toLowerCase().includes(searchTerm) ||
+                                     dish.description.toLowerCase().includes(searchTerm);
+                const matchesPrice = dish.price >= minPrice && dish.price <= maxPrice;
+                return matchesSearch && matchesPrice;
+            });
+
+            displayDishes(filteredDishes);
+
+            if (filteredDishes.length === 0) {
+                document.getElementById('menuGrid').innerHTML = `
+                    <div style="text-align: center; color: #666; grid-column: 1 / -1; padding: 40px;">
+                        <h3>😔 Нічого не знайдено</h3>
+                        <p>Спробуйте змінити параметри пошуку</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Скинути фільтри
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('minPrice').value = '0';
+            document.getElementById('maxPrice').value = '1000';
+            displayDishes(allDishes);
+        }
+
+        // Модальне вікно комплексного обіду
+        function openComplexLunchModal() {
+            const modal = document.createElement('div');
+            modal.id = 'complexLunchModal';
+            modal.style.cssText = 'display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center;';
+
+            const firstCourses = allDishes.filter(d => d.dishType === 'FIRST_COURSE' && d.available);
+            const secondCourses = allDishes.filter(d => d.dishType === 'SECOND_COURSE' && d.available);
+            const salads = allDishes.filter(d => d.dishType === 'SALAD' && d.available);
+            const drinks = allDishes.filter(d => d.dishType === 'DRINK' && d.available);
+
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 20px; padding: 30px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">🍱 Комплексний обід</h2>
+                        <button onclick="closeComplexLunchModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">✕</button>
+                    </div>
+
+                    <p style="color: #666; margin-bottom: 20px;">Оберіть страви для вашого комплексного обіду зі знижкою!</p>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 8px;">🍲 Перша страва:</label>
+                        <select id="firstCourseSelect" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            <option value="">-- Оберіть --</option>
+                            ${firstCourses.map(d => `<option value="${d.id}">${d.name} (${d.price} ₴)</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 8px;">🍖 Друга страва:</label>
+                        <select id="secondCourseSelect" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            <option value="">-- Оберіть --</option>
+                            ${secondCourses.map(d => `<option value="${d.id}">${d.name} (${d.price} ₴)</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 8px;">🥗 Салат:</label>
+                        <select id="saladSelect" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            <option value="">-- Оберіть --</option>
+                            ${salads.map(d => `<option value="${d.id}">${d.name} (${d.price} ₴)</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 8px;">🥤 Напій:</label>
+                        <select id="drinkSelect" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            <option value="">-- Оберіть --</option>
+                            ${drinks.map(d => `<option value="${d.id}">${d.name} (${d.price} ₴)</option>`).join('')}
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="clName" placeholder="Ваше ім'я" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px;">
+                        <input type="tel" id="clPhone" placeholder="Телефон +380..." style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px;">
+                        <input type="text" id="clAddress" placeholder="Адреса доставки" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <button onclick="submitComplexLunch()" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #f093fb, #f5576c); color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer;">
+                        🍱 Замовити комплексний обід
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeComplexLunchModal();
+                }
+            });
+        }
+
+        function closeComplexLunchModal() {
+            const modal = document.getElementById('complexLunchModal');
+            if (modal) modal.remove();
+        }
+
+        async function submitComplexLunch() {
+            const firstCourseId = document.getElementById('firstCourseSelect').value;
+            const secondCourseId = document.getElementById('secondCourseSelect').value;
+            const saladId = document.getElementById('saladSelect').value;
+            const drinkId = document.getElementById('drinkSelect').value;
+            const name = document.getElementById('clName').value.trim();
+            const phone = document.getElementById('clPhone').value.trim();
+            const address = document.getElementById('clAddress').value.trim();
+
+            if (!firstCourseId || !secondCourseId || !saladId || !drinkId) {
+                showNotification('⚠️ Оберіть всі страви для комплексного обіду!');
+                return;
+            }
+
+            if (!name || !phone || !address) {
+                showNotification('⚠️ Заповніть всі особисті дані!');
+                return;
+            }
+
+            const complexLunchData = {
+                customerName: name,
+                customerPhone: phone,
+                deliveryAddress: address,
+                firstCourseId: parseInt(firstCourseId),
+                secondCourseId: parseInt(secondCourseId),
+                saladId: parseInt(saladId),
+                drinkId: parseInt(drinkId)
+            };
+
+            try {
+                const response = await fetch('/api/orders/complex-lunch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(complexLunchData)
+                });
+
+                if (response.ok) {
+                    const order = await response.json();
+                    showNotification(`🎉 Комплексний обід №${order.id} успішно замовлено!\n\nСума зі знижкою: ${order.totalAmount} ₴\nОчікуйте дзвінка!`);
+                    closeComplexLunchModal();
+                } else {
+                    const error = await response.text();
+                    showNotification('❌ Помилка: ' + error);
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання з сервером');
+            }
+        }
+
+        // Модальне вікно історії замовлень
+        function openOrderHistoryModal() {
+            const modal = document.createElement('div');
+            modal.id = 'orderHistoryModal';
+            modal.style.cssText = 'display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center;';
+
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 20px; padding: 30px; max-width: 700px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">📜 Мої замовлення</h2>
+                        <button onclick="closeOrderHistoryModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">✕</button>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <input type="tel" id="historyPhone" placeholder="Введіть ваш телефон +380..."
+                               style="width: calc(100% - 120px); padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em;">
+                        <button onclick="loadOrderHistory()" style="width: 110px; padding: 12px; background: #10ac84; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-left: 10px;">
+                            Пошук
+                        </button>
+                    </div>
+
+                    <div id="orderHistoryContent">
+                        <p style="text-align: center; color: #666;">Введіть номер телефону для перегляду історії замовлень</p>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeOrderHistoryModal();
+                }
+            });
+        }
+
+        function closeOrderHistoryModal() {
+            const modal = document.getElementById('orderHistoryModal');
+            if (modal) modal.remove();
+        }
+
+        async function loadOrderHistory() {
+            const phone = document.getElementById('historyPhone').value.trim();
+            const content = document.getElementById('orderHistoryContent');
+
+            if (!phone) {
+                showNotification('⚠️ Введіть номер телефону!');
+                return;
+            }
+
+            content.innerHTML = '<p style="text-align: center;">⏳ Завантаження...</p>';
+
+            try {
+                const response = await fetch(`/api/orders/by-customer?phone=${encodeURIComponent(phone)}`);
+
+                if (response.ok) {
+                    const orders = await response.json();
+
+                    if (orders.length === 0) {
+                        content.innerHTML = '<p style="text-align: center; color: #666;">📭 Замовлень не знайдено</p>';
+                        return;
+                    }
+
+                    const statusColors = {
+                        'PENDING': '#ffc107',
+                        'CONFIRMED': '#17a2b8',
+                        'PREPARING': '#fd7e14',
+                        'DELIVERING': '#007bff',
+                        'DELIVERED': '#28a745',
+                        'CANCELLED': '#dc3545'
+                    };
+
+                    const statusNames = {
+                        'PENDING': 'Очікує',
+                        'CONFIRMED': 'Підтверджено',
+                        'PREPARING': 'Готується',
+                        'DELIVERING': 'Доставляється',
+                        'DELIVERED': 'Доставлено',
+                        'CANCELLED': 'Скасовано'
+                    };
+
+                    content.innerHTML = orders.map(order => `
+                        <div style="border: 2px solid #eee; border-radius: 10px; padding: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong style="font-size: 1.1em;">Замовлення №${order.id}</strong>
+                                <span style="background: ${statusColors[order.orderStatus]}; color: white; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">
+                                    ${statusNames[order.orderStatus] || order.orderStatus}
+                                </span>
+                            </div>
+                            <p style="color: #666; margin-bottom: 5px;">📅 ${new Date(order.orderDateTime).toLocaleString('uk-UA')}</p>
+                            <p style="color: #666; margin-bottom: 5px;">📍 ${order.deliveryAddress}</p>
+                            <p style="color: #666; margin-bottom: 10px;">💵 Сума: <strong>${order.totalAmount} ₴</strong></p>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 8px;">
+                                <strong>Страви:</strong>
+                                ${order.orderItems.map(item => `
+                                    <div style="margin-top: 5px;">• ${item.dish.name} × ${item.quantity} = ${item.unitPrice * item.quantity} ₴</div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    content.innerHTML = '<p style="text-align: center; color: #dc3545;">❌ Помилка завантаження</p>';
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                content.innerHTML = '<p style="text-align: center; color: #dc3545;">❌ Помилка з\'єднання з сервером</p>';
+            }
+        }
+
         // Плавна прокрутка до меню
         document.querySelector('a[href="#menu"]').addEventListener('click', function(e) {
             e.preventDefault();
@@ -611,6 +924,886 @@
 
         // Завантажуємо меню при завантаженні сторінки
         document.addEventListener('DOMContentLoaded', loadMenu);
+
+        // ============= АДМІН-ПАНЕЛЬ - ВСІЙ ВІДСУТНІ API =============
+
+        // Відкрити адмін-панель
+        function openAdminPanel() {
+            const modal = document.createElement('div');
+            modal.id = 'adminPanelModal';
+            modal.style.cssText = 'display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto;';
+
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 20px; padding: 30px; max-width: 1000px; width: 95%; max-height: 90vh; overflow-y: auto; margin: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 3px solid #5f27cd; padding-bottom: 15px;">
+                        <h2 style="margin: 0; color: #5f27cd;">⚙️ Адмін-панель</h2>
+                        <button onclick="closeAdminPanel()" style="background: none; border: none; font-size: 28px; cursor: pointer; color: #5f27cd;">✕</button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                        <button onclick="adminShowAllOrders()" style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                            📋 Всі замовлення
+                        </button>
+                        <button onclick="adminShowOrdersByStatus()" style="padding: 15px; background: linear-gradient(135deg, #f093fb, #f5576c); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                            🔍 Фільтр по статусу
+                        </button>
+                        <button onclick="adminShowDishManagement()" style="padding: 15px; background: linear-gradient(135deg, #10ac84, #0e9570); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                            🍽️ Управління стравами
+                        </button>
+                        <button onclick="adminShowOrderManagement()" style="padding: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                            📦 Управління замовленнями
+                        </button>
+                    </div>
+
+                    <div id="adminContent" style="min-height: 300px;">
+                        <div style="text-align: center; padding: 50px; color: #666;">
+                            <h3>👆 Оберіть розділ для роботи</h3>
+                            <p>Тут ви можете управляти всіма аспектами системи доставки їжі</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+        }
+
+        function closeAdminPanel() {
+            const modal = document.getElementById('adminPanelModal');
+            if (modal) modal.remove();
+        }
+
+        // 1. Показати всі замовлення (GET /api/orders)
+        async function adminShowAllOrders() {
+            const content = document.getElementById('adminContent');
+            content.innerHTML = '<p style="text-align: center;">⏳ Завантаження...</p>';
+
+            try {
+                const response = await fetch('/api/orders');
+                if (response.ok) {
+                    const orders = await response.json();
+                    displayOrdersList(orders, 'Всі замовлення в системі');
+                } else {
+                    content.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка завантаження</p>';
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                content.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка з\'єднання</p>';
+            }
+        }
+
+        // 2. Фільтр замовлень по статусу (GET /api/orders/by-status/{status})
+        function adminShowOrdersByStatus() {
+            const content = document.getElementById('adminContent');
+            content.innerHTML = `
+                <h3 style="margin-bottom: 20px;">🔍 Фільтр замовлень за статусом</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                    <button onclick="loadOrdersByStatus('PENDING')" style="padding: 12px; background: #ffc107; color: #333; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Очікує</button>
+                    <button onclick="loadOrdersByStatus('CONFIRMED')" style="padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Підтверджено</button>
+                    <button onclick="loadOrdersByStatus('PREPARING')" style="padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Готується</button>
+                    <button onclick="loadOrdersByStatus('DELIVERING')" style="padding: 12px; background: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Доставляється</button>
+                    <button onclick="loadOrdersByStatus('DELIVERED')" style="padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Доставлено</button>
+                    <button onclick="loadOrdersByStatus('CANCELLED')" style="padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Скасовано</button>
+                </div>
+                <div id="statusOrdersResult"></div>
+            `;
+        }
+
+        async function loadOrdersByStatus(status) {
+            const result = document.getElementById('statusOrdersResult');
+            result.innerHTML = '<p style="text-align: center;">⏳ Завантаження...</p>';
+
+            try {
+                const response = await fetch(`/api/orders/by-status/${status}`);
+                if (response.ok) {
+                    const orders = await response.json();
+                    if (orders.length === 0) {
+                        result.innerHTML = `<p style="text-align: center; color: #666;">Немає замовлень зі статусом "${status}"</p>`;
+                    } else {
+                        result.innerHTML = generateOrdersHTML(orders);
+                    }
+                } else {
+                    result.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка завантаження</p>';
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                result.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка з\'єднання</p>';
+            }
+        }
+
+        // 3. Управління стравами
+        function adminShowDishManagement() {
+            const content = document.getElementById('adminContent');
+            content.innerHTML = `
+                <h3 style="margin-bottom: 20px;">🍽️ Управління стравами</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                    <button onclick="adminShowAddDishForm()" style="padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">➕ Додати страву</button>
+                    <button onclick="adminShowEditDishForm()" style="padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">✏️ Редагувати страву</button>
+                    <button onclick="adminShowToggleAvailability()" style="padding: 12px; background: #ffc107; color: #333; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🔄 Змінити доступність</button>
+                    <button onclick="adminShowDeleteDish()" style="padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🗑️ Видалити страву</button>
+                    <button onclick="adminShowDishById()" style="padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🔎 Переглянути за ID</button>
+                    <button onclick="adminShowDishesByType()" style="padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">📂 Страви за типом</button>
+                </div>
+                <div id="dishManagementResult"></div>
+            `;
+        }
+
+        // POST /api/dishes - Додати нову страву
+        function adminShowAddDishForm() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>➕ Додати нову страву</h4>
+                    <input type="text" id="newDishName" placeholder="Назва страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <textarea id="newDishDescription" placeholder="Опис страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px; min-height: 80px;"></textarea>
+                    <input type="number" id="newDishPrice" placeholder="Ціна" step="0.01" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <select id="newDishType" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                        <option value="">-- Оберіть тип страви --</option>
+                        <option value="FIRST_COURSE">Перша страва</option>
+                        <option value="SECOND_COURSE">Друга страва</option>
+                        <option value="SALAD">Салат</option>
+                        <option value="DESSERT">Десерт</option>
+                        <option value="DRINK">Напій</option>
+                        <option value="APPETIZER">Закуска</option>
+                    </select>
+                    <label style="display: block; margin: 10px 0;">
+                        <input type="checkbox" id="newDishAvailable" checked> Доступна для замовлення
+                    </label>
+                    <button onclick="submitNewDish()" style="width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Створити страву</button>
+                </div>
+            `;
+        }
+
+        async function submitNewDish() {
+            const dishData = {
+                name: document.getElementById('newDishName').value.trim(),
+                description: document.getElementById('newDishDescription').value.trim(),
+                price: parseFloat(document.getElementById('newDishPrice').value),
+                dishType: document.getElementById('newDishType').value,
+                available: document.getElementById('newDishAvailable').checked
+            };
+
+            if (!dishData.name || !dishData.description || !dishData.price || !dishData.dishType) {
+                showNotification('⚠️ Заповніть всі поля!');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/dishes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dishData)
+                });
+
+                if (response.ok) {
+                    const dish = await response.json();
+                    showNotification(`✅ Страву "${dish.name}" успішно створено! ID: ${dish.id}`);
+                    await loadMenu(); // Оновити меню
+                    adminShowAddDishForm(); // Очистити форму
+                } else {
+                    showNotification('❌ Помилка створення страви');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // PUT /api/dishes/{id} - Редагувати страву
+        function adminShowEditDishForm() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>✏️ Редагувати страву</h4>
+                    <input type="number" id="editDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="loadDishForEdit()" style="width: 100%; padding: 10px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 15px;">Завантажити дані</button>
+                    <div id="editDishFormFields"></div>
+                </div>
+            `;
+        }
+
+        async function loadDishForEdit() {
+            const dishId = document.getElementById('editDishId').value;
+            if (!dishId) {
+                showNotification('⚠️ Введіть ID страви!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}`);
+                if (response.ok) {
+                    const dish = await response.json();
+                    document.getElementById('editDishFormFields').innerHTML = `
+                        <input type="text" id="editDishName" value="${dish.name}" placeholder="Назва" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                        <textarea id="editDishDescription" placeholder="Опис" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px; min-height: 80px;">${dish.description}</textarea>
+                        <input type="number" id="editDishPrice" value="${dish.price}" step="0.01" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                        <select id="editDishType" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="FIRST_COURSE" ${dish.dishType === 'FIRST_COURSE' ? 'selected' : ''}>Перша страва</option>
+                            <option value="SECOND_COURSE" ${dish.dishType === 'SECOND_COURSE' ? 'selected' : ''}>Друга страва</option>
+                            <option value="SALAD" ${dish.dishType === 'SALAD' ? 'selected' : ''}>Салат</option>
+                            <option value="DESSERT" ${dish.dishType === 'DESSERT' ? 'selected' : ''}>Десерт</option>
+                            <option value="DRINK" ${dish.dishType === 'DRINK' ? 'selected' : ''}>Напій</option>
+                            <option value="APPETIZER" ${dish.dishType === 'APPETIZER' ? 'selected' : ''}>Закуска</option>
+                        </select>
+                        <label style="display: block; margin: 10px 0;">
+                            <input type="checkbox" id="editDishAvailable" ${dish.available ? 'checked' : ''}> Доступна
+                        </label>
+                        <button onclick="submitEditDish(${dish.id})" style="width: 100%; padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Оновити страву</button>
+                    `;
+                } else {
+                    showNotification('❌ Страву не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка завантаження');
+            }
+        }
+
+        async function submitEditDish(dishId) {
+            const dishData = {
+                name: document.getElementById('editDishName').value.trim(),
+                description: document.getElementById('editDishDescription').value.trim(),
+                price: parseFloat(document.getElementById('editDishPrice').value),
+                dishType: document.getElementById('editDishType').value,
+                available: document.getElementById('editDishAvailable').checked
+            };
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dishData)
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Страву #${dishId} успішно оновлено!`);
+                    await loadMenu();
+                } else {
+                    showNotification('❌ Помилка оновлення');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // PUT /api/dishes/{id}/toggle-availability - Змінити доступність
+        function adminShowToggleAvailability() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🔄 Змінити доступність страви</h4>
+                    <input type="number" id="toggleDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="toggleDishAvailability()" style="width: 100%; padding: 12px; background: #ffc107; color: #333; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Змінити доступність</button>
+                </div>
+            `;
+        }
+
+        async function toggleDishAvailability() {
+            const dishId = document.getElementById('toggleDishId').value;
+            if (!dishId) {
+                showNotification('⚠️ Введіть ID страви!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}/toggle-availability`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Доступність страви #${dishId} змінено!`);
+                    await loadMenu();
+                } else {
+                    showNotification('❌ Страву не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // DELETE /api/dishes/{id} - Видалити страву
+        function adminShowDeleteDish() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🗑️ Видалити страву</h4>
+                    <input type="number" id="deleteDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="deleteDish()" style="width: 100%; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Видалити страву</button>
+                </div>
+            `;
+        }
+
+        async function deleteDish() {
+            const dishId = document.getElementById('deleteDishId').value;
+            if (!dishId) {
+                showNotification('⚠️ Введіть ID страви!');
+                return;
+            }
+
+            if (!confirm(`Ви впевнені, що хочете видалити страву #${dishId}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok || response.status === 204) {
+                    showNotification(`✅ Страву #${dishId} видалено!`);
+                    await loadMenu();
+                } else {
+                    showNotification('❌ Страву не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // GET /api/dishes/{id} - Переглянути страву за ID
+        function adminShowDishById() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🔎 Переглянути страву за ID</h4>
+                    <input type="number" id="viewDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="viewDishById()" style="width: 100%; padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Переглянути</button>
+                    <div id="viewDishResult" style="margin-top: 15px;"></div>
+                </div>
+            `;
+        }
+
+        async function viewDishById() {
+            const dishId = document.getElementById('viewDishId').value;
+            if (!dishId) {
+                showNotification('⚠️ Введіть ID страви!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}`);
+                if (response.ok) {
+                    const dish = await response.json();
+                    document.getElementById('viewDishResult').innerHTML = `
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #ddd;">
+                            <h4>${dish.name}</h4>
+                            <p><strong>ID:</strong> ${dish.id}</p>
+                            <p><strong>Опис:</strong> ${dish.description}</p>
+                            <p><strong>Ціна:</strong> ${dish.price} ₴</p>
+                            <p><strong>Тип:</strong> ${dish.dishType}</p>
+                            <p><strong>Доступна:</strong> ${dish.available ? '✅ Так' : '❌ Ні'}</p>
+                        </div>
+                    `;
+                } else {
+                    showNotification('❌ Страву не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // GET /api/dishes/by-type/{dishType} - Страви за типом
+        function adminShowDishesByType() {
+            const result = document.getElementById('dishManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>📂 Переглянути страви за типом</h4>
+                    <select id="dishTypeSelect" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                        <option value="">-- Оберіть тип --</option>
+                        <option value="FIRST_COURSE">Перші страви</option>
+                        <option value="SECOND_COURSE">Другі страви</option>
+                        <option value="SALAD">Салати</option>
+                        <option value="DESSERT">Десерти</option>
+                        <option value="DRINK">Напої</option>
+                        <option value="APPETIZER">Закуски</option>
+                    </select>
+                    <button onclick="viewDishesByType()" style="width: 100%; padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Показати</button>
+                    <div id="dishesByTypeResult" style="margin-top: 15px;"></div>
+                </div>
+            `;
+        }
+
+        async function viewDishesByType() {
+            const dishType = document.getElementById('dishTypeSelect').value;
+            if (!dishType) {
+                showNotification('⚠️ Оберіть тип страви!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/dishes/by-type/${dishType}`);
+                if (response.ok) {
+                    const dishes = await response.json();
+                    const result = document.getElementById('dishesByTypeResult');
+                    if (dishes.length === 0) {
+                        result.innerHTML = '<p style="text-align: center; color: #666;">Страв цього типу не знайдено</p>';
+                    } else {
+                        result.innerHTML = dishes.map(dish => `
+                            <div style="background: white; padding: 10px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
+                                <strong>${dish.name}</strong> (ID: ${dish.id}) - ${dish.price} ₴
+                                ${dish.available ? '✅' : '❌'}
+                            </div>
+                        `).join('');
+                    }
+                } else {
+                    showNotification('❌ Помилка завантаження');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // 4. Управління замовленнями
+        function adminShowOrderManagement() {
+            const content = document.getElementById('adminContent');
+            content.innerHTML = `
+                <h3 style="margin-bottom: 20px;">📦 Управління замовленнями</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                    <button onclick="adminShowOrderById()" style="padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🔎 Переглянути за ID</button>
+                    <button onclick="adminShowUpdateOrderStatus()" style="padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🔄 Змінити статус</button>
+                    <button onclick="adminShowConfirmOrder()" style="padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">✅ Підтвердити</button>
+                    <button onclick="adminShowCancelOrder()" style="padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">❌ Скасувати</button>
+                    <button onclick="adminShowAddDishToOrder()" style="padding: 12px; background: #10ac84; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">➕ Додати страву</button>
+                    <button onclick="adminShowRemoveDishFromOrder()" style="padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">➖ Видалити страву</button>
+                    <button onclick="adminShowDeleteOrder()" style="padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🗑️ Видалити замовлення</button>
+                </div>
+                <div id="orderManagementResult"></div>
+            `;
+        }
+
+        // GET /api/orders/{id} - Переглянути замовлення за ID
+        function adminShowOrderById() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🔎 Переглянути замовлення за ID</h4>
+                    <input type="number" id="viewOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="viewOrderById()" style="width: 100%; padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Переглянути</button>
+                    <div id="viewOrderResult" style="margin-top: 15px;"></div>
+                </div>
+            `;
+        }
+
+        async function viewOrderById() {
+            const orderId = document.getElementById('viewOrderId').value;
+            if (!orderId) {
+                showNotification('⚠️ Введіть ID замовлення!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}`);
+                if (response.ok) {
+                    const order = await response.json();
+                    document.getElementById('viewOrderResult').innerHTML = generateOrderDetailHTML(order);
+                } else {
+                    showNotification('❌ Замовлення не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // PUT /api/orders/{id}/status/{status} - Оновити статус
+        function adminShowUpdateOrderStatus() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🔄 Змінити статус замовлення</h4>
+                    <input type="number" id="updateStatusOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <select id="newOrderStatus" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                        <option value="">-- Оберіть статус --</option>
+                        <option value="PENDING">Очікує</option>
+                        <option value="CONFIRMED">Підтверджено</option>
+                        <option value="PREPARING">Готується</option>
+                        <option value="DELIVERING">Доставляється</option>
+                        <option value="DELIVERED">Доставлено</option>
+                        <option value="CANCELLED">Скасовано</option>
+                    </select>
+                    <button onclick="updateOrderStatus()" style="width: 100%; padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Оновити статус</button>
+                </div>
+            `;
+        }
+
+        async function updateOrderStatus() {
+            const orderId = document.getElementById('updateStatusOrderId').value;
+            const status = document.getElementById('newOrderStatus').value;
+
+            if (!orderId || !status) {
+                showNotification('⚠️ Заповніть всі поля!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/status/${status}`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Статус замовлення #${orderId} оновлено на "${status}"!`);
+                } else {
+                    showNotification('❌ Помилка оновлення статусу');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // PUT /api/orders/{id}/confirm - Підтвердити замовлення
+        function adminShowConfirmOrder() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>✅ Підтвердити замовлення</h4>
+                    <input type="number" id="confirmOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="confirmOrder()" style="width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Підтвердити</button>
+                </div>
+            `;
+        }
+
+        async function confirmOrder() {
+            const orderId = document.getElementById('confirmOrderId').value;
+            if (!orderId) {
+                showNotification('⚠️ Введіть ID замовлення!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/confirm`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Замовлення #${orderId} підтверджено!`);
+                } else {
+                    showNotification('❌ Помилка підтвердження');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // PUT /api/orders/{id}/cancel - Скасувати замовлення
+        function adminShowCancelOrder() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>❌ Скасувати замовлення</h4>
+                    <input type="number" id="cancelOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="cancelOrder()" style="width: 100%; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Скасувати</button>
+                </div>
+            `;
+        }
+
+        async function cancelOrder() {
+            const orderId = document.getElementById('cancelOrderId').value;
+            if (!orderId) {
+                showNotification('⚠️ Введіть ID замовлення!');
+                return;
+            }
+
+            if (!confirm(`Ви впевнені, що хочете скасувати замовлення #${orderId}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/cancel`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Замовлення #${orderId} скасовано!`);
+                } else {
+                    showNotification('❌ Помилка скасування');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // POST /api/orders/{orderId}/dishes/{dishId} - Додати страву до замовлення
+        function adminShowAddDishToOrder() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>➕ Додати страву до замовлення</h4>
+                    <input type="number" id="addDishOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <input type="number" id="addDishDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <input type="number" id="addDishQuantity" placeholder="Кількість" value="1" min="1" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="addDishToOrder()" style="width: 100%; padding: 12px; background: #10ac84; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Додати страву</button>
+                </div>
+            `;
+        }
+
+        async function addDishToOrder() {
+            const orderId = document.getElementById('addDishOrderId').value;
+            const dishId = document.getElementById('addDishDishId').value;
+            const quantity = document.getElementById('addDishQuantity').value;
+
+            if (!orderId || !dishId || !quantity) {
+                showNotification('⚠️ Заповніть всі поля!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/dishes/${dishId}?quantity=${quantity}`, {
+                    method: 'POST'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Страву додано до замовлення #${orderId}!`);
+                } else {
+                    showNotification('❌ Помилка додавання страви');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // DELETE /api/orders/{orderId}/dishes/{dishId} - Видалити страву з замовлення
+        function adminShowRemoveDishFromOrder() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>➖ Видалити страву з замовлення</h4>
+                    <input type="number" id="removeDishOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <input type="number" id="removeDishDishId" placeholder="ID страви" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="removeDishFromOrder()" style="width: 100%; padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Видалити страву</button>
+                </div>
+            `;
+        }
+
+        async function removeDishFromOrder() {
+            const orderId = document.getElementById('removeDishOrderId').value;
+            const dishId = document.getElementById('removeDishDishId').value;
+
+            if (!orderId || !dishId) {
+                showNotification('⚠️ Заповніть всі поля!');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/dishes/${dishId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Страву видалено з замовлення #${orderId}!`);
+                } else {
+                    showNotification('❌ Помилка видалення страви');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // DELETE /api/orders/{id} - Видалити замовлення
+        function adminShowDeleteOrder() {
+            const result = document.getElementById('orderManagementResult');
+            result.innerHTML = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>🗑️ Видалити замовлення</h4>
+                    <input type="number" id="deleteOrderId" placeholder="ID замовлення" style="width: 100%; padding: 10px; margin: 5px 0; border: 2px solid #ddd; border-radius: 5px;">
+                    <button onclick="deleteOrder()" style="width: 100%; padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">Видалити замовлення</button>
+                </div>
+            `;
+        }
+
+        async function deleteOrder() {
+            const orderId = document.getElementById('deleteOrderId').value;
+            if (!orderId) {
+                showNotification('⚠️ Введіть ID замовлення!');
+                return;
+            }
+
+            if (!confirm(`Ви впевнені, що хочете видалити замовлення #${orderId}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok || response.status === 204) {
+                    showNotification(`✅ Замовлення #${orderId} видалено!`);
+                } else {
+                    showNotification('❌ Замовлення не знайдено');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // Допоміжні функції для відображення
+        function displayOrdersList(orders, title) {
+            const content = document.getElementById('adminContent');
+            if (orders.length === 0) {
+                content.innerHTML = `<p style="text-align: center; color: #666;">Немає замовлень</p>`;
+                return;
+            }
+            content.innerHTML = `<h3 style="margin-bottom: 20px;">${title} (${orders.length})</h3>` + generateOrdersHTML(orders);
+        }
+
+        // Показати деталі замовлення
+        async function adminShowOrderDetails(orderId) {
+            const content = document.getElementById('adminContent');
+            content.innerHTML = '<p style="text-align: center;">⏳ Завантаження деталей...</p>';
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}`);
+                if (response.ok) {
+                    const order = await response.json();
+                    content.innerHTML = `
+                        <div style="margin-bottom: 20px;">
+                            <button onclick="adminShowAllOrders()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                ← Назад до всіх замовлень
+                            </button>
+                        </div>
+                        <h3 style="margin-bottom: 20px;">📦 Деталі замовлення №${order.id}</h3>
+                        ${generateOrderDetailHTML(order)}
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 20px;">
+                            <button onclick="quickUpdateStatus(${order.id}, 'CONFIRMED')" style="padding: 12px; background: #17a2b8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                ✅ Підтвердити
+                            </button>
+                            <button onclick="quickUpdateStatus(${order.id}, 'PREPARING')" style="padding: 12px; background: #fd7e14; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                👨‍🍳 В процесі приготування
+                            </button>
+                            <button onclick="quickUpdateStatus(${order.id}, 'DELIVERING')" style="padding: 12px; background: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                🚚 Відправити на доставку
+                            </button>
+                            <button onclick="quickUpdateStatus(${order.id}, 'DELIVERED')" style="padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                ✅ Доставлено
+                            </button>
+                            <button onclick="quickCancelOrder(${order.id})" style="padding: 12px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                                ❌ Скасувати
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    content.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка завантаження деталей</p>';
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                content.innerHTML = '<p style="text-align: center; color: red;">❌ Помилка з\'єднання</p>';
+            }
+        }
+
+        // Швидке оновлення статусу з деталей замовлення
+        async function quickUpdateStatus(orderId, status) {
+            try {
+                const response = await fetch(`/api/orders/${orderId}/status/${status}`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Статус замовлення #${orderId} оновлено!`);
+                    // Оновити деталі
+                    adminShowOrderDetails(orderId);
+                } else {
+                    showNotification('❌ Помилка оновлення статусу');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        // Швидке скасування замовлення з деталей
+        async function quickCancelOrder(orderId) {
+            if (!confirm(`Ви впевнені, що хочете скасувати замовлення #${orderId}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/cancel`, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    showNotification(`✅ Замовлення #${orderId} скасовано!`);
+                    // Оновити деталі
+                    adminShowOrderDetails(orderId);
+                } else {
+                    showNotification('❌ Помилка скасування');
+                }
+            } catch (error) {
+                console.error('Помилка:', error);
+                showNotification('❌ Помилка з\'єднання');
+            }
+        }
+
+        function generateOrdersHTML(orders) {
+            const statusColors = {
+                'PENDING': '#ffc107', 'CONFIRMED': '#17a2b8', 'PREPARING': '#fd7e14',
+                'DELIVERING': '#007bff', 'DELIVERED': '#28a745', 'CANCELLED': '#dc3545'
+            };
+            const statusNames = {
+                'PENDING': 'Очікує', 'CONFIRMED': 'Підтверджено', 'PREPARING': 'Готується',
+                'DELIVERING': 'Доставляється', 'DELIVERED': 'Доставлено', 'CANCELLED': 'Скасовано'
+            };
+
+            return orders.map(order => `
+                <div style="border: 2px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: white;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <strong style="font-size: 1.1em;">Замовлення №${order.id}</strong>
+                        <span style="background: ${statusColors[order.orderStatus]}; color: white; padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">
+                            ${statusNames[order.orderStatus] || order.orderStatus}
+                        </span>
+                    </div>
+                    <p><strong>Клієнт:</strong> ${order.customerName} (${order.customerPhone})</p>
+                    <p><strong>Адреса:</strong> ${order.deliveryAddress}</p>
+                    <p><strong>Дата:</strong> ${new Date(order.orderDateTime).toLocaleString('uk-UA')}</p>
+                    <p><strong>Сума:</strong> ${order.totalAmount} ₴</p>
+                    <div style="margin-top: 10px;">
+                        <button onclick="adminShowOrderDetails(${order.id})" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                            Деталі
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateOrderDetailHTML(order) {
+            const statusColors = {
+                'PENDING': '#ffc107', 'CONFIRMED': '#17a2b8', 'PREPARING': '#fd7e14',
+                'DELIVERING': '#007bff', 'DELIVERED': '#28a745', 'CANCELLED': '#dc3545'
+            };
+            const statusNames = {
+                'PENDING': 'Очікує', 'CONFIRMED': 'Підтверджено', 'PREPARING': 'Готується',
+                'DELIVERING': 'Доставляється', 'DELIVERED': 'Доставлено', 'CANCELLED': 'Скасовано'
+            };
+
+            return `
+                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #ddd;">
+                    <h4>Замовлення №${order.id}</h4>
+                    <p><strong>Статус:</strong> <span style="background: ${statusColors[order.orderStatus]}; color: white; padding: 3px 10px; border-radius: 10px;">${statusNames[order.orderStatus]}</span></p>
+                    <p><strong>Клієнт:</strong> ${order.customerName}</p>
+                    <p><strong>Телефон:</strong> ${order.customerPhone}</p>
+                    <p><strong>Адреса:</strong> ${order.deliveryAddress}</p>
+                    <p><strong>Дата:</strong> ${new Date(order.orderDateTime).toLocaleString('uk-UA')}</p>
+                    <p><strong>Тип:</strong> ${order.orderType}</p>
+                    <p><strong>Сума:</strong> ${order.totalAmount} ₴</p>
+                    <div style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px;">
+                        <strong>Страви:</strong>
+                        ${order.orderItems.map(item => `
+                            <div style="margin-top: 5px;">• ${item.dish.name} (ID: ${item.dish.id}) × ${item.quantity} = ${item.unitPrice * item.quantity} ₴</div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
 
         // CSS анімації
         const style = document.createElement('style');

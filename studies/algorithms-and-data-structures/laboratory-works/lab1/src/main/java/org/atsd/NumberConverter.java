@@ -1,13 +1,9 @@
 package org.atsd;
 
-/**
- * Допоміжний клас для роботи з системами числення
- */
+//Допоміжний клас для роботи з системами числення
 public class NumberConverter {
 
-    /**
-     * Конвертує десяткове число у вісімкову систему числення
-     */
+    //Конвертує десяткове число у вісімкову систему числення
     public static String toOctal(int decimal) {
         if (decimal == 0) {
             return "0";
@@ -22,9 +18,7 @@ public class NumberConverter {
         return octal.toString();
     }
 
-    /**
-     * Перевіряє, чи є рядок коректним вісімковим числом
-     */
+    //Перевіряє, чи є рядок коректним вісімковим числом
     public static boolean isValidOctal(String octal) {
         if (octal == null || octal.isEmpty()) {
             return false;

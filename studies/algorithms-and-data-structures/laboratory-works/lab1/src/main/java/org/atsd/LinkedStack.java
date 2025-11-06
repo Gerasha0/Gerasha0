@@ -1,8 +1,6 @@
 package org.atsd;
 
-/**
- * Вузол стеку для зберігання рядкового елементу
- */
+// Вузол стеку для зберігання рядкового елементу
 class StackNode {
     String data;
     StackNode next;
@@ -13,10 +11,8 @@ class StackNode {
     }
 }
 
-/**
- * Стек зі зв'язним способом розміщення елементів у пам'яті
- * Тип елементів: рядкові (цілі додатні числа у вісімковій системі числення)
- */
+// Стек зі зв'язним способом розміщення елементів у пам'яті
+// Тип елементів: рядкові (цілі додатні числа у вісімковій системі числення)
 public class LinkedStack {
     private StackNode top;
 
@@ -24,16 +20,12 @@ public class LinkedStack {
         this.top = null;
     }
 
-    /**
-     * Перевіряє порожність структури даних
-     */
+    //Перевіряє порожність структури даних
     public boolean isEmpty() {
         return top == null;
     }
 
-    /**
-     * Поміщає елемент у стек
-     */
+    //Поміщає елемент у стек
     public void push(String element) {
         StackNode newNode = new StackNode(element);
         newNode.next = top;
@@ -41,9 +33,7 @@ public class LinkedStack {
         System.out.println("У стек додано елемент: " + element);
     }
 
-    /**
-     * Вилучає елемент зі стеку
-     */
+    //Вилучає елемент зі стеку
     public String pop() throws RuntimeException {
         if (isEmpty()) {
             throw new RuntimeException("Стек порожній, неможливо вилучити елемент");
@@ -55,9 +45,7 @@ public class LinkedStack {
         return poppedElement;
     }
 
-    /**
-     * Повертає верхній елемент стеку без видалення
-     */
+    // Повертає верхній елемент стеку без видалення
     public String peek() throws RuntimeException {
         if (isEmpty()) {
             throw new RuntimeException("Стек порожній");
@@ -65,9 +53,7 @@ public class LinkedStack {
         return top.data;
     }
 
-    /**
-     * Виводить вміст стеку
-     */
+    //Виводить вміст стеку
     public void display() {
         if (isEmpty()) {
             System.out.println("Стек порожній: []");
@@ -88,9 +74,7 @@ public class LinkedStack {
         System.out.println("]");
     }
 
-    /**
-     * Повертає розмір стеку
-     */
+    // Повертає розмір стеку
     public int size() {
         int count = 0;
         StackNode current = top;

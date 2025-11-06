@@ -3,14 +3,10 @@ package org.atsd;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Клас для дослідження продуктивності алгоритмів сортування
- */
+// Клас для дослідження продуктивності алгоритмів сортування
 public class PerformanceAnalyzer {
 
-    /**
-     * Результат вимірювання продуктивності
-     */
+    // Результат вимірювання продуктивності
     public static class PerformanceResult {
         private final String algorithmName;
         private final int arraySize;
@@ -37,29 +33,21 @@ public class PerformanceAnalyzer {
         }
     }
 
-    /**
-     * Кількість прогонів для усереднення результатів
-     */
+    // Кількість прогонів для усереднення результатів
     private static final int WARMUP_RUNS = 3;
     private static final int MEASUREMENT_RUNS = 5;
 
-    /**
-     * Вимірює час виконання counting sort
-     */
+    // Вимірює час виконання counting sort
     public static PerformanceResult measureCountingSort(int[] array, String dataType) {
         return measureAlgorithm("Counting Sort", array, dataType, SortingAlgorithms::countingSort);
     }
 
-    /**
-     * Вимірює час виконання radix sort
-     */
+    // Вимірює час виконання radix sort
     public static PerformanceResult measureRadixSort(int[] array, String dataType) {
         return measureAlgorithm("Radix Sort", array, dataType, SortingAlgorithms::radixSort);
     }
 
-    /**
-     * Загальний метод для вимірювання часу виконання алгоритму
-     */
+    // Загальний метод для вимірювання часу виконання алгоритму
     private static PerformanceResult measureAlgorithm(String algorithmName, int[] array,
                                                      String dataType, SortingAlgorithm algorithm) {
         int size = array.length;
@@ -93,17 +81,13 @@ public class PerformanceAnalyzer {
         return new PerformanceResult(algorithmName, size, dataType, averageTime);
     }
 
-    /**
-     * Функціональний інтерфейс для алгоритмів сортування
-     */
+    // Функціональний інтерфейс для алгоритмів сортування
     @FunctionalInterface
     private interface SortingAlgorithm {
         void sort(int[] array);
     }
 
-    /**
-     * Проводить повне дослідження продуктивності для заданих розмірів
-     */
+    // Проводить повне дослідження продуктивності для заданих розмірів
     public static List<PerformanceResult> analyzePerformance(int baseSize) {
         List<PerformanceResult> results = new ArrayList<>();
 
@@ -139,9 +123,7 @@ public class PerformanceAnalyzer {
         return results;
     }
 
-    /**
-     * Досліджує вплив структурованості даних на продуктивність
-     */
+    // Досліджує вплив структурованості даних на продуктивність
     public static List<PerformanceResult> analyzeDataStructureImpact(int size) {
         List<PerformanceResult> results = new ArrayList<>();
 
@@ -176,9 +158,7 @@ public class PerformanceAnalyzer {
         return results;
     }
 
-    /**
-     * Виводить результати у форматі CSV для Excel
-     */
+    // Виводить результати у форматі CSV для Excel
     public static void printCSVResults(List<PerformanceResult> results) {
         System.out.println("\n=== Результати у форматі CSV для Excel ===");
         System.out.println("Алгоритм,Розмір,Тип_даних,Час_нс,Час_мс");
@@ -193,9 +173,7 @@ public class PerformanceAnalyzer {
         }
     }
 
-    /**
-     * Аналізує складність алгоритмів
-     */
+    // Аналізує складність алгоритмів
     public static void analyzeComplexity(List<PerformanceResult> results) {
         System.out.println("\n=== Аналіз складності алгоритмів ===");
 

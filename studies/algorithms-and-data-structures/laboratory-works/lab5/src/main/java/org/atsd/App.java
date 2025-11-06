@@ -3,35 +3,31 @@ package org.atsd;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Лабораторна робота 1.5
- * Дослідження алгоритмів пошуку
- */
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=".repeat(60));
-        System.out.println("ЛАБОРАТОРНА РОБОТА 1.5");
-        System.out.println("ДОСЛІДЖЕННЯ АЛГОРИТМІВ ПОШУКУ");
+        System.out.println("Лаба 1.5");
+        System.out.println("Дослідження алгоритмів пошуку");
         System.out.println("=".repeat(60));
 
         // Завдання першого рівня
-        System.out.println("\n1. ЗАВДАННЯ ПЕРШОГО РІВНЯ");
+        System.out.println("\n1. Перше завдання");
         System.out.println("Послідовний пошук у масиві, упорядкованому за групою");
         System.out.println("-".repeat(55));
 
         levelOneTask();
 
         // Завдання другого рівня
-        System.out.println("\n2. ЗАВДАННЯ ДРУГОГО РІВНЯ");
+        System.out.println("\n2. Друге завдання");
         System.out.println("BST-дерево з ротаціями та пошук за ключем");
         System.out.println("-".repeat(45));
 
         levelTwoTask();
 
         // Завдання третього рівня
-        System.out.println("\n3. ЗАВДАННЯ ТРЕТЬОГО РІВНЯ");
+        System.out.println("\n3. Третє завдання");
         System.out.println("BST-дерево з балансуванням (оптимізація)");
         System.out.println("-".repeat(45));
 
@@ -40,7 +36,7 @@ public class App {
         scanner.close();
 
         System.out.println("\n" + "=".repeat(60));
-        System.out.println("ДЕМОНСТРАЦІЮ ЗАВЕРШЕНО");
+        System.out.println("Демонстрацію завершено");
         System.out.println("Продемонстровано алгоритми пошуку:");
         System.out.println("✓ Послідовний пошук у масиві");
         System.out.println("✓ BST-дерево з вставкою в корінь та ротаціями");
@@ -48,9 +44,7 @@ public class App {
         System.out.println("=".repeat(60));
     }
 
-    /**
-     * Завдання першого рівня: послідовний пошук в упорядкованому масиві
-     */
+    // Завдання першого рівня: послідовний пошук в упорядкованому масиві
     private static void levelOneTask() {
         System.out.println("Створення масиву студентів (мін. 20 елементів):");
         System.out.println("Правило формування: упорядкований за номером групи");
@@ -96,9 +90,7 @@ public class App {
         System.out.println("Складність: O(n) - перевіряємо кожен елемент масиву");
     }
 
-    /**
-     * Завдання другого рівня: BST-дерево з ротаціями
-     */
+    // Завдання другого рівня: BST-дерево з ротаціями
     private static void levelTwoTask() {
         System.out.println("Створення BST-дерева з середнім балом як ключем:");
         System.out.println("Метод: вставка в корінь з використанням ротацій");
@@ -149,9 +141,7 @@ public class App {
         System.out.println("до останньо доданих елементів за рахунок ротацій");
     }
 
-    /**
-     * Завдання третього рівня: збалансоване BST-дерево
-     */
+    // Завдання третього рівня: збалансоване BST-дерево
     private static void levelThreeTask() {
         System.out.println("Створення збалансованого BST-дерева (AVL):");
         System.out.println("Метод балансування: оптимізація (AVL-дерево)");

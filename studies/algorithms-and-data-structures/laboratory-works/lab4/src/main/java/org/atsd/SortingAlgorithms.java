@@ -3,14 +3,10 @@ package org.atsd;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Клас з алгоритмами сортування для масивів студентів
- */
+//Клас з алгоритмами сортування для масивів студентів
 public class SortingAlgorithms {
 
-    /**
-     * Сортування вставкою за середнім балом (зростання)
-     */
+    // Сортування вставкою за середнім балом (зростання)
     public static void insertionSort(Student[] array) {
         for (int i = 1; i < array.length; i++) {
             Student key = array[i];
@@ -26,10 +22,8 @@ public class SortingAlgorithms {
         }
     }
 
-    /**
-     * Кишеньковий алгоритм сортування (Bucket Sort) за середнім балом
-     * Використовує сортування вставкою для кожної кишені
-     */
+    // Кишеньковий алгоритм сортування (Bucket Sort) за середнім балом
+    // Використовує сортування вставкою для кожної кишені
     public static void bucketSort(Student[] array) {
         if (array.length <= 1) {
             return;
@@ -93,9 +87,7 @@ public class SortingAlgorithms {
         }
     }
 
-    /**
-     * Виводить масив студентів у табличному вигляді
-     */
+    // Виводить масив студентів у табличному вигляді
     public static void displayArray(Student[] array, String title) {
         System.out.println("\n" + title);
         System.out.println(Student.getTableHeader());
@@ -112,9 +104,7 @@ public class SortingAlgorithms {
         System.out.println();
     }
 
-    /**
-     * Створює масив тестових студентів
-     */
+    // Створює масив тестових студентів
     public static Student[] createTestArray() {
         return new Student[] {
             new Student("Петренко", "Олександр", 4.2, "Ч"),
@@ -130,9 +120,7 @@ public class SortingAlgorithms {
         };
     }
 
-    /**
-     * Створює копію масиву
-     */
+    // Створює копію масиву
     public static Student[] copyArray(Student[] original) {
         Student[] copy = new Student[original.length];
         for (int i = 0; i < original.length; i++) {

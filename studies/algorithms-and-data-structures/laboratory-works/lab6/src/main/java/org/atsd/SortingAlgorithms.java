@@ -2,15 +2,11 @@ package org.atsd;
 
 import java.util.Arrays;
 
-/**
- * Клас з алгоритмами сортування для дослідження ефективності
- */
+// Клас з алгоритмами сортування для дослідження ефективності
 public class SortingAlgorithms {
 
-    /**
-     * Сортування розподіленого підрахунку (Counting Sort)
-     * Ефективне для сортування цілих чисел у обмеженому діапазоні
-     */
+    // Сортування розподіленого підрахунку (Counting Sort)
+    // Ефективне для сортування цілих чисел у обмеженому діапазоні
     public static void countingSort(int[] array) {
         if (array.length <= 1) {
             return;
@@ -47,10 +43,8 @@ public class SortingAlgorithms {
         System.arraycopy(result, 0, array, 0, array.length);
     }
 
-    /**
-     * Порозрядне сортування (Radix Sort)
-     * Використовує counting sort для кожного розряду
-     */
+    // Порозрядне сортування (Radix Sort)
+    // Використовує counting sort для кожного розряду
     public static void radixSort(int[] array) {
         if (array.length <= 1) {
             return;
@@ -65,9 +59,7 @@ public class SortingAlgorithms {
         }
     }
 
-    /**
-     * Допоміжний метод counting sort для певного розряду
-     */
+    // Допоміжний метод counting sort для певного розряду
     private static void countingSortByDigit(int[] array, int exp) {
         int n = array.length;
         int[] result = new int[n];
@@ -93,9 +85,7 @@ public class SortingAlgorithms {
         System.arraycopy(result, 0, array, 0, n);
     }
 
-    /**
-     * Генерує випадковий масив заданого розміру
-     */
+    // Генерує випадковий масив заданого розміру
     public static int[] generateRandomArray(int size) {
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
@@ -104,9 +94,7 @@ public class SortingAlgorithms {
         return array;
     }
 
-    /**
-     * Генерує відсортований масив (найкращий випадок)
-     */
+    // Генерує відсортований масив (найкращий випадок)
     public static int[] generateSortedArray(int size) {
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
@@ -115,9 +103,7 @@ public class SortingAlgorithms {
         return array;
     }
 
-    /**
-     * Генерує зворотно відсортований масив (найгірший випадок для деяких алгоритмів)
-     */
+    // Генерує зворотно відсортований масив (найгірший випадок для деяких алгоритмів)
     public static int[] generateReversedArray(int size) {
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
@@ -126,9 +112,7 @@ public class SortingAlgorithms {
         return array;
     }
 
-    /**
-     * Генерує масив з багатьма повтореннями (середній випадок)
-     */
+    // Генерує масив з багатьма повтореннями (середній випадок)
     public static int[] generateArrayWithDuplicates(int size) {
         int[] array = new int[size];
         int uniqueValues = Math.max(size / 10, 1); // 10% унікальних значень
@@ -139,16 +123,12 @@ public class SortingAlgorithms {
         return array;
     }
 
-    /**
-     * Створює копію масиву
-     */
+    // Створює копію масиву
     public static int[] copyArray(int[] original) {
         return Arrays.copyOf(original, original.length);
     }
 
-    /**
-     * Перевіряє, чи відсортований масив
-     */
+    // Перевіряє, чи відсортований масив
     public static boolean isSorted(int[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i] < array[i - 1]) {

@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/dishes")
-@CrossOrigin(origins = "*") // Для тестування з фронтенду
+@CrossOrigin(origins = "*")
 public class DishController {
     
     private final DishService dishService;

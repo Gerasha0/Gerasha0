@@ -3,26 +3,20 @@ package org.atsd;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Двоспрямований список студентів з алгоритмами сортування
- */
+// Двоспрямований список студентів з алгоритмами сортування
 public class DoublyLinkedList {
     private DoublyLinkedNode head; // Голова списку
     private DoublyLinkedNode tail; // Хвіст списку
     private int size; // Розмір списку
 
-    /**
-     * Конструктор порожнього списку
-     */
+    // Конструктор порожнього списку
     public DoublyLinkedList() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
 
-    /**
-     * Додає студента в кінець списку
-     */
+    // Додає студента в кінець списку
     public void add(Student student) {
         DoublyLinkedNode newNode = new DoublyLinkedNode(student);
 
@@ -36,23 +30,17 @@ public class DoublyLinkedList {
         size++;
     }
 
-    /**
-     * Перевіряє, чи порожній список
-     */
+    // Перевіряє, чи порожній список
     public boolean isEmpty() {
         return head == null;
     }
 
-    /**
-     * Повертає розмір списку
-     */
+    // Повертає розмір списку
     public int size() {
         return size;
     }
 
-    /**
-     * Виводить вміст списку у табличному вигляді
-     */
+    // Виводить вміст списку у табличному вигляді
     public void display(String title) {
         System.out.println("\n" + title);
         System.out.println(Student.getTableHeader());
@@ -71,9 +59,7 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    /**
-     * Сортування вставкою за середнім балом (зростання)
-     */
+    // Сортування вставкою за середнім балом (зростання)
     public void insertionSort() {
         if (head == null || head.getNext() == null) {
             return; // Список порожній або має лише один елемент
@@ -120,9 +106,7 @@ public class DoublyLinkedList {
         }
     }
 
-    /**
-     * Перетворює список у масив для кишенькового сортування
-     */
+    // Перетворює список у масив для кишенькового сортування
     public Student[] toArray() {
         Student[] array = new Student[size];
         DoublyLinkedNode current = head;
@@ -136,9 +120,7 @@ public class DoublyLinkedList {
         return array;
     }
 
-    /**
-     * Створює список з масиву
-     */
+    // Створює список з масиву
     public static DoublyLinkedList fromArray(Student[] array) {
         DoublyLinkedList list = new DoublyLinkedList();
         for (Student student : array) {

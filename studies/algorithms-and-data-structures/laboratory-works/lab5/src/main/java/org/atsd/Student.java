@@ -1,8 +1,6 @@
 package org.atsd;
 
-/**
- * Клас, що представляє студента
- */
+// Клас, що представляє студента
 public class Student {
     private String surname; // Прізвище
     private String name; // Ім'я
@@ -10,9 +8,7 @@ public class Student {
     private String gender; // Стать
     private double averageGrade; // Середній бал
 
-    /**
-     * Конструктор студента
-     */
+    // Конструктор студента
     public Student(String surname, String name, String group, String gender, double averageGrade) {
         this.surname = surname;
         this.name = name;
@@ -21,9 +17,7 @@ public class Student {
         this.averageGrade = averageGrade;
     }
 
-    /**
-     * Перевіряє, чи є студент студенткою з балом вище 4.5
-     */
+    // Перевіряє, чи є студент студенткою з балом вище 4.5
     public boolean isExcellentFemaleStudent() {
         return "Ж".equals(gender) && averageGrade > 4.5;
     }
@@ -70,16 +64,12 @@ public class Student {
         this.averageGrade = averageGrade;
     }
 
-    /**
-     * Порівняння за номером групи для сортування
-     */
+    // Порівняння за номером групи для сортування
     public int compareByGroup(Student other) {
         return this.group.compareTo(other.group);
     }
 
-    /**
-     * Порівняння за середнім балом для BST
-     */
+    // Порівняння за середнім балом для BST
     public int compareByGrade(Student other) {
         return Double.compare(this.averageGrade, other.averageGrade);
     }
@@ -90,17 +80,13 @@ public class Student {
             surname, name, group, gender, averageGrade);
     }
 
-    /**
-     * Форматований рядок для заголовка таблиці
-     */
+    // Форматований рядок для заголовка таблиці
     public static String getTableHeader() {
         return String.format("%-15s %-12s %-8s %-6s %s",
             "Прізвище", "Ім'я", "Група", "Стать", "Середній бал");
     }
 
-    /**
-     * Роздільник для таблиці
-     */
+    // Роздільник для таблиці
     public static String getTableSeparator() {
         return "─".repeat(60);
     }

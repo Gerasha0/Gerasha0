@@ -1,16 +1,12 @@
 package org.atsd;
 
-/**
- * Вузол двоспрямованого списку
- */
+// Вузол двоспрямованого списку
 public class DoublyLinkedNode {
     private Student data; // Дані студента
     private DoublyLinkedNode next; // Посилання на наступний вузол
     private DoublyLinkedNode prev; // Посилання на попередній вузол
 
-    /**
-     * Конструктор вузла
-     */
+    // Конструктор вузла
     public DoublyLinkedNode(Student data) {
         this.data = data;
         this.next = null;

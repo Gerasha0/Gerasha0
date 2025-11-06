@@ -260,6 +260,48 @@
                             <div class="description">Створити нову страву</div>
                             <button class="btn" onclick="createDish()">Тестувати</button>
                         </div>
+
+                        <div class="endpoint">
+                            <span class="method get">GET</span>
+                            <span class="url">/api/dishes/available</span>
+                            <div class="description">Отримати доступні страви</div>
+                            <button class="btn" onclick="testAPI('GET', '/api/dishes/available')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method get">GET</span>
+                            <span class="url">/api/dishes/search?name={name}</span>
+                            <div class="description">Пошук страв за назвою</div>
+                            <button class="btn" onclick="testAPI('GET', '/api/dishes/search?name=борщ')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method get">GET</span>
+                            <span class="url">/api/dishes/price-range</span>
+                            <div class="description">Страви в ціновому діапазоні</div>
+                            <button class="btn" onclick="testAPI('GET', '/api/dishes/price-range?minPrice=50&maxPrice=150')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method put">PUT</span>
+                            <span class="url">/api/dishes/{id}</span>
+                            <div class="description">Оновити страву</div>
+                            <button class="btn" onclick="updateDish()">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method put">PUT</span>
+                            <span class="url">/api/dishes/{id}/toggle-availability</span>
+                            <div class="description">Змінити доступність страви</div>
+                            <button class="btn" onclick="testAPI('PUT', '/api/dishes/1/toggle-availability')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method delete">DELETE</span>
+                            <span class="url">/api/dishes/{id}</span>
+                            <div class="description">Видалити страву</div>
+                            <button class="btn" onclick="deleteDish()">Тестувати</button>
+                        </div>
                     </div>
                     
                     <div class="api-card">
@@ -280,6 +322,20 @@
                         </div>
                         
                         <div class="endpoint">
+                            <span class="method get">GET</span>
+                            <span class="url">/api/orders/by-status/{status}</span>
+                            <div class="description">Замовлення за статусом</div>
+                            <button class="btn" onclick="testAPI('GET', '/api/orders/by-status/PENDING')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method get">GET</span>
+                            <span class="url">/api/orders/by-customer?phone={phone}</span>
+                            <div class="description">Замовлення клієнта за телефоном</div>
+                            <button class="btn" onclick="testAPI('GET', '/api/orders/by-customer?phone=%2B380501234567')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
                             <span class="method post">POST</span>
                             <span class="url">/api/orders</span>
                             <div class="description">Створити нове замовлення</div>
@@ -291,6 +347,48 @@
                             <span class="url">/api/orders/complex-lunch</span>
                             <div class="description">Створити комплексний обід</div>
                             <button class="btn" onclick="createComplexLunch()">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method post">POST</span>
+                            <span class="url">/api/orders/{orderId}/dishes/{dishId}</span>
+                            <div class="description">Додати страву до замовлення</div>
+                            <button class="btn" onclick="addDishToOrder()">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method put">PUT</span>
+                            <span class="url">/api/orders/{id}/status/{status}</span>
+                            <div class="description">Оновити статус замовлення</div>
+                            <button class="btn" onclick="updateOrderStatus()">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method put">PUT</span>
+                            <span class="url">/api/orders/{id}/confirm</span>
+                            <div class="description">Підтвердити замовлення</div>
+                            <button class="btn" onclick="testAPI('PUT', '/api/orders/1/confirm')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method put">PUT</span>
+                            <span class="url">/api/orders/{id}/cancel</span>
+                            <div class="description">Скасувати замовлення</div>
+                            <button class="btn" onclick="testAPI('PUT', '/api/orders/1/cancel')">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method delete">DELETE</span>
+                            <span class="url">/api/orders/{orderId}/dishes/{dishId}</span>
+                            <div class="description">Видалити страву з замовлення</div>
+                            <button class="btn" onclick="removeDishFromOrder()">Тестувати</button>
+                        </div>
+
+                        <div class="endpoint">
+                            <span class="method delete">DELETE</span>
+                            <span class="url">/api/orders/{id}</span>
+                            <div class="description">Видалити замовлення</div>
+                            <button class="btn" onclick="deleteOrder()">Тестувати</button>
                         </div>
                     </div>
                 </div>
@@ -468,10 +566,161 @@
             }
         }
 
+        // Оновлення страви
+        async function updateDish() {
+            const dishUpdate = {
+                name: "Оновлена страва",
+                description: "Оновлено через API",
+                price: 125.50,
+                dishType: "SECOND_COURSE",
+                available: true
+            };
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Оновлення страви з ID=1...\n`;
+
+            try {
+                const response = await fetch('/api/dishes/1', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dishUpdate)
+                });
+
+                const data = await response.json();
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: PUT /api/dishes/1\n` +
+                    `Request Body:\n${JSON.stringify(dishUpdate, null, 2)}\n\n` +
+                    `Response:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
+        // Видалення страви
+        async function deleteDish() {
+            const dishId = prompt("Введіть ID страви для видалення:", "999");
+            if (!dishId) return;
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Видалення страви з ID=${dishId}...\n`;
+
+            try {
+                const response = await fetch(`/api/dishes/${dishId}`, {
+                    method: 'DELETE'
+                });
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: DELETE /api/dishes/${dishId}\n` +
+                    (response.status === 204 ? 'Страву успішно видалено' : 'Помилка видалення');
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
+        // Додати страву до замовлення
+        async function addDishToOrder() {
+            const orderId = 1;
+            const dishId = 2;
+            const quantity = 3;
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Додавання страви ${dishId} до замовлення ${orderId}...\n`;
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/dishes/${dishId}?quantity=${quantity}`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: POST /api/orders/${orderId}/dishes/${dishId}?quantity=${quantity}\n` +
+                    `Response:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
+        // Оновити статус замовлення
+        async function updateOrderStatus() {
+            const orderId = 1;
+            const status = 'CONFIRMED';
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Оновлення статусу замовлення ${orderId} на ${status}...\n`;
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/status/${status}`, {
+                    method: 'PUT'
+                });
+
+                const data = await response.json();
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: PUT /api/orders/${orderId}/status/${status}\n` +
+                    `Response:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
+        // Видалити страву з замовлення
+        async function removeDishFromOrder() {
+            const orderId = 1;
+            const dishId = 2;
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Видалення страви ${dishId} з замовлення ${orderId}...\n`;
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}/dishes/${dishId}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: DELETE /api/orders/${orderId}/dishes/${dishId}\n` +
+                    `Response:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
+        // Видалити замовлення
+        async function deleteOrder() {
+            const orderId = prompt("Введіть ID замовлення для видалення:", "999");
+            if (!orderId) return;
+
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = `Видалення замовлення з ID=${orderId}...\n`;
+
+            try {
+                const response = await fetch(`/api/orders/${orderId}`, {
+                    method: 'DELETE'
+                });
+
+                responseArea.textContent =
+                    `Status: ${response.status} ${response.statusText}\n` +
+                    `URL: DELETE /api/orders/${orderId}\n` +
+                    (response.status === 204 ? 'Замовлення успішно видалено' : 'Помилка видалення');
+            } catch (error) {
+                responseArea.textContent = `Помилка: ${error.message}`;
+            }
+        }
+
         // Ініціалізація
         document.addEventListener('DOMContentLoaded', function() {
             checkServerStatus();
-            setInterval(checkServerStatus, 30000); // Перевіряти кожні 30 секунд
+            setInterval(checkServerStatus, 30000);
         });
     </script>
 </body>

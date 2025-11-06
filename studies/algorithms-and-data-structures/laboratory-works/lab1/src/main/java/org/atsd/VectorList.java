@@ -1,9 +1,7 @@
 package org.atsd;
 
-/**
- * Список з векторним способом розміщення елементів у пам'яті
- * Тип елементів: цілі числа
- */
+// Список з векторним способом розміщення елементів у пам'яті
+// Тип елементів: цілі числа
 public class VectorList {
     private int[] data;
     private int size;
@@ -15,23 +13,17 @@ public class VectorList {
         this.size = 0;
     }
 
-    /**
-     * Перевіряє наповненість структури даних
-     */
+    // Перевіряє наповненість структури даних
     public boolean isFull() {
         return size == capacity;
     }
 
-    /**
-     * Перевіряє порожність структури даних
-     */
+    // Вставляє елемент в кінець списку
     public boolean isEmpty() {
         return size == 0;
     }
 
-    /**
-     * Вставляє елемент в кінець списку
-     */
+    // Вставляє елемент в кінець списку
     public boolean add(int element) {
         if (isFull()) {
             System.out.println("Список заповнений, неможливо додати елемент: " + element);
@@ -43,9 +35,7 @@ public class VectorList {
         return true;
     }
 
-    /**
-     * Вставляє елемент за вказаним індексом
-     */
+    // Вставляє елемент за вказаним індексом
     public boolean add(int index, int element) {
         if (isFull()) {
             System.out.println("Список заповнений, неможливо додати елемент: " + element);
@@ -67,9 +57,7 @@ public class VectorList {
         return true;
     }
 
-    /**
-     * Видаляє елемент за індексом
-     */
+    // Видаляє елемент за індексом
     public int remove(int index) throws IndexOutOfBoundsException {
         if (isEmpty()) {
             throw new RuntimeException("Список порожній, неможливо видалити елемент");
@@ -90,9 +78,7 @@ public class VectorList {
         return removedElement;
     }
 
-    /**
-     * Видаляє останній елемент
-     */
+    // Видаляє останній елемент
     public int removeLast() throws RuntimeException {
         if (isEmpty()) {
             throw new RuntimeException("Список порожній, неможливо видалити елемент");
@@ -104,9 +90,7 @@ public class VectorList {
         return removedElement;
     }
 
-    /**
-     * Отримує елемент за індексом
-     */
+    // Отримує елемент за індексом
     public int get(int index) throws IndexOutOfBoundsException {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Невірний індекс: " + index);
@@ -114,16 +98,12 @@ public class VectorList {
         return data[index];
     }
 
-    /**
-     * Повертає розмір списку
-     */
+    // Повертає розмір списку
     public int size() {
         return size;
     }
 
-    /**
-     * Виводить вміст списку
-     */
+    // Виводить вміст списку
     public void display() {
         System.out.print("Список [" + size + "/" + capacity + "]: [");
         for (int i = 0; i < size; i++) {

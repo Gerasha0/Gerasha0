@@ -15,7 +15,6 @@ public class ComplexLunchDto {
     
     // Конструктори
     public ComplexLunchDto() {
-        // Порожній конструктор для десеріалізації
     }
     
     // Getters та Setters

@@ -15,7 +15,6 @@ public class OrderItemDto {
     
     // Конструктори
     public OrderItemDto() {
-        // Порожній конструктор для серіалізації
     }
     
     public OrderItemDto(DishDto dish, int quantity, BigDecimal unitPrice) {

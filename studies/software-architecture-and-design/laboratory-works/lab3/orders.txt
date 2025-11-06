@@ -1,62 +1,4 @@
 [ {
-  "id" : 1,
-  "customerName" : "Тест Користувач",
-  "customerPhone" : "+380501234567",
-  "deliveryAddress" : "Тестова адреса",
-  "orderDateTime" : [ 2025, 8, 5, 20, 12, 40, 637446100 ],
-  "status" : "PENDING",
-  "orderItems" : [ {
-    "id" : null,
-    "dish" : {
-      "id" : 1,
-      "name" : "Борщ українский",
-      "description" : "Традиційний український борщ з м'ясом",
-      "price" : 85.00,
-      "dishType" : "FIRST_COURSE",
-      "available" : true
-    },
-    "quantity" : 1,
-    "unitPrice" : 85.00
-  }, {
-    "id" : null,
-    "dish" : {
-      "id" : 4,
-      "name" : "Котлета по-київськи",
-      "description" : "Куряча котлета з вершковим маслом",
-      "price" : 140.00,
-      "dishType" : "SECOND_COURSE",
-      "available" : true
-    },
-    "quantity" : 1,
-    "unitPrice" : 140.00
-  }, {
-    "id" : null,
-    "dish" : {
-      "id" : 7,
-      "name" : "Олів'є",
-      "description" : "Класичний салат з картоплею та ковбасою",
-      "price" : 65.00,
-      "dishType" : "SALAD",
-      "available" : true
-    },
-    "quantity" : 1,
-    "unitPrice" : 65.00
-  }, {
-    "id" : null,
-    "dish" : {
-      "id" : 11,
-      "name" : "Компот з сухофруктів",
-      "description" : "Домашній компот",
-      "price" : 25.00,
-      "dishType" : "DRINK",
-      "available" : true
-    },
-    "quantity" : 1,
-    "unitPrice" : 25.00
-  } ],
-  "totalAmount" : 315.00,
-  "orderType" : "COMPLEX_LUNCH"
-}, {
   "id" : 2,
   "customerName" : "Тест користувач",
   "customerPhone" : "+380501111111",
@@ -76,18 +18,6 @@
   "orderItems" : [ {
     "id" : null,
     "dish" : {
-      "id" : 1,
-      "name" : "Борщ українский",
-      "description" : "Традиційний український борщ з м'ясом",
-      "price" : 85.00,
-      "dishType" : "FIRST_COURSE",
-      "available" : true
-    },
-    "quantity" : 1,
-    "unitPrice" : 85.00
-  }, {
-    "id" : null,
-    "dish" : {
       "id" : 4,
       "name" : "Котлета по-київськи",
       "description" : "Куряча котлета з вершковим маслом",
@@ -122,7 +52,7 @@
     "quantity" : 1,
     "unitPrice" : 25.00
   } ],
-  "totalAmount" : 315.00,
+  "totalAmount" : 230.00,
   "orderType" : "COMPLEX_LUNCH"
 }, {
   "id" : 4,
@@ -324,6 +254,162 @@
   "customerPhone" : "143525345",
   "deliveryAddress" : "kyiv",
   "orderDateTime" : [ 2025, 10, 29, 16, 38, 59, 871043299 ],
+  "status" : "PENDING",
+  "orderItems" : [ ],
+  "totalAmount" : 0,
+  "orderType" : "DELIVERY"
+}, {
+  "id" : 11,
+  "customerName" : "Клієнт комплексного обіду",
+  "customerPhone" : "+380509876543",
+  "deliveryAddress" : "вул. Обідня 10",
+  "orderDateTime" : [ 2025, 11, 3, 9, 17, 4, 903765188 ],
+  "status" : "PENDING",
+  "orderItems" : [ {
+    "id" : null,
+    "dish" : {
+      "id" : 1,
+      "name" : "Борщ українский",
+      "description" : "Традиційний український борщ з м'ясом",
+      "price" : 85.00,
+      "dishType" : "FIRST_COURSE",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 85.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 4,
+      "name" : "Котлета по-київськи",
+      "description" : "Куряча котлета з вершковим маслом",
+      "price" : 140.00,
+      "dishType" : "SECOND_COURSE",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 140.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 7,
+      "name" : "Олів'є",
+      "description" : "Класичний салат з картоплею та ковбасою",
+      "price" : 65.00,
+      "dishType" : "SALAD",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 65.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 11,
+      "name" : "Компот з сухофруктів",
+      "description" : "Домашній компот",
+      "price" : 25.00,
+      "dishType" : "DRINK",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 25.00
+  } ],
+  "totalAmount" : 315.00,
+  "orderType" : "COMPLEX_LUNCH"
+}, {
+  "id" : 12,
+  "customerName" : "Herman",
+  "customerPhone" : "=91590235",
+  "deliveryAddress" : "Kyiv",
+  "orderDateTime" : [ 2025, 11, 3, 9, 17, 44, 833047088 ],
+  "status" : "PENDING",
+  "orderItems" : [ ],
+  "totalAmount" : 0,
+  "orderType" : "DELIVERY"
+}, {
+  "id" : 13,
+  "customerName" : "Тестовий клієнт",
+  "customerPhone" : "+380501234567",
+  "deliveryAddress" : "вул. Тестова 1",
+  "orderDateTime" : [ 2025, 11, 4, 9, 23, 21, 286839929 ],
+  "status" : "PENDING",
+  "orderItems" : [ ],
+  "totalAmount" : 0,
+  "orderType" : "CUSTOM"
+}, {
+  "id" : 14,
+  "customerName" : "Тестовий клієнт",
+  "customerPhone" : "+380501234567",
+  "deliveryAddress" : "вул. Тестова 1",
+  "orderDateTime" : [ 2025, 11, 4, 9, 23, 40, 67848869 ],
+  "status" : "PENDING",
+  "orderItems" : [ ],
+  "totalAmount" : 0,
+  "orderType" : "CUSTOM"
+}, {
+  "id" : 15,
+  "customerName" : "Клієнт комплексного обіду",
+  "customerPhone" : "+380509876543",
+  "deliveryAddress" : "вул. Обідня 10",
+  "orderDateTime" : [ 2025, 11, 4, 9, 23, 54, 998287914 ],
+  "status" : "PENDING",
+  "orderItems" : [ {
+    "id" : null,
+    "dish" : {
+      "id" : 1,
+      "name" : "Борщ українский",
+      "description" : "Традиційний український борщ з м'ясом",
+      "price" : 85.00,
+      "dishType" : "FIRST_COURSE",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 85.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 4,
+      "name" : "Котлета по-київськи",
+      "description" : "Куряча котлета з вершковим маслом",
+      "price" : 140.00,
+      "dishType" : "SECOND_COURSE",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 140.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 7,
+      "name" : "Олів'є",
+      "description" : "Класичний салат з картоплею та ковбасою",
+      "price" : 65.00,
+      "dishType" : "SALAD",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 65.00
+  }, {
+    "id" : null,
+    "dish" : {
+      "id" : 11,
+      "name" : "Компот з сухофруктів",
+      "description" : "Домашній компот",
+      "price" : 25.00,
+      "dishType" : "DRINK",
+      "available" : true
+    },
+    "quantity" : 1,
+    "unitPrice" : 25.00
+  } ],
+  "totalAmount" : 315.00,
+  "orderType" : "COMPLEX_LUNCH"
+}, {
+  "id" : 16,
+  "customerName" : "Герман",
+  "customerPhone" : "+380999999999",
+  "deliveryAddress" : "Киев",
+  "orderDateTime" : [ 2025, 11, 4, 9, 25, 51, 452046170 ],
   "status" : "PENDING",
   "orderItems" : [ ],
   "totalAmount" : 0,

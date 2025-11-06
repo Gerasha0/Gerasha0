@@ -4,17 +4,13 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Клас з алгоритмами пошуку для масивів студентів
- */
+// Клас з алгоритмами пошуку для масивів студентів
 public class SearchAlgorithms {
 
-    /**
-     * Послідовний пошук студенток з балом вище 4.5 у заданій групі
-     * @param array масив студентів
-     * @param targetGroup група для пошуку
-     * @return кількість знайдених студенток (від'ємне значення)
-     */
+    // Послідовний пошук студенток з балом вище 4.5 у заданій групі
+    // @param array масив студентів
+    // @param targetGroup група для пошуку
+    // @return кількість знайдених студенток (від'ємне значення)
     public static int sequentialSearchExcellentFemales(Student[] array, String targetGroup) {
         int count = 0;
 
@@ -28,9 +24,7 @@ public class SearchAlgorithms {
         return -count; // Повертаємо від'ємне значення згідно з методичними рекомендаціями
     }
 
-    /**
-     * Отримати список студенток з балом вище 4.5 у заданій групі
-     */
+    // Отримати список студенток з балом вище 4.5 у заданій групі
     public static List<Student> findExcellentFemalesInGroup(Student[] array, String targetGroup) {
         List<Student> result = new ArrayList<>();
 
@@ -44,9 +38,7 @@ public class SearchAlgorithms {
         return result;
     }
 
-    /**
-     * Сортування масиву за номером групи (для упорядкованого формування)
-     */
+    // Сортування масиву за номером групи (для упорядкованого формування)
     public static void sortByGroup(Student[] array) {
         Arrays.sort(array, (s1, s2) -> {
             if (s1 == null && s2 == null) return 0;
@@ -56,9 +48,7 @@ public class SearchAlgorithms {
         });
     }
 
-    /**
-     * Вставка студента в упорядкований за групою масив
-     */
+    // Вставка студента в упорядкований за групою масив
     public static boolean insertInOrderedArray(Student[] array, Student student, int size) {
         if (size >= array.length) {
             return false; // Масив заповнений
@@ -81,9 +71,7 @@ public class SearchAlgorithms {
         return true;
     }
 
-    /**
-     * Виводить масив студентів у табличному вигляді
-     */
+    // Виводить масив студентів у табличному вигляді
     public static void displayArray(Student[] array, String title) {
         System.out.println("\n" + title);
         System.out.println(Student.getTableHeader());
@@ -103,9 +91,7 @@ public class SearchAlgorithms {
         System.out.println();
     }
 
-    /**
-     * Створює тестовий масив студентів (упорядкований за групою)
-     */
+    // Створює тестовий масив студентів (упорядкований за групою)
     public static Student[] createTestArray() {
         Student[] array = new Student[25]; // Більше 20 елементів згідно з вимогами
         int index = 0;
@@ -149,9 +135,7 @@ public class SearchAlgorithms {
         return array;
     }
 
-    /**
-     * Підраховує кількість студентів у масиві (не null елементів)
-     */
+    // Підраховує кількість студентів у масиві (не null елементів)
     public static int countStudents(Student[] array) {
         int count = 0;
         for (Student student : array) {

@@ -3,34 +3,21 @@ package org.atsd;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-/**
- * Лабораторна робота 2.1 - Дослідження математичних алгоритмів
- * Варіант 7
- *
- * Завдання:
- * 1. Обчислення інтеграла ∫₀² x√(2x+1) dx методами трапецій, прямокутників та Сімпсона
- * 2. Знаходження коренів рівняння x⁵ + 5x + 1 = 0 методами половинчастого ділення, дотичних та хорд
- * 3. Розв'язання диференційного рівняння dy/dx = e^(-x) - 2y методом Ейлера
- */
 public class MathematicalAlgorithms {
 
     private static final DecimalFormat DF = new DecimalFormat("#.##########");
     private static final double EPSILON = 1e-10;
     private static final int MAX_ITERATIONS = 1000;
 
-    // =============== ЗАВДАННЯ 1: ОБЧИСЛЕННЯ ІНТЕГРАЛА ===============
+    //Завдання 1: обічислення інтеграла
 
-    /**
-     * Підінтегральна функція: f(x) = x * √(2x + 1)
-     */
+    // Підінтегральна функція: f(x) = x * √(2x + 1)
     public static double integralFunction(double x) {
         return x * Math.sqrt(2 * x + 1);
     }
 
-    /**
-     * Метод прямокутників (середніх ординат)
-     * ∫ₐᵇ f(x)dx ≈ h * Σf(xᵢ + h/2), де h = (b-a)/n
-     */
+    // Метод прямокутників (середніх ординат)
+    // ∫ₐᵇ f(x)dx ≈ h * Σf(xᵢ + h/2), де h = (b-a)/n
     public static double rectangleMethod(double a, double b, double h) {
         if (Math.abs(b - a) < EPSILON) {
             return 0.0; // Інтегрування на нульовому інтервалі
@@ -48,10 +35,8 @@ public class MathematicalAlgorithms {
         return h * sum;
     }
 
-    /**
-     * Метод трапецій
-     * ∫ₐᵇ f(x)dx ≈ h/2 * [f(a) + 2*Σf(xᵢ) + f(b)]
-     */
+    // Метод трапецій
+    // ∫ₐᵇ f(x)dx ≈ h/2 * [f(a) + 2*Σf(xᵢ) + f(b)]
     public static double trapezoidMethod(double a, double b, double h) {
         if (Math.abs(b - a) < EPSILON) {
             return 0.0; // Інтегрування на нульовому інтервалі
@@ -69,10 +54,8 @@ public class MathematicalAlgorithms {
         return h * sum / 2.0;
     }
 
-    /**
-     * Метод Сімпсона (парабол)
-     * ∫ₐᵇ f(x)dx ≈ h/3 * [f(a) + 4*Σf(x₂ᵢ₋₁) + 2*Σf(x₂ᵢ) + f(b)]
-     */
+    // Метод Сімпсона (парабол)
+    // ∫ₐᵇ f(x)dx ≈ h/3 * [f(a) + 4*Σf(x₂ᵢ₋₁) + 2*Σf(x₂ᵢ) + f(b)]
     public static double simpsonMethod(double a, double b, double h) {
         if (Math.abs(b - a) < EPSILON) {
             return 0.0; // Інтегрування на нульовому інтервалі
@@ -100,25 +83,19 @@ public class MathematicalAlgorithms {
         return h * sum / 3.0;
     }
 
-    // =============== ЗАВДАННЯ 2: КОРЕНІ РІВНЯННЯ ===============
+    // Завдання 2: пошук коренів рівняння
 
-    /**
-     * Функція y(x) = x⁵ + 5x + 1
-     */
+    // Функція y(x) = x⁵ + 5x + 1
     public static double equation(double x) {
         return Math.pow(x, 5) + 5 * x + 1;
     }
 
-    /**
-     * Похідна функції y'(x) = 5x⁴ + 5
-     */
+    // Похідна функції y'(x) = 5x⁴ + 5
     public static double equationDerivative(double x) {
         return 5 * Math.pow(x, 4) + 5;
     }
 
-    /**
-     * Метод половинчастого ділення (бісекції)
-     */
+    // Метод половинчастого ділення (бісекції)
     public static double bisectionMethod(double a, double b) {
         if (equation(a) * equation(b) > 0) {
             throw new IllegalArgumentException("Функція не змінює знак на заданому інтервалі");
@@ -153,9 +130,7 @@ public class MathematicalAlgorithms {
         return c;
     }
 
-    /**
-     * Метод дотичних (Ньютона)
-     */
+    // Метод дотичних (Ньютона)
     public static double newtonMethod(double x0) {
         double x = x0;
         int iterations = 0;
@@ -193,9 +168,7 @@ public class MathematicalAlgorithms {
         return x;
     }
 
-    /**
-     * Метод хорд (секущих)
-     */
+    // Метод хорд (секущих)
     public static double chordMethod(double a, double b) {
         if (equation(a) * equation(b) > 0) {
             throw new IllegalArgumentException("Функція не змінює знак на заданому інтервалі");
@@ -238,19 +211,15 @@ public class MathematicalAlgorithms {
         return x;
     }
 
-    // =============== ЗАВДАННЯ 3: ДИФЕРЕНЦІЙНЕ РІВНЯННЯ ===============
+    // Завдання 3: розв'язання диференційного рівняння
 
-    /**
-     * Права частина диференційного рівняння: dy/dx = e^(-x) - 2y
-     */
+    // Права частина диференційного рівняння: dy/dx = e^(-x) - 2y
     public static double differentialFunction(double x, double y) {
         return Math.exp(-x) - 2 * y;
     }
 
-    /**
-     * Метод Ейлера для розв'язання диференційного рівняння
-     * y_{n+1} = y_n + h * f(x_n, y_n)
-     */
+    // Метод Ейлера для розв'язання диференційного рівняння
+    // y_{n+1} = y_n + h * f(x_n, y_n)
     public static void eulerMethod(double x0, double y0, double xEnd, double h) {
         System.out.println("=== Розв'язання диференційного рівняння методом Ейлера ===");
         System.out.println("Диференційне рівняння: dy/dx = e^(-x) - 2y");
@@ -282,13 +251,11 @@ public class MathematicalAlgorithms {
         System.out.printf("Кінцевий результат: y(%.2f) = %.8f%n%n", xEnd, y);
     }
 
-    // =============== АНАЛІТИЧНЕ РОЗВ'ЯЗАННЯ ДЛЯ ПЕРЕВІРКИ ===============
+    // Аналітичне рішення інтеграла для перевірки точності
 
-    /**
-     * Точне значення інтеграла ∫₀² x√(2x+1) dx для перевірки
-     * Використовуючи інтегрування частинами та заміну u = 2x + 1
-     * Правильний результат: (4/15)(5√5 - 1) ≈ 3.7928
-     */
+    // Точне значення інтеграла ∫₀² x√(2x+1) dx для перевірки
+    // Використовуючи інтегрування частинами та заміну u = 2x + 1
+    // Правильний результат: (4/15)(5√5 - 1) ≈ 3.7928
     public static double exactIntegralValue() {
         // Після інтегрування частинами: ∫x√(2x+1)dx = (1/15)(2x+1)^(3/2)(3x-1)
         // На межах [0,2]: [(1/15)(5^1.5)(6-1)] - [(1/15)(1^1.5)(0-1)]
@@ -296,9 +263,7 @@ public class MathematicalAlgorithms {
         return (1.0/15.0) * (25.0 * Math.sqrt(5) + 1.0);
     }
 
-    /**
-     * Перевірка точності методів інтегрування
-     */
+    // Перевірка точності методів інтегрування
     public static void compareIntegrationMethods(double a, double b, double h) {
         double exact = exactIntegralValue();
         double rectangle = rectangleMethod(a, b, h);

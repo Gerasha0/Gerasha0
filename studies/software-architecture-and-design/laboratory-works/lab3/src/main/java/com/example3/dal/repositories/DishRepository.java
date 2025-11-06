@@ -11,48 +11,21 @@ import java.util.Optional;
  */
 public interface DishRepository {
     
-    /**
-     * Зберегти страву
-     */
     Dish save(Dish dish);
     
-    /**
-     * Знайти страву за ID
-     */
     Optional<Dish> findById(Long id);
     
-    /**
-     * Знайти всі страви
-     */
     List<Dish> findAll();
     
-    /**
-     * Знайти страви за типом
-     */
     List<Dish> findByDishType(DishType dishType);
     
-    /**
-     * Знайти доступні страви
-     */
     List<Dish> findByAvailableTrue();
     
-    /**
-     * Знайти страви за назвою (часткове співпадіння)
-     */
     List<Dish> findByNameContainingIgnoreCase(String name);
     
-    /**
-     * Знайти страви в ціновому діапазоні
-     */
     List<Dish> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
     
-    /**
-     * Видалити страву за ID
-     */
     void deleteById(Long id);
     
-    /**
-     * Перевірити, чи існує страва з таким ID
-     */
     boolean existsById(Long id);
 }
