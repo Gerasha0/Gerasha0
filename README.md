@@ -42,6 +42,9 @@
   <p>Organized collection of coursework and laboratory assignments by subjects</p>
 </div>
 
+### 📱 Mobile Device Programming
+- 🔬 **Lab Works**: [lab1](studies/mobile-device-programming/laboratory-works/lab1), [lab2](studies/mobile-device-programming/laboratory-works/lab2), [lab3](studies/mobile-device-programming/laboratory-works/lab3), [lab4](studies/mobile-device-programming/laboratory-works/lab4) - Android resources & localization, scientific calculator, UI layouts & cards, advanced ConstraintLayout & dynamic views
+
 ### 🏗️ Software Architecture and Design
 - 📋 **Coursework**: [electronic-department-system](studies/software-architecture-and-design/coursework/electronic-department-system) - University management system with REST API
 - 🔬 **Lab Works**: [lab1](studies/software-architecture-and-design/laboratory-works/lab1), [lab2](studies/software-architecture-and-design/laboratory-works/lab2), [lab3](studies/software-architecture-and-design/laboratory-works/lab3) - Grant management, food delivery systems, and multi-tier architecture
@@ -78,6 +81,9 @@
 ## 🛠️ Technologies & Tools
 
 <div align="center">
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Jetpack%20Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white"/>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>

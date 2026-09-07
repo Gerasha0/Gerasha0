@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab 1: Ressourcen &amp; Lokalisierung</string>
+    <string name="user_surname">Lukjanow</string>
+    <string name="country_name">Deutschland</string>
+    <string name="task1_title">Aufgabe 1: Nachname &amp; Eigener Stil</string>
+    <string name="task2_title">Aufgabe 2: XML Graphische Form (custom_shape.xml)</string>
+    <string name="task3_title">Aufgabe 3: Lokalisierung (Flagge &amp; Wappen)</string>
+    <string name="flag_label">Nationalflagge</string>
+    <string name="emblem_label">Staatswappen</string>
+    <string name="select_language">Sprache wählen:</string>
+    <string name="lang_uk">Ukrainisch 🇺🇦</string>
+    <string name="lang_de">Deutsch 🇩🇪</string>
+    <string name="lang_en">Britisches Englisch 🇬🇧</string>
+    <string name="current_locale">Aktuelles Systemgebietsschema: %s</string>
+</resources>

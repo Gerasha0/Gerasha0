@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лабораторна робота №4</string>
+
+    <!-- Tabs -->
+    <string name="tab_task1">RelativeLayout</string>
+    <string name="tab_task2">Код (Move/Edit)</string>
+    <string name="tab_task3">ConstraintLayout</string>
+    <string name="tab_task4">ConstraintSet &amp; Advanced</string>
+
+    <!-- Task 1 -->
+    <string name="task1_title">Завдання 1: RelativeLayout (XML)</string>
+    <string name="task1_subtitle">Елементи вирівняні відносно контейнера та інших елементів</string>
+    <string name="task1_card_title">Центральна картка RelativeLayout</string>
+    <string name="task1_card_desc">Цей блок знаходиться під заголовком та над кнопками за допомогою layout_below</string>
+    <string name="task1_btn_left">Кнопка ліворуч</string>
+    <string name="task1_btn_right">Кнопка праворуч</string>
+    <string name="task1_footer">Нижній колонтитул (alignParentBottom)</string>
+
+    <!-- Task 2 -->
+    <string name="task2_title">Завдання 2: Динамічні зміни елементів у коді</string>
+    <string name="task2_btn_move">Перемістити елемент</string>
+    <string name="task2_btn_reset">Скинути позицію</string>
+    <string name="task2_anchor_top">Верхній якоряний елемент (Top Anchor)</string>
+    <string name="task2_movable">Рухомий елемент (Movable View)</string>
+    <string name="task2_anchor_bottom">Нижній якоряний елемент (Bottom Anchor)</string>
+    <string name="task2_status_initial">Статус: Елемент у початковій позиції (під верхнім якорем)</string>
+    <string name="task2_status_moved">Статус: Елемент видалено та вставлено в інше місце (під нижній якір)</string>
+
+    <!-- Task 3 -->
+    <string name="task3_title">Завдання 3: ConstraintLayout (XML &amp; Порівняння)</string>
+    <string name="task3_subtitle">Аналог Завдання 1 з використанням ConstraintLayout</string>
+    <string name="task3_comparison_title">Порівняння RelativeLayout та ConstraintLayout</string>
+    <string name="task3_comparison_text">
+• RelativeLayout:\n
+  - Вирівнювання елементів відносно батька або суміжних елементів.\n
+  - Простий для невеликих макетів, але вимагає вкладеності для складних UI.\n
+  - Продуктивність знижується при глибокій вкладеності контейнерів.\n\n
+• ConstraintLayout:\n
+  - Дозволяє створювати плоску ієрархію UI без глибокої вкладеності.\n
+  - Підтримує гнучкі обмеження, пропорції (ratio), ланцюжки (chains), барьєри (barriers) та групи.\n
+  - Включає зручний візуальний редактор (Design mode) в Android Studio.\n
+  - Дозволяє виконувати легкі анімації за допомогою ConstraintSet.
+    </string>
+
+    <!-- Task 4 -->
+    <string name="task4_title">Завдання 4: Advanced ConstraintLayout Features</string>
+    <string name="task4_chains_title">1. Ланцюжки (Chains):</string>
+    <string name="task4_btn_toggle_chain">Змінити стиль ланцюжка (Spread / Spread Inside / Packed)</string>
+    <string name="task4_barrier_title">2. Бар\'єр (Barrier) та Група (Group):</string>
+    <string name="task4_btn_toggle_group">Переключити видимість Групи (Group)</string>
+    <string name="task4_circle_title">3. Кругове позиціонування (constraintCircle):</string>
+    <string name="task4_btn_rotate_circle">Обертати по колу (Angle +30°)</string>
+    <string name="task4_constraintset_title">4. Анімація з ConstraintSet у коді:</string>
+    <string name="task4_btn_animate_constraintset">Застосувати ConstraintSet (Анімація)</string>
+</resources>

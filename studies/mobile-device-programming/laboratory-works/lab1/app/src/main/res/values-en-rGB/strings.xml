@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab 1: Resources &amp; Localization</string>
+    <string name="user_surname">Lukianov</string>
+    <string name="country_name">United Kingdom</string>
+    <string name="task1_title">Task 1: Surname &amp; Custom Style</string>
+    <string name="task2_title">Task 2: XML Graphic Shape (custom_shape.xml)</string>
+    <string name="task3_title">Task 3: Localization (Flag &amp; Coat of Arms)</string>
+    <string name="flag_label">National Flag</string>
+    <string name="emblem_label">Coat of Arms</string>
+    <string name="select_language">Select Language:</string>
+    <string name="lang_uk">Ukrainian 🇺🇦</string>
+    <string name="lang_de">German 🇩🇪</string>
+    <string name="lang_en">British English 🇬🇧</string>
+    <string name="current_locale">Current System Locale: %s</string>
+</resources>

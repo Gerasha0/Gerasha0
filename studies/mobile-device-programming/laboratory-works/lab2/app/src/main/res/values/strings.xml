@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лабораторна робота №2</string>
+    <string name="header_title">Калькулятор</string>
+    <string name="header_subtitle">Розробка графічного інтерфейсу застосунку</string>
+
+    <string name="hint_expression">0</string>
+    <string name="result_placeholder">=</string>
+
+    <string name="btn_add">+</string>
+    <string name="btn_subtract">−</string>
+    <string name="btn_multiply">×</string>
+    <string name="btn_divide">÷</string>
+    <string name="btn_power">^</string>
+    <string name="btn_mod">%</string>
+    <string name="btn_parentheses">( )</string>
+    <string name="btn_plus_minus">±</string>
+    <string name="btn_equals">=</string>
+
+    <string name="btn_clear">C</string>
+    <string name="btn_exit">Вихід</string>
+    <string name="btn_backspace">⌫</string>
+
+    <string name="error_empty_fields">Будь ласка, введіть вираз</string>
+    <string name="error_invalid_number">Некоректний вираз</string>
+    <string name="error_divide_by_zero">Помилка: ділення на нуль!</string>
+    <string name="toast_cleared">Очищено</string>
+    <string name="toast_exit">Завершення роботи програми...</string>
+</resources>

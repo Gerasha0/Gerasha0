@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/task4RootContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTask4Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/task4_title"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 1. CHAINS -->
+        <TextView
+            android:id="@+id/tvChainsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/task4_chains_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTask4Title" />
+
+        <Button
+            android:id="@+id/btnChain1"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Chain 1"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/btnChain2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvChainsTitle" />
+
+        <Button
+            android:id="@+id/btnChain2"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chain 2"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@id/btnChain3"
+            app:layout_constraintStart_toEndOf="@id/btnChain1"
+            app:layout_constraintTop_toTopOf="@id/btnChain1" />
+
+        <Button
+            android:id="@+id/btnChain3"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chain 3"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnChain2"
+            app:layout_constraintTop_toTopOf="@id/btnChain1" />
+
+        <Button
+            android:id="@+id/btnToggleChainStyle"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/task4_btn_toggle_chain"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnChain1" />
+
+        <!-- 2. BARRIER & GROUP -->
+        <TextView
+            android:id="@+id/tvBarrierTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/task4_barrier_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnToggleChainStyle" />
+
+        <!-- Label 1 -->
+        <TextView
+            android:id="@+id/tvLabelShort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ім'я:"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBarrierTitle" />
+
+        <!-- Label 2 (Longer label) -->
+        <TextView
+            android:id="@+id/tvLabelLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Email користувача:"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelShort" />
+
+        <!-- Barrier placed to the END (right) of Label 1 and Label 2 -->
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierLabels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tvLabelShort,tvLabelLong" />
+
+        <!-- Input field dynamically placed to the right of the Barrier -->
+        <EditText
+            android:id="@+id/etBarrierTarget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:hint="Введіть дані..."
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvLabelLong"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierLabels"
+            app:layout_constraintTop_toTopOf="@id/tvLabelShort" />
+
+        <!-- Group items -->
+        <TextView
+            android:id="@+id/tvGroupItem1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#E3F2FD"
+            android:padding="8dp"
+            android:text="Елемент Групи 1 (Group Item 1)"
+            android:textColor="#0D47A1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/tvGroupItem2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBarrierTarget" />
+
+        <TextView
+            android:id="@+id/tvGroupItem2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="#E3F2FD"
+            android:padding="8dp"
+            android:text="Елемент Групи 2 (Group Item 2)"
+            android:textColor="#0D47A1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvGroupItem1"
+            app:layout_constraintTop_toTopOf="@id/tvGroupItem1" />
+
+        <!-- ConstraintLayout Group component -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/demoGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvGroupItem1,tvGroupItem2" />
+
+        <Button
+            android:id="@+id/btnToggleGroup"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/task4_btn_toggle_group"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGroupItem1" />
+
+        <!-- 3. CONSTRAINT CIRCLE -->
+        <TextView
+            android:id="@+id/tvCircleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/task4_circle_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnToggleGroup" />
+
+        <!-- Center Anchor View -->
+        <TextView
+            android:id="@+id/tvCircleAnchor"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="60dp"
+            android:background="#3F51B5"
+            android:gravity="center"
+            android:text="ЦЕНТР"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCircleTitle" />
+
+        <!-- Orbiting View using constraintCircle -->
+        <TextView
+            android:id="@+id/tvCircleOrbit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#FF4081"
+            android:gravity="center"
+            android:text="ОРБІТА"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintCircle="@id/tvCircleAnchor"
+            app:layout_constraintCircleAngle="135"
+            app:layout_constraintCircleRadius="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCircleAnchor" />
+
+        <Button
+            android:id="@+id/btnRotateCircle"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/task4_btn_rotate_circle"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCircleAnchor" />
+
+        <!-- 4. CONSTRAINTSET IN CODE -->
+        <TextView
+            android:id="@+id/tvConstraintSetTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/task4_constraintset_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRotateCircle" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/animContainer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:background="#ECEFF1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConstraintSetTitle">
+
+            <View
+                android:id="@+id/boxA"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#26A69A"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/boxB"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#AB47BC"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnAnimateConstraintSet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/task4_btn_animate_constraintset"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/animContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

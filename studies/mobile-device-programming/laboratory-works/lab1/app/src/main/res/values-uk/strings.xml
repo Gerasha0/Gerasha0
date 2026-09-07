@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лабораторна 1: Ресурси та Локалізація</string>
+    <string name="user_surname">Лук\'янов</string>
+    <string name="country_name">Україна</string>
+    <string name="task1_title">Завдання 1: Прізвище та Власний Стиль</string>
+    <string name="task2_title">Завдання 2: XML Графічна Фігура (custom_shape.xml)</string>
+    <string name="task3_title">Завдання 3: Локалізація (Прапор та Герб)</string>
+    <string name="flag_label">Державний Прапор</string>
+    <string name="emblem_label">Державний Герб</string>
+    <string name="select_language">Виберіть мову:</string>
+    <string name="lang_uk">Українська 🇺🇦</string>
+    <string name="lang_de">Німецька 🇩🇪</string>
+    <string name="lang_en">Британська англійська 🇬🇧</string>
+    <string name="current_locale">Поточна локаль системи: %s</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Лабораторна робота №3</string>
+    <string name="lab_topic">Розмітки LinearLayout та FrameLayout</string>
+    <string name="str1">Заголовок (Teal)</string>
+    <string name="str2">Підзаголовок (Purple)</string>
+    <string name="linear_horizontal_title">Вкладений горизонтальний LinearLayout:</string>
+    <string name="linear_vertical_title">Вкладений вертикальний LinearLayout:</string>
+    <string name="linear_vertical_desc">Елементи розташовані послідовно один під одним.</string>
+    <string name="frame_title">Демонстрація FrameLayout (Накладання):</string>
+    <string name="frame_text">Текст поверх зображення у FrameLayout</string>
+    <string name="btn_toggle_layout">Змінити розмітку FrameLayout / LinearLayout</string>
+    <string name="mode_overlay">Режим: FrameLayout (Елементи накладаються)</string>
+    <string name="mode_sequential">Режим: LinearLayout (Елементи послідовні)</string>
+    <string name="cd_demo_image">Демонстраційне зображення</string>
+</resources>

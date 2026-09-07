@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Top Header aligned to parent top -->
+    <TextView
+        android:id="@+id/tvTask1Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/task1_title"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Subtitle aligned below title -->
+    <TextView
+        android:id="@+id/tvTask1Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTask1Title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/task1_subtitle"
+        android:textSize="14sp" />
+
+    <!-- Center Card aligned below subtitle -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTask1Center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTask1Subtitle"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/task1_card_title"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/task1_card_desc"
+                android:textColor="#555555"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Left Button aligned below card and to parent start -->
+    <Button
+        android:id="@+id/btnTask1Left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardTask1Center"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/task1_btn_left" />
+
+    <!-- Right Button aligned below card and to parent end -->
+    <Button
+        android:id="@+id/btnTask1Right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardTask1Center"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/task1_btn_right" />
+
+    <!-- Footer aligned to parent bottom -->
+    <TextView
+        android:id="@+id/tvTask1Footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/task1_footer"
+        android:textColor="#888888"
+        android:textSize="12sp" />
+
+</RelativeLayout>

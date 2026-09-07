@@ -4,6 +4,9 @@ This directory contains all academic projects and assignments organized by subje
 
 ## 📖 Subjects
 
+### 📱 Mobile Device Programming
+- **Laboratory Works**: [lab1](mobile-device-programming/laboratory-works/lab1), [lab2](mobile-device-programming/laboratory-works/lab2), [lab3](mobile-device-programming/laboratory-works/lab3), [lab4](mobile-device-programming/laboratory-works/lab4)
+
 ### 🏗️ Software Architecture and Design
 - **Coursework**: [electronic-department-system](software-architecture-and-design/coursework/electronic-department-system)
 - **Laboratory Works**: [lab1](software-architecture-and-design/laboratory-works/lab1), [lab2](software-architecture-and-design/laboratory-works/lab2), [lab3](software-architecture-and-design/laboratory-works/lab3)
